@@ -6,7 +6,8 @@ Hugo-based marketing site for Rexford Commercial Capital.
 - Hugo `0.157.0` (pinned in `.hugo_version`)
 - Plain CSS (`static/css/main.css`)
 - Vanilla JS (`static/js/main.js`)
-- Formspree for form handling
+- Cloudflare Worker API for form handling
+- Cloudflare D1 (SQLite) for inquiry storage
 - Cloudflare Pages for hosting
 
 ## Project Structure
@@ -15,6 +16,7 @@ Hugo-based marketing site for Rexford Commercial Capital.
 - `layouts/`: templates and partials
 - `data/`: structured content (`services.json`, `team.json`, `funded-deals.json`, `site-config.json`)
 - `static/`: CSS, JS, images, `_headers`, `_redirects`
+- `worker/`: Cloudflare Worker source, D1 migrations, and Wrangler config
 - `scripts/ci-local.sh`: local CI build check
 - `.github/workflows/ci.yml`: GitHub CI
 
@@ -55,7 +57,7 @@ Open: `http://localhost:1313`
 - `region`: region label text
 - `tagline`: global brand tagline
 - `description`: default SEO description
-- `formspreeID`: Formspree endpoint id
+- `formEndpoint`: form API endpoint (Worker URL, e.g. `https://api.rexfordcommercialcapital.com/inquiry`)
 - `ga4ID`: GA4 measurement id (tracking script only renders when not placeholder)
 - `bbbURL`: BBB profile URL
 
@@ -101,10 +103,47 @@ Create `content/services/<slug>.md` using existing files as schema examples. Req
 - Recent deals: `data/funded-deals.json`
 
 ## Forms and Analytics
-- Hero and Get Started forms post to Formspree via `params.formspreeID`
+- Hero and Get Started forms post to `params.formEndpoint` via JSON
 - Update placeholder IDs before launch:
-  - `params.formspreeID`
+  - `params.formEndpoint`
   - `params.ga4ID`
+
+## Worker + Database Setup (MVP)
+1. Create the D1 database:
+```bash
+wrangler d1 create rexford-inquiries
+```
+2. Copy the returned `database_id` into `worker/wrangler.toml` (`[[d1_databases]].database_id`).
+3. Apply migration:
+```bash
+npm run d1:migrate:remote
+```
+4. Configure Cloudflare Email Routing for your domain and ensure a valid sender address (default: `website@rexfordcommercialcapital.com`) is available.
+5. Deploy the Worker:
+```bash
+npm run deploy:worker
+```
+6. Set `params.formEndpoint` in `hugo.toml` to your Worker URL/route.
+
+Local Worker dev:
+```bash
+npm run dev:worker
+```
+
+Worker config values (`worker/wrangler.toml`):
+- `[[routes]]`: custom domain route (host-only), request path must be `/inquiry`
+- `[[d1_databases]].database_name`: D1 database name (`rexford-inquiries`)
+- `[[d1_databases]].database_id`: replace placeholder with real D1 id
+- `[[send_email]].name`: Worker email binding name (`INQUIRY_EMAIL`)
+- `MAIL_TO`: destination address for lead notifications
+- `MAIL_FROM`: sender address used by Worker email API
+- `ALLOWED_ORIGINS`: CSV of allowed browser origins for CORS
+- `THANK_YOU_URL`: redirect target for non-JS form posts
+
+Current testing status:
+- Worker is temporarily deployed on workers.dev:
+  - `https://rexford-inquiry-worker.joe5saia.workers.dev/inquiry`
+- `hugo.toml` currently points `params.formEndpoint` to that workers.dev URL.
 
 ## Deployment (Cloudflare Pages)
 Use these settings:
@@ -118,13 +157,15 @@ Cloudflare support files (already included):
 - `static/_redirects`
 
 ## GitHub Auto-Deploy (Wrangler)
-This repo includes `.github/workflows/deploy-pages.yml` to deploy on every push to `main`.
+This repo includes:
+- `.github/workflows/deploy-pages.yml` for Hugo Pages deploy
+- `.github/workflows/deploy-worker.yml` for Worker deploy + D1 migrations
 
 Required repository secrets:
-- `CLOUDFLARE_API_TOKEN`: token with Pages deploy permissions
+- `CLOUDFLARE_API_TOKEN`: token with Pages, Workers, Routes, D1 permissions
 - `CLOUDFLARE_ACCOUNT_ID`: Cloudflare account id
 
-Once secrets are set, pushes to `main` will automatically deploy to `rexford-cc-website.pages.dev`.
+Once secrets are set, pushes to `main` will automatically deploy Pages and Worker changes.
 
 ## Contributor Notes
 See `AGENTS.md` for contribution conventions (style, QA, PR expectations).
@@ -140,9 +181,12 @@ See `AGENTS.md` for contribution conventions (style, QA, PR expectations).
   - [ ] Replace placeholder blog posts with approved copy
   - [ ] Validate and finalize funded deals list (remove hypothetical entries if needed)
 - [ ] Complete integrations:
-  - [ ] Set real `params.formspreeID` in `hugo.toml`
+  - [ ] Switch `params.formEndpoint` from workers.dev to `https://api.rexfordcommercialcapital.com/inquiry`
+  - [ ] Re-enable `[[routes]]` in `worker/wrangler.toml` for `api.rexfordcommercialcapital.com`
+  - [ ] Ensure Cloudflare zone + proxied DNS record exist for `api.rexfordcommercialcapital.com`
   - [ ] Set real `params.ga4ID` in `hugo.toml`
-  - [ ] Confirm Formspree redirect to `/thank-you/`
+  - [ ] Verify Worker + D1 submission flow in production
+  - [ ] Configure Turnstile on both forms and server-side verification
   - [ ] Validate GA4 events/pageviews in production
 - [ ] Legal and trust:
   - [ ] Replace template privacy policy with finalized legal text

@@ -11,7 +11,7 @@ canonifyURLs = false
   region = "Capital District & Adirondacks, NY"
   tagline = "Local Financing Expertise for Capital District & Adirondack Small Businesses"
   description = "Rexford Commercial Capital helps small businesses in the Capital District and Adirondacks secure commercial real estate, equipment, and working capital financing through local banks that know your community."
-  formspreeID = "REPLACE_WITH_FORMSPREE_ID"
+  formEndpoint = "https://rexford-inquiry-worker.joe5saia.workers.dev/inquiry"
   ga4ID = "REPLACE_WITH_GA4_ID"
   bbbURL = "https://www.bbb.org/us/ny/rexford/profile/commercial-real-estate/rexford-commercial-capital-0041-236017820"
 

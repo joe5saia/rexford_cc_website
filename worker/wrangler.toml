@@ -1,0 +1,28 @@
+name = "rexford-inquiry-worker"
+main = "src/index.ts"
+compatibility_date = "2026-03-02"
+
+[observability.logs]
+enabled = true
+
+# Temporary testing mode:
+# Deploy on workers.dev only until Cloudflare zone routing is fixed.
+# TODO: restore custom domain route for api.rexfordcommercialcapital.com.
+# [[routes]]
+# pattern = "api.rexfordcommercialcapital.com"
+# custom_domain = true
+
+[[d1_databases]]
+binding = "INQUIRY_DB"
+database_name = "rexford-inquiries"
+database_id = "b9d1c8da-849f-45c7-9d27-d615ea3e4293"
+migrations_dir = "migrations"
+
+[[send_email]]
+name = "INQUIRY_EMAIL"
+
+[vars]
+MAIL_TO = "joe5saia@gmail.com"
+MAIL_FROM = "website@rexfordcommercialcapital.com"
+ALLOWED_ORIGINS = "https://rexfordcommercialcapital.com,https://www.rexfordcommercialcapital.com,http://localhost:1313"
+THANK_YOU_URL = "https://rexfordcommercialcapital.com/thank-you/"

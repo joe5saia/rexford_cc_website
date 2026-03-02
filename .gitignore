@@ -4,5 +4,7 @@ resources/_gen/
 .DS_Store
 output/
 node_modules
+.wrangler/
+worker/.wrangler/
 
 .env

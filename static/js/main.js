@@ -100,3 +100,94 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     target.scrollIntoView({ behavior: "smooth" });
   });
 });
+
+const inquiryForms = Array.from(document.querySelectorAll(".js-inquiry-form"));
+
+const toTrimmedString = (value) => {
+  if (typeof value !== "string") return "";
+  return value.trim();
+};
+
+const setFormStatus = (form, message, statusClass = "") => {
+  const statusElement = form.querySelector(".form-status");
+  if (!(statusElement instanceof HTMLElement)) return;
+  statusElement.textContent = message;
+  statusElement.classList.remove("is-success", "is-error");
+  if (statusClass) statusElement.classList.add(statusClass);
+};
+
+const getInquiryPayload = (form) => {
+  const formData = new FormData(form);
+  return {
+    source: toTrimmedString(formData.get("source")),
+    loanType: toTrimmedString(formData.get("loanType")),
+    loanAmount: toTrimmedString(formData.get("loanAmount")),
+    businessType: toTrimmedString(formData.get("businessType")),
+    timeline: toTrimmedString(formData.get("timeline")),
+    firstName: toTrimmedString(formData.get("firstName")),
+    lastName: toTrimmedString(formData.get("lastName")),
+    email: toTrimmedString(formData.get("email")),
+    phone: toTrimmedString(formData.get("phone")),
+    bestTimeToCall: toTrimmedString(formData.get("bestTimeToCall")),
+    details: toTrimmedString(formData.get("details")),
+    website: toTrimmedString(formData.get("website")),
+  };
+};
+
+inquiryForms.forEach((form) => {
+  if (!(form instanceof HTMLFormElement)) return;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const endpoint = toTrimmedString(form.getAttribute("action"));
+    if (!endpoint) {
+      setFormStatus(
+        form,
+        "Form endpoint is missing. Please contact support.",
+        "is-error"
+      );
+      return;
+    }
+
+    const payload = getInquiryPayload(form);
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+    }
+    setFormStatus(form, "Submitting your request...");
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      setFormStatus(form, "Thanks. Redirecting you now...", "is-success");
+      window.location.assign("/thank-you/");
+    } catch (error) {
+      console.error("Inquiry submission failed", error);
+      setFormStatus(
+        form,
+        "We could not submit your request right now. Please call 518-791-9771.",
+        "is-error"
+      );
+    } finally {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+      }
+    }
+  });
+});
