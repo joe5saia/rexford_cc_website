@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.tagline }}{{ end }}" />
+  </head>
+  <body>
+    <header>
+      <h1>{{ .Site.Title }}</h1>
+      <p>{{ .Site.Params.tagline }}</p>
+      <hr />
+    </header>
+
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+      <hr />
+      <p>&copy; {{ now.Year }} {{ .Site.Params.clientName }}</p>
+    </footer>
+  </body>
+</html>

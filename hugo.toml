@@ -1,0 +1,7 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Rexford Commercial Capital'
+
+[params]
+  clientName = 'Rexford Commercial Capital'
+  tagline = 'Commercial financing solutions for growing businesses.'
