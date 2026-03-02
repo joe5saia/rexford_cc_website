@@ -128,3 +128,36 @@ Once secrets are set, pushes to `main` will automatically deploy to `rexford-cc-
 
 ## Contributor Notes
 See `AGENTS.md` for contribution conventions (style, QA, PR expectations).
+
+## Production TODO
+- [ ] Replace placeholder visual assets:
+  - [ ] Final logo files (`logo.svg`, `logo-white.svg`, favicon)
+  - [ ] Final hero background image (or approved solid/brand treatment)
+  - [ ] Final OG image (`static/images/og-image.jpg`)
+  - [ ] Professional headshots for Sarah Joseph and Craig Saia
+- [ ] Replace placeholder content:
+  - [ ] Validate all homepage/service copy with client
+  - [ ] Replace placeholder blog posts with approved copy
+  - [ ] Validate and finalize funded deals list (remove hypothetical entries if needed)
+- [ ] Complete integrations:
+  - [ ] Set real `params.formspreeID` in `hugo.toml`
+  - [ ] Set real `params.ga4ID` in `hugo.toml`
+  - [ ] Confirm Formspree redirect to `/thank-you/`
+  - [ ] Validate GA4 events/pageviews in production
+- [ ] Legal and trust:
+  - [ ] Replace template privacy policy with finalized legal text
+  - [ ] Confirm/validate BBB URL
+  - [ ] Add terms/disclaimer pages if required
+- [ ] Final SEO and metadata:
+  - [ ] Review per-page titles/descriptions
+  - [ ] Submit sitemap to Google Search Console
+  - [ ] Verify `robots.txt` and canonical URLs on production domain
+- [ ] Final QA before launch:
+  - [ ] Cross-browser QA (Chrome, Safari, Firefox; mobile + desktop)
+  - [ ] Form submission QA (happy path + validation errors)
+  - [ ] Accessibility pass (keyboard nav, contrast, headings, link labels)
+  - [ ] Lighthouse/performance pass and image optimization
+- [ ] Domain and deployment:
+  - [ ] Attach custom domain in Cloudflare Pages
+  - [ ] Confirm SSL, redirects, and caching behavior (`_headers`, `_redirects`)
+  - [ ] Verify GitHub auto-deploy on `main` remains green

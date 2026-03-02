@@ -26,3 +26,21 @@ relatedServices:
   - "bridge-loans"
   - "small-business-loans"
 ---
+
+## COMMERCIAL REAL ESTATE FINANCING
+
+### Commercial Real Estate Loans
+
+When buying or refinancing a commercial property, rely on Rexford Commercial Capital to spare you the hassle of navigating multiple financial institutions. Let us handle the work so you can concentrate on what you do best, run your successful business. Our proven results will speak for themselves.
+
+Uses
+- Purchase
+- Refinance rate and term
+- Cash out refinance
+Eligible property types
+- Retail
+- Mixed-use
+- Self storage
+- Warehouse
+- Office space
+- Light industrial

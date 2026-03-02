@@ -26,3 +26,17 @@ relatedServices:
   - "business-line-of-credit"
   - "commercial-real-estate"
 ---
+
+## SBA LOANS
+
+### SBA 7A | Express Loans | USDA
+
+Small business loans provide many options and opportunities for small businesses. If you are looking for a way to finance a property, certain equipment or need cash on hand to help conduct business, our SBA loans may be the perfect fit for you.
+
+Uses of SBA loans:
+- Business acquisition
+- Debt refinance/Consolidation
+- Business expansion
+- Owner occupied commercial real estate purchases
+- Working capital
+- Equipment

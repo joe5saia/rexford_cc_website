@@ -14,8 +14,52 @@ const closeMobileNav = () => {
   menuToggle?.setAttribute("aria-expanded", "false");
 };
 
+const desktopDropdownItems = Array.from(
+  document.querySelectorAll(".main-nav .has-children")
+);
+
+const closeDesktopDropdowns = (exceptItem = null) => {
+  desktopDropdownItems.forEach((item) => {
+    if (item === exceptItem) return;
+    item.classList.remove("open");
+    item
+      .querySelector(".menu-toggle")
+      ?.setAttribute("aria-expanded", "false");
+  });
+};
+
+const isDesktopNav = () => window.matchMedia("(min-width: 769px)").matches;
+
 window.addEventListener("scroll", setHeaderState, { passive: true });
 setHeaderState();
+
+desktopDropdownItems.forEach((item) => {
+  const button = item.querySelector(".menu-toggle");
+  if (!button) return;
+
+  button.addEventListener("click", (event) => {
+    if (!isDesktopNav()) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const willOpen = !item.classList.contains("open");
+    closeDesktopDropdowns(item);
+    item.classList.toggle("open", willOpen);
+    button.setAttribute("aria-expanded", String(willOpen));
+  });
+
+  item.addEventListener("mouseenter", () => {
+    if (!isDesktopNav()) return;
+    closeDesktopDropdowns(item);
+    item.classList.add("open");
+    button.setAttribute("aria-expanded", "true");
+  });
+
+  item.addEventListener("mouseleave", () => {
+    if (!isDesktopNav()) return;
+    item.classList.remove("open");
+    button.setAttribute("aria-expanded", "false");
+  });
+});
 
 menuToggle?.addEventListener("click", () => {
   const open = !mobileNav?.classList.contains("open");
@@ -26,7 +70,18 @@ menuToggle?.addEventListener("click", () => {
 
 overlay?.addEventListener("click", closeMobileNav);
 window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMobileNav();
+  if (event.key === "Escape") {
+    closeMobileNav();
+    closeDesktopDropdowns();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof Node)) return;
+  if (!target.closest(".main-nav")) {
+    closeDesktopDropdowns();
+  }
 });
 
 document.querySelectorAll(".mobile-parent-toggle").forEach((button) => {

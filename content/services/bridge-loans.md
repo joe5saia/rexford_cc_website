@@ -26,3 +26,19 @@ relatedServices:
   - "fix-and-flip"
   - "commercial-real-estate"
 ---
+
+## BRIDGE LOANS
+
+### Bridge Loans
+
+Bridge loans are often sought by investors seeking quick financing for a property, bridging the gap until long-term financing can be secured. They’re versatile and can be used for various purposes in real estate transactions.
+
+Uses
+- Purchase a property quickly
+- Purchase a property, make the desired improvement and then secure long term financing
+- Refinance a high interest short term loan
+- Cash out refinance – Cash out refinance allows you to tap into the property equity to fund repairs and upgrades
+Program highlights
+- Terms 6-24 months
+- Interest only payments
+- Quick closings

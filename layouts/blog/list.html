@@ -18,6 +18,32 @@
         </article>
       {{ end }}
     </div>
-    {{ template "_internal/pagination.html" . }}
+    {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination-nav" aria-label="Blog Pagination">
+        <ul class="pagination-list">
+          {{ if $paginator.HasPrev }}
+            <li>
+              <a class="pagination-link pagination-prev" href="{{ $paginator.Prev.URL }}" aria-label="Go to previous page">Previous</a>
+            </li>
+          {{ end }}
+          {{ range $paginator.Pagers }}
+            <li>
+              <a
+                class="pagination-link{{ if eq .PageNumber $paginator.PageNumber }} is-active{{ end }}"
+                href="{{ .URL }}"
+                {{ if eq .PageNumber $paginator.PageNumber }}aria-current="page"{{ end }}
+              >
+                {{ .PageNumber }}
+              </a>
+            </li>
+          {{ end }}
+          {{ if $paginator.HasNext }}
+            <li>
+              <a class="pagination-link pagination-next" href="{{ $paginator.Next.URL }}" aria-label="Go to next page">Next</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+    {{ end }}
   </section>
 {{ end }}

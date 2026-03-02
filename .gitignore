@@ -3,3 +3,6 @@ resources/_gen/
 .hugo_build.lock
 .DS_Store
 output/
+node_modules
+
+.env

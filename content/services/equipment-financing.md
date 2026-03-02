@@ -26,3 +26,34 @@ relatedServices:
   - "business-line-of-credit"
   - "small-business-loans"
 ---
+
+## EQUIPMENT FINANCING
+
+### Equipment Financing
+
+Let Rexford Commercial Capital fuel your growth with specialized equipment financing. Our financial solutions empower businesses of all sizes, from many different industries, offering flexible terms and competitive rates. Whether you are acquiring new or used equipment from a dealership, vendor or private party, Rexford Commercial Capital can help. Explore flexible options to meet your needs.
+
+Purchase Equipment Without Using Cash Reserves
+
+Businesses across every sector rely on equipment for productivity and efficiency. Keep your competitive edge and your cash reserves!
+
+Top Industries We Service
+- Restaurants
+- Health Care – Dentist, Doctor, Mental health
+- Construction
+- Trucking
+- Hotels/Motels
+- Bus companies
+- Landscaping
+- Manufacturing
+- Auto repair shops
+Top Financed Equipment
+- Commercial kitchen appliances
+- Long haul trucks
+- Box trucks
+- Shuttle buses
+- Construction equipment
+- Loaders/Excavators
+- Office needs – tables to technology
+- Auto repair shop equipment
+Whether you are acquiring new or used equipment from a dealership, vendor or private party, Rexford Commercial Capital can help. Explore flexible options to meet your needs.

@@ -26,3 +26,27 @@ relatedServices:
   - "commercial-real-estate"
   - "bridge-loans"
 ---
+
+## RENTAL PROPERTY LOANS
+
+### Rental Property Loans
+
+Rental property loans are used by investors to fund a purchase or refinance an existing property. Long term rentals and short term rentals are eligible.
+
+Ideal for
+- Purchase a property generating immediate cash flow with renters currently in place
+- Purchase a property, with or without current tenants, that may require minor repairs
+- Need cash? Use a cash-out refinance on your property, accessing the equity you have built
+Rental Property Loans offer the following benefits to borrowers
+- Up to 80% LTV
+- Loans starting at $75,000
+- Competitive rates
+- 15/20/30 year fixed or ARM options
+- Nationwide lending
+- Offer a Low Doc Program
+Eligible property types
+- Single-family
+- 2 – 4 unit
+- Multifamily (5+ units)
+- Condos
+- Town houses

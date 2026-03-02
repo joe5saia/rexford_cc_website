@@ -26,3 +26,24 @@ relatedServices:
   - "small-business-loans"
   - "equipment-financing"
 ---
+
+## BUSINESS LINE OF CREDIT
+
+### Business Line of Credit
+
+There are times when your business needs cash quickly. A business line of credit can provide that cash with terms better than the typical business credit card.
+
+When your business is at it’s best
+
+Don’t wait until the need arises due to unexpected expenses! Remember – You do not pay on money you are not using, you’ll only pay what you withdraw for your specific need.
+
+Ideal uses for a business line of credit
+- Purchase inventory
+- Managing seasonal fluctuations
+- Staffing needs
+- Emergency expenses
+- Expansion
+Guidelines
+- 1 year in business
+- 650 credit score
+- Business bank account

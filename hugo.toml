@@ -19,13 +19,14 @@ canonifyURLs = false
     city = "Rexford"
     region = "NY"
     country = "US"
+    zip = "12148"
 
 [params.seo]
   ogImage = "/images/og-image.jpg"
 
 [params.social]
-  facebook = ""
-  linkedin = ""
+  facebook = "https://www.facebook.com/rexfordcommercialcapital#"
+  linkedin = "https://www.linkedin.com/company/rexford-commercial-capital/"
 
 [markup]
   [markup.goldmark]
