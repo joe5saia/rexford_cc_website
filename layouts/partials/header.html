@@ -1,0 +1,54 @@
+<header class="site-header">
+  <div class="container header-wrap">
+    <a href="/" class="logo" aria-label="Rexford Commercial Capital home">
+      <img src="/images/logo.svg" class="logo-color" alt="Rexford Commercial Capital" />
+      <img src="/images/logo-white.svg" class="logo-white" alt="Rexford Commercial Capital" />
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        {{ range site.Menus.main }}
+          {{ if .HasChildren }}
+            <li class="has-children">
+              <button type="button" class="menu-toggle" aria-expanded="false">{{ .Name }}</button>
+              <ul class="submenu">
+                {{ range .Children }}
+                  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ end }}
+              </ul>
+            </li>
+          {{ else }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:{{ site.Params.phoneRaw }}" class="header-phone">{{ partial "icon.html" "phone" }}<span>{{ site.Params.phone }}</span></a>
+      <a href="/get-started/" class="btn btn-primary">Get Started</a>
+    </div>
+    <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <ul>
+      {{ range site.Menus.main }}
+        {{ if .HasChildren }}
+          <li class="mobile-parent">
+            <button type="button" class="mobile-parent-toggle">{{ .Name }}</button>
+            <ul>
+              {{ range .Children }}
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+              {{ end }}
+            </ul>
+          </li>
+        {{ else }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+      <li><a href="tel:{{ site.Params.phoneRaw }}">Call {{ site.Params.phone }}</a></li>
+      <li><a href="/get-started/" class="btn btn-primary btn-full">Get Started</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Recent Deals We've Closed</h2>
+    <p class="section-lead">A sample of transactions we've recently facilitated for clients in the Capital District and Adirondacks.</p>
+    <div class="deals-grid">
+      {{ range index site.Data "funded-deals" }}
+        <article class="deal-card">
+          <span class="deal-tag {{ .category }}">{{ .type }}</span>
+          <h3>{{ .amount }}</h3>
+          <p class="muted">{{ .location }}</p>
+          <p>{{ .description }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

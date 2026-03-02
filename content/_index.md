@@ -1,6 +1,4 @@
 ---
-title: Home
-description: Starter homepage for Rexford Commercial Capital.
+title: "Home"
+description: "Local financing expertise for Capital District & Adirondack small businesses."
 ---
-
-Welcome to the starter site.

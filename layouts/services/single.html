@@ -1,0 +1,78 @@
+{{ define "main" }}
+  <section class="page-band service-band">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Params.summary }}</p>
+      <div class="service-metrics">
+        <span>Loan Range: {{ .Params.loanRange }}</span>
+        <span>Time to Close: {{ .Params.timeToClose }}</span>
+      </div>
+      <p><a href="/get-started/" class="btn btn-primary">Talk to Sarah and Craig</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Who This Is For</h2>
+      <ul class="two-col-list">
+        {{ range .Params.useCases }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>How It Works</h2>
+      <ol>
+        <li>Initial consultation with Sarah or Craig to define your financing goals.</li>
+        <li>We match your file with local lenders aligned to your scenario.</li>
+        <li>You complete final documentation and move toward closing.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What We Look For</h2>
+      <ul>
+        {{ range .Params.eligibility }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        {{ range .Params.faqs }}
+          <details>
+            <summary>{{ .q }}</summary>
+            <p>{{ .a }}</p>
+          </details>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Related Services</h2>
+      <div class="services-grid">
+        {{ range .Params.relatedServices }}
+          {{ $slug := . }}
+          {{ range site.Data.services }}
+            {{ if eq .slug $slug }}
+              <article class="service-card">
+                <div class="service-icon">{{ partial "icon.html" .icon }}</div>
+                <h3>{{ .name }}</h3>
+                <p>{{ .short }}</p>
+                <a href="/services/{{ .slug }}/">Learn More →</a>
+              </article>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+{{ end }}

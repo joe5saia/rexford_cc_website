@@ -1,0 +1,85 @@
+{{ define "main" }}
+  <section class="page-band">
+    <div class="container">
+      <h1>Let's Talk Financing</h1>
+      <p>Tell us about your financing needs. Sarah and Craig will reach out within one business day.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container gs-grid">
+      <form action="https://formspree.io/f/{{ site.Params.formspreeID }}" method="POST" class="lead-form full-form" novalidate>
+        <input type="hidden" name="_subject" value="New Lead — Rexford Commercial Capital (Get Started)" />
+        <input type="hidden" name="Source" value="Get Started Page" />
+        <label>Loan Type*
+          <select name="Loan Type" required>
+            <option value="" selected disabled>Select loan type</option>
+            <option>Commercial Real Estate</option>
+            <option>Fix & Flip</option>
+            <option>Rental Property Loan</option>
+            <option>Bridge Loan</option>
+            <option>Equipment Financing</option>
+            <option>Business Line of Credit</option>
+            <option>Small Business Loan</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Loan Amount*
+          <select name="Loan Amount" required>
+            <option value="" selected disabled>Select range</option>
+            <option>Under $100K</option>
+            <option>$100K-$250K</option>
+            <option>$250K-$500K</option>
+            <option>$500K-$1M</option>
+            <option>$1M-$5M</option>
+            <option>Over $5M</option>
+          </select>
+        </label>
+        <label>Business Type*<input type="text" name="Business Type" required /></label>
+        <label>Timeline*
+          <select name="Timeline" required>
+            <option>ASAP</option>
+            <option>Within 1-3 months</option>
+            <option>3-6 months</option>
+            <option>Just exploring</option>
+          </select>
+        </label>
+        <div class="form-row">
+          <label>First Name*<input type="text" name="First Name" required /></label>
+          <label>Last Name*<input type="text" name="Last Name" required /></label>
+        </div>
+        <div class="form-row">
+          <label>Email*<input type="email" name="Email" required /></label>
+          <label>Phone*<input type="tel" name="Phone" required /></label>
+        </div>
+        <label>Best Time to Call
+          <select name="Best Time to Call">
+            <option>Morning (9am-12pm)</option>
+            <option>Afternoon (12pm-5pm)</option>
+            <option>Anytime</option>
+          </select>
+        </label>
+        <label>Tell us more<textarea name="Details" rows="5" placeholder="Describe your project or financing need (optional)"></textarea></label>
+        <button type="submit" class="btn btn-primary btn-full">Get My Free Consultation</button>
+        <p class="form-privacy">We never sell or share your information.</p>
+      </form>
+      <aside class="gs-sidebar">
+        <h3>What Happens Next</h3>
+        <ol>
+          <li>We review your submission (usually within hours)</li>
+          <li>Sarah or Craig calls you at your preferred time</li>
+          <li>We discuss your needs and explore options</li>
+          <li>No obligation, no hard credit pull at this stage</li>
+        </ol>
+        <hr />
+        <h3>Prefer to Reach Out Directly?</h3>
+        <p><a href="tel:{{ site.Params.phoneRaw }}" class="big-link">{{ site.Params.phone }}</a></p>
+        <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+        <div class="sidebar-team">
+          <img src="/images/sarah-smith.jpg" alt="Sarah Joseph" width="72" height="72" />
+          <img src="/images/craig-saia.jpg" alt="Craig Saia" width="72" height="72" />
+        </div>
+        <p>Sarah Joseph & Craig Saia</p>
+      </aside>
+    </div>
+  </section>
+{{ end }}

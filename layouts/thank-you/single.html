@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <section class="page-band">
+    <div class="container centered">
+      <div class="thank-icon">{{ partial "icon.html" "check" }}</div>
+      <h1>We Got It — Thank You!</h1>
+      <p>Sarah or Craig will reach out within one business day. If you need to connect sooner, call us directly:</p>
+      <p><a class="big-link" href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a></p>
+      <p>In the meantime, you might find these resources helpful:</p>
+      <div class="thank-links">
+        <a href="/services/commercial-real-estate/">Commercial Real Estate Financing</a>
+        <a href="/services/fix-and-flip/">Fix & Flip Financing</a>
+        <a href="/services/small-business-loans/">Small Business Loans</a>
+      </div>
+    </div>
+  </section>
+{{ end }}

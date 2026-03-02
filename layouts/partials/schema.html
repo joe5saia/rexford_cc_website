@@ -1,0 +1,37 @@
+{{ if .IsHome }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Rexford Commercial Capital",
+      "url": "https://rexfordcommercialcapital.com",
+      "telephone": "+15187919771",
+      "email": "info@rexfordcc.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rexford",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "Capital District, NY",
+        "Albany, NY",
+        "Saratoga Springs, NY",
+        "Glens Falls, NY",
+        "Troy, NY",
+        "Schenectady, NY",
+        "Adirondacks, NY",
+        "Lake Placid, NY"
+      ],
+      "sameAs": [
+        "{{ site.Params.bbbURL }}"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    }
+  </script>
+{{ end }}

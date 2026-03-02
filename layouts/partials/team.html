@@ -1,0 +1,17 @@
+<section class="section team">
+  <div class="container">
+    <h2 class="section-title">You're Working With People, Not a Portal</h2>
+    <p class="section-lead">Sarah and Craig are based in the Capital District and personally handle every client relationship.</p>
+    <div class="team-grid">
+      {{ range site.Data.team }}
+        <article class="team-card">
+          <img src="{{ .photo }}" alt="{{ .name }}" loading="lazy" width="160" height="160" />
+          <h3>{{ .name }}</h3>
+          <p class="team-title">{{ .title }}</p>
+          <p>{{ .bio }}</p>
+          <p class="team-contact"><a href="tel:{{ site.Params.phoneRaw }}">{{ .phone }}</a> · <a href="mailto:{{ .email }}">{{ .email }}</a></p>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

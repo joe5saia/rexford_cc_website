@@ -1,0 +1,16 @@
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title">Financing Solutions for Every Business Need</h2>
+    <p class="section-lead">Whether you need real estate financing or working capital, we match your scenario to the right local lender.</p>
+    <div class="services-grid">
+      {{ range site.Data.services }}
+        <article class="service-card">
+          <div class="service-icon">{{ partial "icon.html" .icon }}</div>
+          <h3>{{ .name }}</h3>
+          <p>{{ .short }}</p>
+          <a href="/services/{{ .slug }}/">Learn More →</a>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

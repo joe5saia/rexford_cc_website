@@ -1,0 +1,41 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <section>
+      <img src="/images/logo-white.svg" alt="Rexford Commercial Capital" class="footer-logo" />
+      <p>{{ site.Params.tagline }}</p>
+      <a href="{{ site.Params.bbbURL }}" rel="noopener">BBB Accredited Business</a>
+    </section>
+    <section>
+      <h4>Loan Programs</h4>
+      <ul>
+        {{ range site.Data.services }}
+          <li><a href="/services/{{ .slug }}/">{{ .name }}</a></li>
+        {{ end }}
+      </ul>
+    </section>
+    <section>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/get-started/">Get Started</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      </ul>
+    </section>
+    <section>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a></li>
+        <li><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></li>
+        <li>Rexford, NY</li>
+        {{ with site.Params.social.linkedin }}<li><a href="{{ . }}">LinkedIn</a></li>{{ end }}
+        {{ with site.Params.social.facebook }}<li><a href="{{ . }}">Facebook</a></li>{{ end }}
+      </ul>
+    </section>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© {{ now.Year }} Rexford Commercial Capital. All rights reserved. <a href="/privacy-policy/">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>

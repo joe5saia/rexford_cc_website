@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90" role="img" aria-labelledby="title desc">
+  <title id="title">Rexford Commercial Capital</title>
+  <desc id="desc">White placeholder logo for Rexford Commercial Capital</desc>
+  <rect width="420" height="90" rx="8" fill="#1B3A2D"/>
+  <g fill="#FFFFFF">
+    <path d="M36 66V24h12l10 12 10-12h12v42H68V43l-10 12-10-12v23z"/>
+    <path d="M90 66V24h34v9h-22v8h19v9h-19v7h23v9z"/>
+  </g>
+  <text x="140" y="40" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#FFFFFF">Rexford</text>
+  <text x="140" y="62" font-family="'Source Sans 3', Arial, sans-serif" font-size="16" fill="#F1E6CF">Commercial Capital</text>
+  <circle cx="390" cy="45" r="16" fill="#C9943A"/>
+</svg>

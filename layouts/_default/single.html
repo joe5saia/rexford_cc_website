@@ -1,6 +1,13 @@
 {{ define "main" }}
-  <article>
-    <h2>{{ .Title }}</h2>
-    {{ .Content }}
-  </article>
+  <section class="page-band">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </div>
+  </section>
+  <section class="section">
+    <div class="container prose">
+      {{ .Content }}
+    </div>
+  </section>
 {{ end }}

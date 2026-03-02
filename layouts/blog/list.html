@@ -1,0 +1,23 @@
+{{ define "main" }}
+  {{ $paginator := .Paginate .Pages }}
+  <section class="page-band">
+    <div class="container">
+      <h1>Financing Resources for Capital District Small Businesses</h1>
+      <p>Practical guidance from Rexford Commercial Capital.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container blog-grid">
+      {{ range $paginator.Pages }}
+        <article class="blog-card">
+          <div class="blog-card-image {{ .Params.category | urlize }}"></div>
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p class="muted">{{ .Date.Format "January 2, 2006" }}</p>
+          <p>{{ .Summary }}</p>
+          <a href="{{ .RelPermalink }}">Read More →</a>
+        </article>
+      {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+  </section>
+{{ end }}

@@ -1,0 +1,39 @@
+<form action="https://formspree.io/f/{{ site.Params.formspreeID }}" method="POST" class="lead-form" novalidate>
+  <input type="hidden" name="_subject" value="New Lead — Rexford Commercial Capital (Homepage)" />
+  <input type="hidden" name="Source" value="Homepage Hero Form" />
+  <label>Loan Type*
+    <select name="Loan Type" required>
+      <option value="" selected disabled>Select loan type</option>
+      <option>Commercial Real Estate</option>
+      <option>Fix & Flip</option>
+      <option>Rental Property Loan</option>
+      <option>Bridge Loan</option>
+      <option>Equipment Financing</option>
+      <option>Business Line of Credit</option>
+      <option>Small Business Loan</option>
+      <option>Other</option>
+    </select>
+  </label>
+  <label>Loan Amount*
+    <select name="Loan Amount" required>
+      <option value="" selected disabled>Select range</option>
+      <option>Under $100K</option>
+      <option>$100K-$250K</option>
+      <option>$250K-$500K</option>
+      <option>$500K-$1M</option>
+      <option>$1M-$5M</option>
+      <option>Over $5M</option>
+    </select>
+  </label>
+  <div class="form-row">
+    <label>First Name*<input type="text" name="First Name" required /></label>
+    <label>Last Name*<input type="text" name="Last Name" required /></label>
+  </div>
+  <div class="form-row">
+    <label>Phone*<input type="tel" name="Phone" required /></label>
+    <label>Email*<input type="email" name="Email" required /></label>
+  </div>
+  <button type="submit" class="btn btn-primary btn-full">Get My Free Consultation</button>
+  <p class="form-note">Or call us directly: <a href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a></p>
+  <p class="form-privacy">We never sell or share your information.</p>
+</form>

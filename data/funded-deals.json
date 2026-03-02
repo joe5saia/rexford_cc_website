@@ -1,0 +1,51 @@
+[
+  {
+    "type": "Equipment Financing",
+    "category": "business",
+    "amount": "$145,000",
+    "location": "Rexford, NY",
+    "description": "Hypothetical deal for Smith Landscaping to purchase a new tractor and related attachments with a 60-month equipment financing structure."
+  },
+  {
+    "type": "Commercial Real Estate",
+    "category": "real-estate",
+    "amount": "$1,900,000",
+    "location": "Schenectady County, NY",
+    "description": "Hypothetical loan for Elington Manufacturing to purchase a new warehouse facility to support expansion and operations."
+  },
+  {
+    "type": "Commercial Real Estate",
+    "category": "real-estate",
+    "amount": "$1,250,000",
+    "location": "Albany, NY",
+    "description": "Refinance of a mixed-use retail and residential building. Secured conventional financing with a local community bank at a competitive fixed rate."
+  },
+  {
+    "type": "Equipment Financing",
+    "category": "business",
+    "amount": "$185,000",
+    "location": "Glens Falls, NY",
+    "description": "Heavy equipment package for a regional excavating contractor. Structured as a 60-month lease with a purchase option."
+  },
+  {
+    "type": "Fix & Flip",
+    "category": "real-estate",
+    "amount": "$320,000",
+    "location": "Saratoga Springs, NY",
+    "description": "Acquisition and full renovation of a historic single-family home. 100% of rehab costs covered. Closed in under 10 days."
+  },
+  {
+    "type": "Business Line of Credit",
+    "category": "business",
+    "amount": "$250,000",
+    "location": "Lake Placid, NY",
+    "description": "Revolving line of credit for a regional hospitality business to manage seasonal cash flow fluctuations."
+  },
+  {
+    "type": "Rental Property Loan",
+    "category": "real-estate",
+    "amount": "$475,000",
+    "location": "Troy, NY",
+    "description": "Long-term DSCR loan on a 6-unit multifamily property. Qualified on property income, not personal income."
+  }
+]

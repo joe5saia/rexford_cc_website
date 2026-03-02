@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <section class="page-band">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Description }}</p>
+    </div>
+  </section>
+  {{ partial "services-grid.html" . }}
+{{ end }}
