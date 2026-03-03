@@ -1,19 +1,5 @@
 [
   {
-    "type": "Equipment Financing",
-    "category": "business",
-    "amount": "$145,000",
-    "location": "Rexford, NY",
-    "description": "Hypothetical deal for Smith Landscaping to purchase a new tractor and related attachments with a 60-month equipment financing structure."
-  },
-  {
-    "type": "Commercial Real Estate",
-    "category": "real-estate",
-    "amount": "$1,900,000",
-    "location": "Schenectady County, NY",
-    "description": "Hypothetical loan for Elington Manufacturing to purchase a new warehouse facility to support expansion and operations."
-  },
-  {
     "type": "Commercial Real Estate",
     "category": "real-estate",
     "amount": "$1,250,000",
