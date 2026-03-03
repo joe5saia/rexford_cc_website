@@ -32,15 +32,16 @@
 <link rel="manifest" href="/site.webmanifest" />
 {{ if .IsHome }}
   {{ with resources.Get "images/hero-bg.jpg" }}
-    {{/* Preload responsive hero background on homepage to improve LCP. */}}
-    {{ $hero640Webp := .Resize "640x webp q80" }}
-    {{ $hero1024Webp := .Resize "1024x webp q80" }}
-    {{ $hero1920Webp := .Resize "1920x webp q80" }}
+    {{/* Preload optimized hero background generated natively by Hugo. */}}
+    {{ $hero640Webp := .Resize "640x webp q68" }}
+    {{ $hero1024Webp := .Resize "1024x webp q68" }}
+    {{ $hero1600Webp := .Resize "1600x webp q68" }}
     <link
       rel="preload"
       as="image"
+      type="image/webp"
       href="{{ $hero1024Webp.RelPermalink }}"
-      imagesrcset="{{ $hero640Webp.RelPermalink }} 640w, {{ $hero1024Webp.RelPermalink }} 1024w, {{ $hero1920Webp.RelPermalink }} 1920w"
+      imagesrcset="{{ $hero640Webp.RelPermalink }} 640w, {{ $hero1024Webp.RelPermalink }} 1024w, {{ $hero1600Webp.RelPermalink }} 1600w"
       imagesizes="100vw"
       fetchpriority="high"
     />
@@ -53,12 +54,37 @@
 
 {{ with site.Params.ga4ID }}
   {{ if ne . "REPLACE_WITH_GA4_ID" }}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ . }}');
+      (function () {
+        var ga4Id = '{{ . }}';
+
+        function initGtag() {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', ga4Id);
+        }
+
+        function loadGaScript() {
+          if (window.__ga4ScriptRequested) {
+            return;
+          }
+          window.__ga4ScriptRequested = true;
+
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4Id);
+          script.onload = initGtag;
+          document.head.appendChild(script);
+        }
+
+        if (document.readyState === 'complete') {
+          loadGaScript();
+          return;
+        }
+
+        window.addEventListener('load', loadGaScript, { once: true });
+      }());
     </script>
   {{ end }}
 {{ end }}

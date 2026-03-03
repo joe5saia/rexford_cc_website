@@ -1,5 +1,8 @@
 {
   "scripts": {
+    "lighthouse:all": "npm run lighthouse:mobile && npm run lighthouse:desktop",
+    "lighthouse:desktop": "./scripts/lighthouse-audit.sh desktop",
+    "lighthouse:mobile": "./scripts/lighthouse-audit.sh mobile",
     "deploy:worker": "wrangler deploy --config worker/wrangler.toml",
     "dev:worker": "wrangler dev --config worker/wrangler.toml",
     "d1:migrate:local": "wrangler d1 migrations apply rexford-inquiries --local --config worker/wrangler.toml",
