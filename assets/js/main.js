@@ -1,3 +1,10 @@
+// --- GA4 event tracking ---
+const trackEvent = (eventName, params = {}) => {
+  if (typeof gtag === "function") {
+    gtag("event", eventName, params);
+  }
+};
+
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".mobile-menu-toggle");
 const mobileNav = document.querySelector(".mobile-nav");
@@ -134,6 +141,20 @@ const getInquiryPayload = (form) => {
   };
 };
 
+// --- Form start tracking (first field interaction) ---
+inquiryForms.forEach((form) => {
+  if (!(form instanceof HTMLFormElement)) return;
+  let started = false;
+
+  form.addEventListener("focusin", () => {
+    if (started) return;
+    started = true;
+    const source =
+      form.querySelector('input[name="source"]')?.value ?? "unknown";
+    trackEvent("form_start", { form_source: source });
+  });
+});
+
 inquiryForms.forEach((form) => {
   if (!(form instanceof HTMLFormElement)) return;
 
@@ -175,10 +196,21 @@ inquiryForms.forEach((form) => {
         throw new Error(`Request failed with status ${response.status}`);
       }
 
+      trackEvent("form_submit", {
+        form_source: payload.source,
+        loan_type: payload.loanType,
+        loan_amount: payload.loanAmount,
+      });
+
       setFormStatus(form, "Thanks. Redirecting you now...", "is-success");
       window.location.assign("/thank-you/");
     } catch (error) {
       console.error("Inquiry submission failed", error);
+      trackEvent("form_error", {
+        form_source: payload.source,
+        error_message:
+          error instanceof Error ? error.message : "Unknown error",
+      });
       setFormStatus(
         form,
         "We could not submit your request right now. Please call 518-791-9771.",
@@ -189,5 +221,111 @@ inquiryForms.forEach((form) => {
         submitButton.disabled = false;
       }
     }
+  });
+});
+
+// --- GA4: Phone click tracking ---
+document.addEventListener("click", (event) => {
+  const link = event.target.closest('a[href^="tel:"]');
+  if (!link) return;
+
+  const location = link.closest(".hero")
+    ? "hero"
+    : link.closest(".site-header")
+      ? "header"
+      : link.closest(".cta-band")
+        ? "cta_band"
+        : link.closest(".gs-sidebar")
+          ? "get_started"
+          : link.closest(".site-footer")
+            ? "footer"
+            : "other";
+
+  trackEvent("phone_click", { link_location: location });
+});
+
+// --- GA4: Email click tracking ---
+document.addEventListener("click", (event) => {
+  const link = event.target.closest('a[href^="mailto:"]');
+  if (!link) return;
+
+  const location = link.closest(".cta-band")
+    ? "cta_band"
+    : link.closest(".team")
+      ? "team"
+      : link.closest(".site-footer")
+        ? "footer"
+        : "other";
+
+  trackEvent("email_click", { link_location: location });
+});
+
+// --- GA4: CTA click tracking ---
+document.addEventListener("click", (event) => {
+  const link = event.target.closest(
+    'a[href="/get-started/"], a[href*="get-started"]'
+  );
+  if (!link) return;
+
+  const location = link.closest(".site-header")
+    ? "header"
+    : link.closest(".hero")
+      ? "hero"
+      : link.closest(".how-it-works")
+        ? "how_it_works"
+        : link.closest(".cta-band")
+          ? "cta_band"
+          : "other";
+
+  trackEvent("cta_click", {
+    link_text: link.textContent.trim(),
+    link_location: location,
+  });
+});
+
+// --- GA4: Service page view tracking ---
+if (window.location.pathname.startsWith("/services/")) {
+  const slug = window.location.pathname.replace(/^\/services\/|\/$/g, "");
+  if (slug) {
+    trackEvent("service_view", { service_name: slug });
+  }
+}
+
+// --- GA4: Blog scroll depth tracking ---
+const blogProse = document.querySelector(".prose");
+if (blogProse) {
+  const marker = document.createElement("div");
+  marker.style.height = "1px";
+  const children = Array.from(blogProse.children);
+  const insertAt = Math.floor(children.length * 0.75);
+  if (children[insertAt]) {
+    blogProse.insertBefore(marker, children[insertAt]);
+  } else {
+    blogProse.appendChild(marker);
+  }
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      trackEvent("blog_read", {
+        post_title: document.title.split(" | ")[0],
+      });
+      scrollObserver.disconnect();
+    }
+  });
+  scrollObserver.observe(marker);
+}
+
+// --- GA4: Outbound click tracking ---
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link) return;
+  const href = link.getAttribute("href") ?? "";
+  if (!href.startsWith("http") || link.hostname === window.location.hostname) {
+    return;
+  }
+
+  trackEvent("outbound_click", {
+    link_url: href,
+    link_text: link.textContent.trim().slice(0, 50),
   });
 });
