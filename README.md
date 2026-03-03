@@ -104,8 +104,10 @@ Create `content/services/<slug>.md` using existing files as schema examples. Req
 
 ## Forms and Analytics
 - Hero and Get Started forms post to `params.formEndpoint` via JSON
+- Hero and Get Started forms include Cloudflare Turnstile when `params.turnstileSiteKey` is set
 - Update placeholder IDs before launch:
   - `params.formEndpoint`
+  - `params.turnstileSiteKey`
   - `params.ga4ID`
 
 ## Worker + Database Setup (MVP)
@@ -139,6 +141,7 @@ Worker config values (`worker/wrangler.toml`):
 - `MAIL_FROM`: sender address used by Worker email API
 - `ALLOWED_ORIGINS`: CSV of allowed browser origins for CORS
 - `THANK_YOU_URL`: redirect target for non-JS form posts
+- `TURNSTILE_SECRET_KEY`: set with `wrangler secret put TURNSTILE_SECRET_KEY --config worker/wrangler.toml`
 
 Current testing status:
 - Worker is temporarily deployed on workers.dev:
@@ -186,7 +189,7 @@ See `AGENTS.md` for contribution conventions (style, QA, PR expectations).
   - [ ] Ensure Cloudflare zone + proxied DNS record exist for `api.rexfordcommercialcapital.com`
   - [ ] Set real `params.ga4ID` in `hugo.toml`
   - [ ] Verify Worker + D1 submission flow in production
-  - [ ] Configure Turnstile on both forms and server-side verification
+  - [ ] Set production Turnstile keys (`params.turnstileSiteKey` + Worker secret `TURNSTILE_SECRET_KEY`)
   - [ ] Validate GA4 events/pageviews in production
 - [ ] Legal and trust:
   - [ ] Replace template privacy policy with finalized legal text

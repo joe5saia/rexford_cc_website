@@ -136,6 +136,10 @@ const setFormStatus = (form, message, statusClass = "") => {
 
 const getInquiryPayload = (form) => {
   const formData = new FormData(form);
+  const turnstileToken =
+    toTrimmedString(formData.get("turnstileToken")) ||
+    toTrimmedString(formData.get("cf-turnstile-response"));
+
   return {
     source: toTrimmedString(formData.get("source")),
     loanType: toTrimmedString(formData.get("loanType")),
@@ -149,7 +153,17 @@ const getInquiryPayload = (form) => {
     bestTimeToCall: toTrimmedString(formData.get("bestTimeToCall")),
     details: toTrimmedString(formData.get("details")),
     website: toTrimmedString(formData.get("website")),
+    turnstileToken,
   };
+};
+
+const formUsesTurnstile = (form) =>
+  form.querySelector(".cf-turnstile") instanceof HTMLElement;
+
+const resetTurnstile = (form) => {
+  if (!formUsesTurnstile(form)) return;
+  if (typeof window.turnstile?.reset !== "function") return;
+  window.turnstile.reset();
 };
 
 // --- Form start tracking (first field interaction) ---
@@ -193,6 +207,15 @@ inquiryForms.forEach((form) => {
     }
 
     const payload = getInquiryPayload(form);
+    if (formUsesTurnstile(form) && !payload.turnstileToken) {
+      setFormStatus(
+        form,
+        "Please complete the security verification before submitting.",
+        "is-error"
+      );
+      return;
+    }
+
     const submitButton = form.querySelector('button[type="submit"]');
     if (submitButton instanceof HTMLButtonElement) {
       submitButton.disabled = true;
@@ -209,7 +232,18 @@ inquiryForms.forEach((form) => {
       });
 
       if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+        let serverErrorMessage = `Request failed with status ${response.status}`;
+        try {
+          const responseBody = await response.json();
+          if (
+            responseBody &&
+            typeof responseBody === "object" &&
+            typeof responseBody.error === "string"
+          ) {
+            serverErrorMessage = responseBody.error;
+          }
+        } catch {}
+        throw new Error(serverErrorMessage);
       }
 
       trackEvent("form_submit", {
@@ -222,6 +256,7 @@ inquiryForms.forEach((form) => {
       window.location.assign("/thank-you/");
     } catch (error) {
       console.error("Inquiry submission failed", error);
+      resetTurnstile(form);
       trackEvent("form_error", {
         form_source: payload.source,
         error_message:

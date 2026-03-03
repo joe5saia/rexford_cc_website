@@ -44,6 +44,13 @@
     <label>Phone*<input type="tel" name="phone" autocomplete="tel" required /></label>
     <label>Email*<input type="email" name="email" autocomplete="email" required /></label>
   </div>
+  {{ with site.Params.turnstileSiteKey }}
+    {{ if ne . "REPLACE_WITH_TURNSTILE_SITE_KEY" }}
+      <div class="turnstile-field">
+        <div class="cf-turnstile" data-sitekey="{{ . }}" data-response-field-name="turnstileToken"></div>
+      </div>
+    {{ end }}
+  {{ end }}
   <button type="submit" class="btn btn-primary btn-full">Get My Free Consultation</button>
   <p class="form-status" role="status" aria-live="polite"></p>
   <p class="form-note">Or contact us directly: <a href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a> · <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>

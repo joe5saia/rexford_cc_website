@@ -9,6 +9,7 @@ interface Env {
   MAIL_FROM?: string;
   ALLOWED_ORIGINS?: string;
   THANK_YOU_URL?: string;
+  TURNSTILE_SECRET_KEY?: string;
 }
 
 interface InquiryPayload {
@@ -58,6 +59,13 @@ const REQUIRED_FIELDS: Array<keyof InquiryPayload> = [
   "phone",
 ];
 
+const MAX_REQUEST_BYTES = 32 * 1024;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const MAX_INQUIRIES_PER_IP_WINDOW = 5;
+const MAX_INQUIRIES_PER_EMAIL_WINDOW = 3;
+const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const MAX_TURNSTILE_TOKEN_LENGTH = 2048;
+
 export default {
   async fetch(request, env): Promise<Response> {
     const requestUrl = new URL(request.url);
@@ -68,6 +76,9 @@ export default {
     }
 
     if (request.method === "OPTIONS") {
+      if (!cors.allowed) {
+        return jsonResponse({ ok: false, error: "Origin not allowed" }, 403, cors.headers);
+      }
       return new Response(null, { status: 204, headers: cors.headers });
     }
 
@@ -83,11 +94,31 @@ export default {
       return jsonResponse({ ok: false, error: "Origin not allowed" }, 403, cors.headers);
     }
 
+    if (!(await isBodyWithinLimit(request, MAX_REQUEST_BYTES))) {
+      return jsonResponse({ ok: false, error: "Payload too large" }, 413, cors.headers);
+    }
+
     let incoming: Record<string, string>;
     try {
       incoming = await readIncomingFields(request);
     } catch {
       return jsonResponse({ ok: false, error: "Invalid request payload" }, 400, cors.headers);
+    }
+
+    const origin = request.headers.get("Origin");
+    const turnstileToken = extractTurnstileToken(incoming);
+    const turnstileResult = await verifyTurnstileToken(
+      env,
+      turnstileToken,
+      normalizeText(request.headers.get("cf-connecting-ip")) || null,
+      getHostnameFromOrigin(origin)
+    );
+    if (!turnstileResult.allowed) {
+      return jsonResponse(
+        { ok: false, error: turnstileResult.error },
+        turnstileResult.status,
+        cors.headers
+      );
     }
 
     const payload = mapInquiryPayload(incoming);
@@ -107,7 +138,16 @@ export default {
 
     const submittedAt = new Date().toISOString();
     const userAgent = normalizeText(request.headers.get("user-agent"));
-    const ipHash = await hashIp(request.headers.get("cf-connecting-ip"));
+    const clientIp = normalizeText(request.headers.get("cf-connecting-ip")) || null;
+    const ipHash = await hashIp(clientIp);
+    const rateLimitExceeded = await hasExceededRateLimit(env, ipHash, payload.email, submittedAt);
+    if (rateLimitExceeded) {
+      return jsonResponse(
+        { ok: false, error: "Too many requests. Please try again shortly." },
+        429,
+        cors.headers
+      );
+    }
 
     const insertResult = await env.INQUIRY_DB.prepare(
       `INSERT INTO inquiries (
@@ -264,8 +304,9 @@ function buildCorsHeaders(request: Request, env: Env): { allowed: boolean; heade
     "Access-Control-Allow-Headers": "Content-Type",
   });
 
+  // Only browser requests are supported for this endpoint.
   if (!origin) {
-    return { allowed: true, headers };
+    return { allowed: false, headers };
   }
 
   if (!allowedOrigins.has(origin)) {
@@ -274,6 +315,113 @@ function buildCorsHeaders(request: Request, env: Env): { allowed: boolean; heade
 
   headers.set("Access-Control-Allow-Origin", origin);
   return { allowed: true, headers };
+}
+
+// Protects Worker resources by rejecting oversized request bodies early.
+async function isBodyWithinLimit(request: Request, maxBytes: number): Promise<boolean> {
+  const contentLength = request.headers.get("content-length");
+  if (contentLength) {
+    const parsedLength = Number(contentLength);
+    if (Number.isFinite(parsedLength)) {
+      return parsedLength <= maxBytes;
+    }
+  }
+
+  const bodySize = (await request.clone().arrayBuffer()).byteLength;
+  return bodySize <= maxBytes;
+}
+
+// Accepts either Turnstile's default field name or a custom alias used by JS posts.
+function extractTurnstileToken(fields: Record<string, string>): string {
+  return normalizeText(
+    fields.turnstileToken || fields["cf-turnstile-response"] || fields.cf_turnstile_response
+  );
+}
+
+// Parses an origin into a hostname for strict Turnstile hostname matching.
+function getHostnameFromOrigin(origin: string | null): string | null {
+  if (!origin) {
+    return null;
+  }
+
+  try {
+    return new URL(origin).hostname;
+  } catch {
+    return null;
+  }
+}
+
+interface TurnstileVerifyResponse {
+  success?: boolean;
+  hostname?: string;
+  "error-codes"?: string[];
+}
+
+interface TurnstileValidationResult {
+  allowed: boolean;
+  error: string;
+  status: number;
+}
+
+// Verifies Turnstile tokens server-side so form submissions cannot bypass the widget.
+async function verifyTurnstileToken(
+  env: Env,
+  token: string,
+  remoteIp: string | null,
+  expectedHostname: string | null
+): Promise<TurnstileValidationResult> {
+  if (!env.TURNSTILE_SECRET_KEY) {
+    return { allowed: false, error: "Security verification is unavailable", status: 503 };
+  }
+
+  if (!token) {
+    return { allowed: false, error: "Please complete the security verification", status: 400 };
+  }
+
+  if (token.length > MAX_TURNSTILE_TOKEN_LENGTH) {
+    return { allowed: false, error: "Security verification token is invalid", status: 400 };
+  }
+
+  const body = new URLSearchParams();
+  body.set("secret", env.TURNSTILE_SECRET_KEY);
+  body.set("response", token);
+  if (remoteIp) {
+    body.set("remoteip", remoteIp);
+  }
+
+  let verificationResponse: Response;
+  try {
+    verificationResponse = await fetch(TURNSTILE_VERIFY_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: body.toString(),
+    });
+  } catch {
+    return { allowed: false, error: "Security verification failed", status: 502 };
+  }
+
+  if (!verificationResponse.ok) {
+    return { allowed: false, error: "Security verification failed", status: 502 };
+  }
+
+  let verificationData: TurnstileVerifyResponse;
+  try {
+    verificationData = await verificationResponse.json<TurnstileVerifyResponse>();
+  } catch {
+    return { allowed: false, error: "Security verification failed", status: 502 };
+  }
+
+  if (!verificationData.success) {
+    return { allowed: false, error: "Security verification failed", status: 403 };
+  }
+
+  if (expectedHostname && verificationData.hostname !== expectedHostname) {
+    return { allowed: false, error: "Security verification failed", status: 403 };
+  }
+
+  return { allowed: true, error: "", status: 200 };
 }
 
 // Small helper for consistent JSON responses with shared headers.
@@ -340,6 +488,36 @@ async function hashIp(ipAddress: string | null): Promise<string | null> {
   return Array.from(new Uint8Array(digest))
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("");
+}
+
+// Limits repeated submissions to reduce spam and automated abuse.
+async function hasExceededRateLimit(
+  env: Env,
+  ipHash: string | null,
+  email: string,
+  submittedAt: string
+): Promise<boolean> {
+  const submittedTimestamp = Date.parse(submittedAt);
+  const windowStart = new Date(submittedTimestamp - RATE_LIMIT_WINDOW_MS).toISOString();
+
+  if (ipHash) {
+    const row = await env.INQUIRY_DB.prepare(
+      "SELECT COUNT(1) AS request_count FROM inquiries WHERE ip_hash = ? AND submitted_at >= ?"
+    )
+      .bind(ipHash, windowStart)
+      .first<{ request_count?: number | string }>();
+    const requestCount = Number(row?.request_count ?? 0);
+    return requestCount >= MAX_INQUIRIES_PER_IP_WINDOW;
+  }
+
+  // In environments where client IP is unavailable, fall back to email as a coarse limit key.
+  const row = await env.INQUIRY_DB.prepare(
+    "SELECT COUNT(1) AS request_count FROM inquiries WHERE email = ? AND submitted_at >= ?"
+  )
+    .bind(email, windowStart)
+    .first<{ request_count?: number | string }>();
+  const requestCount = Number(row?.request_count ?? 0);
+  return requestCount >= MAX_INQUIRIES_PER_EMAIL_WINDOW;
 }
 
 // Builds and sends the inquiry notification email with the required subject format.

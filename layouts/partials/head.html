@@ -32,7 +32,10 @@
 <link rel="manifest" href="/site.webmanifest" />
 {{ if .IsHome }}
   {{ with resources.Get "images/hero-bg.jpg" }}
-    {{/* Preload optimized hero background generated natively by Hugo. */}}
+    {{/* Preload mobile and desktop hero candidates generated natively by Hugo. */}}
+    {{ $hero640MobileWebp := .Resize "640x webp q58" }}
+    {{ $hero960MobileWebp := .Resize "960x webp q58" }}
+    {{ $hero1280MobileWebp := .Resize "1280x webp q58" }}
     {{ $hero640Webp := .Resize "640x webp q68" }}
     {{ $hero1024Webp := .Resize "1024x webp q68" }}
     {{ $hero1600Webp := .Resize "1600x webp q68" }}
@@ -40,6 +43,17 @@
       rel="preload"
       as="image"
       type="image/webp"
+      media="(max-width: 767px)"
+      href="{{ $hero960MobileWebp.RelPermalink }}"
+      imagesrcset="{{ $hero640MobileWebp.RelPermalink }} 640w, {{ $hero960MobileWebp.RelPermalink }} 960w, {{ $hero1280MobileWebp.RelPermalink }} 1280w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      media="(min-width: 768px)"
       href="{{ $hero1024Webp.RelPermalink }}"
       imagesrcset="{{ $hero640Webp.RelPermalink }} 640w, {{ $hero1024Webp.RelPermalink }} 1024w, {{ $hero1600Webp.RelPermalink }} 1600w"
       imagesizes="100vw"
@@ -50,6 +64,12 @@
 {{ with resources.Get "css/main.css" }}
   {{ $mainStyles := . | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $mainStyles.RelPermalink }}" integrity="{{ $mainStyles.Data.Integrity }}" />
+{{ end }}
+
+{{ with site.Params.turnstileSiteKey }}
+  {{ if ne . "REPLACE_WITH_TURNSTILE_SITE_KEY" }}
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {{ end }}
 {{ end }}
 
 {{ with site.Params.ga4ID }}

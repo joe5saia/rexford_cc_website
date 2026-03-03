@@ -26,3 +26,4 @@ MAIL_TO = "joe5saia@gmail.com"
 MAIL_FROM = "website@rexfordcommercialcapital.com"
 ALLOWED_ORIGINS = "https://rexfordcommercialcapital.com,https://www.rexfordcommercialcapital.com,http://localhost:1313"
 THANK_YOU_URL = "https://rexfordcommercialcapital.com/thank-you/"
+# TURNSTILE_SECRET_KEY is intentionally managed as a Wrangler secret, not as a plain text var.
