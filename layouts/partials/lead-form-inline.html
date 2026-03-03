@@ -1,19 +1,27 @@
+{{ $source := "Homepage Hero Form" }}
+{{ with .source }}
+  {{ $source = . }}
+{{ end }}
+{{ $selectedLoanType := "" }}
+{{ with .loanType }}
+  {{ $selectedLoanType = . }}
+{{ end }}
 <form action="{{ site.Params.formEndpoint }}" method="POST" class="lead-form js-inquiry-form">
-  <input type="hidden" name="source" value="Homepage Hero Form" />
+  <input type="hidden" name="source" value="{{ $source }}" />
   <div class="inquiry-honeypot" aria-hidden="true">
     <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
   </div>
   <label>Loan Type*
     <select name="loanType" required>
-      <option value="" selected disabled>Select loan type</option>
-      <option>Commercial Real Estate</option>
-      <option>Fix & Flip</option>
-      <option>Rental Property Loan</option>
-      <option>Bridge Loan</option>
-      <option>Equipment Financing</option>
-      <option>Business Line of Credit</option>
-      <option>Small Business Loan</option>
-      <option>Other</option>
+      <option value="" disabled{{ if eq $selectedLoanType "" }} selected{{ end }}>Select loan type</option>
+      <option{{ if eq $selectedLoanType "Commercial Real Estate" }} selected{{ end }}>Commercial Real Estate</option>
+      <option{{ if eq $selectedLoanType "Fix & Flip" }} selected{{ end }}>Fix & Flip</option>
+      <option{{ if eq $selectedLoanType "Rental Property Loan" }} selected{{ end }}>Rental Property Loan</option>
+      <option{{ if eq $selectedLoanType "Bridge Loan" }} selected{{ end }}>Bridge Loan</option>
+      <option{{ if eq $selectedLoanType "Equipment Financing" }} selected{{ end }}>Equipment Financing</option>
+      <option{{ if eq $selectedLoanType "Business Line of Credit" }} selected{{ end }}>Business Line of Credit</option>
+      <option{{ if eq $selectedLoanType "Small Business Loan" }} selected{{ end }}>Small Business Loan</option>
+      <option{{ if eq $selectedLoanType "Other" }} selected{{ end }}>Other</option>
     </select>
   </label>
   <label>Loan Amount*

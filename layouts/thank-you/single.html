@@ -1,9 +1,64 @@
 {{ define "main" }}
+  {{ $sarahPhoto := resources.Get "images/sarah-joseph-headshot.jpg" }}
+  {{ $craigPhoto := resources.Get "images/craig-saia.jpg" }}
   <section class="page-band">
     <div class="container centered">
       <div class="thank-icon">{{ partial "icon.html" "check" }}</div>
       <h1>We Got It — Thank You!</h1>
-      <p>Sarah or Craig will reach out within one business day. If you need to connect sooner, call us directly:</p>
+      <p class="thank-timeline"><strong>Next step:</strong> Sarah or Craig will call you within 2 hours during business days.</p>
+      <div class="thank-team" aria-label="Who will call you">
+        <figure class="thank-person">
+          {{ with $sarahPhoto }}
+            {{ $sarah88Jpg := .Fill "88x88 center jpg q82" }}
+            {{ $sarah176Jpg := .Fill "176x176 center jpg q82" }}
+            {{ $sarah88Webp := .Fill "88x88 center webp q80" }}
+            {{ $sarah176Webp := .Fill "176x176 center webp q80" }}
+            <picture>
+              <source
+                type="image/webp"
+                srcset="{{ $sarah88Webp.RelPermalink }} 88w, {{ $sarah176Webp.RelPermalink }} 176w"
+                sizes="88px"
+              />
+              <img
+                src="{{ $sarah88Jpg.RelPermalink }}"
+                srcset="{{ $sarah88Jpg.RelPermalink }} 88w, {{ $sarah176Jpg.RelPermalink }} 176w"
+                sizes="88px"
+                alt="Sarah Joseph"
+                width="{{ $sarah88Jpg.Width }}"
+                height="{{ $sarah88Jpg.Height }}"
+                loading="lazy"
+              />
+            </picture>
+          {{ end }}
+          <figcaption>Sarah Joseph</figcaption>
+        </figure>
+        <figure class="thank-person">
+          {{ with $craigPhoto }}
+            {{ $craig88Jpg := .Fill "88x88 center jpg q82" }}
+            {{ $craig176Jpg := .Fill "176x176 center jpg q82" }}
+            {{ $craig88Webp := .Fill "88x88 center webp q80" }}
+            {{ $craig176Webp := .Fill "176x176 center webp q80" }}
+            <picture>
+              <source
+                type="image/webp"
+                srcset="{{ $craig88Webp.RelPermalink }} 88w, {{ $craig176Webp.RelPermalink }} 176w"
+                sizes="88px"
+              />
+              <img
+                src="{{ $craig88Jpg.RelPermalink }}"
+                srcset="{{ $craig88Jpg.RelPermalink }} 88w, {{ $craig176Jpg.RelPermalink }} 176w"
+                sizes="88px"
+                alt="Craig Saia"
+                width="{{ $craig88Jpg.Width }}"
+                height="{{ $craig88Jpg.Height }}"
+                loading="lazy"
+              />
+            </picture>
+          {{ end }}
+          <figcaption>Craig Saia</figcaption>
+        </figure>
+      </div>
+      <p>If you need to connect sooner, call us directly:</p>
       <p><a class="big-link" href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a></p>
       <p>In the meantime, you might find these resources helpful:</p>
       <div class="thank-links">

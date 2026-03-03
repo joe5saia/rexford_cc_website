@@ -1,4 +1,16 @@
 {{ define "main" }}
+  {{/* Map service slugs to loan-type options so each service form pre-selects the matching financing type. */}}
+  {{ $loanTypeBySlug := dict
+    "bridge-loans" "Bridge Loan"
+    "business-line-of-credit" "Business Line of Credit"
+    "commercial-real-estate" "Commercial Real Estate"
+    "equipment-financing" "Equipment Financing"
+    "fix-and-flip" "Fix & Flip"
+    "rental-property-loans" "Rental Property Loan"
+    "small-business-loans" "Small Business Loan"
+  }}
+  {{ $selectedLoanType := index $loanTypeBySlug .File.BaseFileName }}
+
   <section class="page-band service-band">
     <div class="container">
       <h1>{{ .Title }}</h1>
@@ -37,6 +49,21 @@
       <ul>
         {{ range .Params.eligibility }}<li>{{ . }}</li>{{ end }}
       </ul>
+    </div>
+  </section>
+
+  <section class="section service-lead-capture">
+    <div class="container">
+      <div class="service-lead-card">
+        <div class="card-head">
+          <h2>See What You Qualify For</h2>
+          <p>Sarah and Craig have helped secure $3M in funding</p>
+        </div>
+        {{ partial "lead-form-inline.html" (dict
+          "source" (printf "Service Page: %s" .Title)
+          "loanType" $selectedLoanType
+        ) }}
+      </div>
     </div>
   </section>
 

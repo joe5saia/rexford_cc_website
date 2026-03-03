@@ -1,4 +1,41 @@
 {{ define "main" }}
+  {{/* Map the current blog slug to the most relevant financing program for contextual conversion prompts. */}}
+  {{ $slug := lower .File.BaseFileName }}
+  {{ $relatedServicePath := "/services/small-business-loans/" }}
+  {{ $relatedServiceTitle := "Small Business Loans" }}
+  {{ $relatedServiceSummary := "Compare SBA and conventional options for growth, acquisition, and working capital needs." }}
+  {{ if or (in $slug "equipment") (in $slug "truck") (in $slug "trucking") }}
+    {{ $relatedServicePath = "/services/equipment-financing/" }}
+    {{ $relatedServiceTitle = "Equipment Financing" }}
+    {{ $relatedServiceSummary = "Finance vehicles and business equipment with payment structures that protect cash flow." }}
+  {{ else if or (in $slug "flip") (in $slug "rehab") (in $slug "house-flipping") }}
+    {{ $relatedServicePath = "/services/fix-and-flip/" }}
+    {{ $relatedServiceTitle = "Fix & Flip Financing" }}
+    {{ $relatedServiceSummary = "Move quickly on acquisition and renovation projects with capital built for short timelines." }}
+  {{ else if or (in $slug "rental") (in $slug "real-estate") (in $slug "commercial") (in $slug "property") (in $slug "cmbs") }}
+    {{ $relatedServicePath = "/services/commercial-real-estate/" }}
+    {{ $relatedServiceTitle = "Commercial Real Estate Financing" }}
+    {{ $relatedServiceSummary = "Get matched with local lenders for purchase, refinance, and cash-out real estate transactions." }}
+  {{ else if or (in $slug "line-of-credit") (in $slug "cash-flow") (in $slug "invoice") (in $slug "factoring") (in $slug "merchant-cash-advance") }}
+    {{ $relatedServicePath = "/services/business-line-of-credit/" }}
+    {{ $relatedServiceTitle = "Business Line of Credit" }}
+    {{ $relatedServiceSummary = "Access revolving working capital for payroll, inventory, and short-term opportunities." }}
+  {{ end }}
+
+  {{/* Insert an inline CTA after paragraph 2-3 for longer posts while leaving short posts uninterrupted. */}}
+  {{ $contentWithInlineCta := .Content }}
+  {{ $paragraphCount := len (findRE `(?is)<p\b[^>]*>` .Content) }}
+  {{ $inlineCtaMarkup := partial "blog-inline-cta.html" (dict
+    "page" .
+    "relatedServicePath" $relatedServicePath
+    "relatedServiceTitle" $relatedServiceTitle
+  ) }}
+  {{ if ge $paragraphCount 6 }}
+    {{ $contentWithInlineCta = replaceRE `(?s)^((?:.*?</p>){3})` (printf "$1%s" $inlineCtaMarkup) $contentWithInlineCta 1 }}
+  {{ else if ge $paragraphCount 4 }}
+    {{ $contentWithInlineCta = replaceRE `(?s)^((?:.*?</p>){2})` (printf "$1%s" $inlineCtaMarkup) $contentWithInlineCta 1 }}
+  {{ end }}
+
   <section class="page-band">
     <div class="container blog-head">
       <span class="deal-tag business">{{ .Params.category }}</span>
@@ -9,13 +46,26 @@
   <section class="section">
     <div class="container blog-single-grid">
       <article class="prose">
-        {{ .Content }}
+        {{ $contentWithInlineCta | safeHTML }}
         <p><strong>By Rexford Commercial Capital</strong></p>
       </article>
       <aside class="blog-aside">
-        <h3>Ready to Get Funded?</h3>
-        <p><a class="big-link" href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a></p>
-        <p><a href="/get-started/" class="btn btn-primary">Get Started</a></p>
+        <div class="blog-aside-stack">
+          <section class="blog-aside-card">
+            <h3>Ready to Talk Financing?</h3>
+            <p class="blog-aside-meta">Sarah or Craig typically calls within 2 hours during business days.</p>
+            <p><a class="big-link" href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a></p>
+            <div class="blog-aside-cta-row">
+              <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+              <a href="/get-started/" class="btn btn-primary">Get Started</a>
+            </div>
+          </section>
+          <section class="blog-aside-card blog-aside-card-muted">
+            <h4>Recommended Program</h4>
+            <p>{{ $relatedServiceSummary }}</p>
+            <p><a class="blog-aside-service-link" href="{{ $relatedServicePath }}">{{ $relatedServiceTitle }} →</a></p>
+          </section>
+        </div>
       </aside>
     </div>
     <div class="container">
