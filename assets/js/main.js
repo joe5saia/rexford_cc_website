@@ -19,6 +19,9 @@ const closeMobileNav = () => {
   mobileNav?.classList.remove("open");
   overlay?.classList.remove("open");
   menuToggle?.setAttribute("aria-expanded", "false");
+  mobileNav?.setAttribute("aria-hidden", "true");
+  mobileNav?.setAttribute("inert", "");
+  menuToggle?.focus();
 };
 
 const desktopDropdownItems = Array.from(
@@ -73,6 +76,13 @@ menuToggle?.addEventListener("click", () => {
   mobileNav?.classList.toggle("open", open);
   overlay?.classList.toggle("open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
+  if (open) {
+    mobileNav?.setAttribute("aria-hidden", "false");
+    mobileNav?.removeAttribute("inert");
+  } else {
+    mobileNav?.setAttribute("aria-hidden", "true");
+    mobileNav?.setAttribute("inert", "");
+  }
 });
 
 overlay?.addEventListener("click", closeMobileNav);
@@ -93,7 +103,8 @@ document.addEventListener("click", (event) => {
 
 document.querySelectorAll(".mobile-parent-toggle").forEach((button) => {
   button.addEventListener("click", () => {
-    button.parentElement?.classList.toggle("expanded");
+    const expanded = button.parentElement?.classList.toggle("expanded");
+    button.setAttribute("aria-expanded", String(!!expanded));
   });
 });
 
@@ -236,8 +247,12 @@ if (stickyBar) {
         const heroVisible = entries[0].isIntersecting;
         if (heroVisible) {
           stickyBar.classList.remove("is-visible");
+          stickyBar.setAttribute("aria-hidden", "true");
+          stickyBar.setAttribute("inert", "");
         } else {
           stickyBar.classList.add("is-visible");
+          stickyBar.setAttribute("aria-hidden", "false");
+          stickyBar.removeAttribute("inert");
         }
       },
       { threshold: 0 }
@@ -249,8 +264,12 @@ if (stickyBar) {
         (entries) => {
           if (entries[0].isIntersecting) {
             stickyBar.classList.remove("is-visible");
+            stickyBar.setAttribute("aria-hidden", "true");
+            stickyBar.setAttribute("inert", "");
           } else if (trigger.getBoundingClientRect().bottom <= 0) {
             stickyBar.classList.add("is-visible");
+            stickyBar.setAttribute("aria-hidden", "false");
+            stickyBar.removeAttribute("inert");
           }
         },
         { threshold: 0.1 }

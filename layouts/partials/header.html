@@ -22,7 +22,7 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <a href="tel:{{ site.Params.phoneRaw }}" class="header-phone">{{ partial "icon.html" "phone" }}<span>{{ site.Params.phone }}</span></a>
+      <a href="tel:{{ site.Params.phoneRaw }}" class="header-phone" aria-label="Call {{ site.Params.phone }}">{{ partial "icon.html" "phone" }}<span>{{ site.Params.phone }}</span></a>
       <a href="/get-started/" class="btn btn-primary">Get Started</a>
     </div>
     <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
@@ -30,12 +30,12 @@
     </button>
   </div>
   <div class="mobile-nav-overlay"></div>
-  <nav class="mobile-nav" aria-label="Mobile navigation">
+  <nav class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
     <ul>
       {{ range site.Menus.main }}
         {{ if .HasChildren }}
           <li class="mobile-parent">
-            <button type="button" class="mobile-parent-toggle">{{ .Name }}</button>
+            <button type="button" class="mobile-parent-toggle" aria-expanded="false">{{ .Name }}</button>
             <ul>
               {{ range .Children }}
                 <li><a href="{{ .URL }}">{{ .Name }}</a></li>

@@ -4,9 +4,8 @@
     {{ partial "head.html" . }}
   </head>
   <body>
-    {{ if not .IsHome }}
-      {{ partial "header.html" . }}
-    {{ end }}
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    {{ partial "header.html" . }}
 
     <main id="main-content">
       {{ block "main" . }}{{ end }}
@@ -14,8 +13,8 @@
 
     {{ if not .IsHome }}
       {{ partial "cta-band.html" . }}
-      {{ partial "footer.html" . }}
     {{ end }}
+    {{ partial "footer.html" . }}
 
     {{ partial "sticky-bottom-bar.html" . }}
 

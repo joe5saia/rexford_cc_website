@@ -8,7 +8,7 @@
           <div class="service-icon">{{ partial "icon.html" .icon }}</div>
           <h3>{{ .name }}</h3>
           <p>{{ .short }}</p>
-          <a href="/services/{{ .slug }}/">Learn More →</a>
+          <a href="/services/{{ .slug }}/" aria-label="Learn more about {{ .name }}">Learn More →</a>
         </article>
       {{ end }}
     </div>

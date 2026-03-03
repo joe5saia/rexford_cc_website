@@ -14,7 +14,7 @@
           <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
           <p class="muted">{{ .Date.Format "January 2, 2006" }}</p>
           <p>{{ .Summary }}</p>
-          <a href="{{ .RelPermalink }}">Read More →</a>
+          <a href="{{ .RelPermalink }}" aria-label="Read more: {{ .Title }}">Read More →</a>
         </article>
       {{ end }}
     </div>

@@ -1,7 +1,7 @@
 {{/* Sticky bottom bar: appears after the hero (or page-band) scrolls out of
      view. Hidden on the thank-you page where the user has already converted. */}}
 {{ if ne .RelPermalink "/thank-you/" }}
-  <div class="sticky-bar" aria-label="Quick contact">
+  <div class="sticky-bar" aria-label="Quick contact" aria-hidden="true" inert>
     <div class="container sticky-bar-inner">
       <span class="sticky-bar-text">Ready to talk financing?</span>
       <div class="sticky-bar-actions">
