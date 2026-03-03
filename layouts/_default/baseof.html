@@ -17,6 +17,8 @@
       {{ partial "footer.html" . }}
     {{ end }}
 
+    {{ partial "sticky-bottom-bar.html" . }}
+
     {{ with resources.Get "js/main.js" }}
       {{ $mainScripts := . | minify | fingerprint }}
       <script src="{{ $mainScripts.RelPermalink }}" integrity="{{ $mainScripts.Data.Integrity }}" defer></script>

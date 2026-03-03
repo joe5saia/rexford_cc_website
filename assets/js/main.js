@@ -224,6 +224,42 @@ inquiryForms.forEach((form) => {
   });
 });
 
+// --- Sticky bottom bar: show after hero/page-band scrolls away ---
+const stickyBar = document.querySelector(".sticky-bar");
+if (stickyBar) {
+  const trigger = document.querySelector(".hero") || document.querySelector(".page-band");
+  const ctaBand = document.querySelector(".cta-band");
+
+  if (trigger) {
+    const showObserver = new IntersectionObserver(
+      (entries) => {
+        const heroVisible = entries[0].isIntersecting;
+        if (heroVisible) {
+          stickyBar.classList.remove("is-visible");
+        } else {
+          stickyBar.classList.add("is-visible");
+        }
+      },
+      { threshold: 0 }
+    );
+    showObserver.observe(trigger);
+
+    if (ctaBand) {
+      const hideObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            stickyBar.classList.remove("is-visible");
+          } else if (trigger.getBoundingClientRect().bottom <= 0) {
+            stickyBar.classList.add("is-visible");
+          }
+        },
+        { threshold: 0.1 }
+      );
+      hideObserver.observe(ctaBand);
+    }
+  }
+}
+
 // --- GA4: Phone click tracking ---
 document.addEventListener("click", (event) => {
   const link = event.target.closest('a[href^="tel:"]');
@@ -233,6 +269,10 @@ document.addEventListener("click", (event) => {
     ? "hero"
     : link.closest(".site-header")
       ? "header"
+      : link.closest(".blog-inline-cta")
+        ? "blog_inline"
+        : link.closest(".blog-aside")
+          ? "blog_aside"
       : link.closest(".cta-band")
         ? "cta_band"
         : link.closest(".gs-sidebar")
@@ -251,6 +291,10 @@ document.addEventListener("click", (event) => {
 
   const location = link.closest(".cta-band")
     ? "cta_band"
+    : link.closest(".blog-inline-cta")
+      ? "blog_inline"
+      : link.closest(".blog-aside")
+        ? "blog_aside"
     : link.closest(".team")
       ? "team"
       : link.closest(".site-footer")
@@ -271,6 +315,10 @@ document.addEventListener("click", (event) => {
     ? "header"
     : link.closest(".hero")
       ? "hero"
+      : link.closest(".blog-inline-cta")
+        ? "blog_inline"
+        : link.closest(".blog-aside")
+          ? "blog_aside"
       : link.closest(".how-it-works")
         ? "how_it_works"
         : link.closest(".cta-band")
