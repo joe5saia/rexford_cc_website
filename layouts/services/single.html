@@ -10,6 +10,41 @@
     "small-business-loans" "Small Business Loan"
   }}
   {{ $selectedLoanType := index $loanTypeBySlug .File.BaseFileName }}
+  {{ $serviceSchema := dict
+    "@context" "https://schema.org"
+    "@type" "Service"
+    "name" .Title
+    "serviceType" .Title
+    "description" .Params.summary
+    "areaServed" (slice
+      "Capital District, NY"
+      "Albany, NY"
+      "Saratoga Springs, NY"
+      "Glens Falls, NY"
+      "Troy, NY"
+      "Schenectady, NY"
+      "Adirondacks, NY"
+      "Lake Placid, NY"
+    )
+    "provider" (dict
+      "@type" "LocalBusiness"
+      "name" site.Title
+      "telephone" (printf "+%s" site.Params.phoneRaw)
+      "url" site.BaseURL
+    )
+    "url" .Permalink
+  }}
+  {{ $faqSchemaItems := slice }}
+  {{ range .Params.faqs }}
+    {{ $faqSchemaItems = $faqSchemaItems | append (dict
+      "@type" "Question"
+      "name" .q
+      "acceptedAnswer" (dict
+        "@type" "Answer"
+        "text" .a
+      )
+    ) }}
+  {{ end }}
 
   <section class="page-band service-band">
     <div class="container">
@@ -67,6 +102,8 @@
     </div>
   </section>
 
+  {{ partial "testimonials.html" . }}
+
   <section class="section alt">
     <div class="container">
       <h2>Frequently Asked Questions</h2>
@@ -101,5 +138,19 @@
       </div>
     </div>
   </section>
+
+  <script type="application/ld+json">
+    {{ $serviceSchema | jsonify | safeJS }}
+  </script>
+  {{ if gt (len $faqSchemaItems) 0 }}
+    {{ $faqPageSchema := dict
+      "@context" "https://schema.org"
+      "@type" "FAQPage"
+      "mainEntity" $faqSchemaItems
+    }}
+    <script type="application/ld+json">
+      {{ $faqPageSchema | jsonify | safeJS }}
+    </script>
+  {{ end }}
 
 {{ end }}

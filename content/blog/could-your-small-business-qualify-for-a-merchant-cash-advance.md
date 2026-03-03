@@ -29,4 +29,4 @@ Here are some of the common uses for merchant cash advances:
 
 • Bringing on needed equipment or tools  
 
-Give [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) a call if you are attracted to the possibility of obtaining a merchant cash advance. The helpful and courteous staff will answer any questions that you may have. If you are ready, they can get the application processes started. You can expect a decision on approval fairly quickly, generally within a day or two.
+Give [Rexford Commercial Capital](/get-started/) a call if you are attracted to the possibility of obtaining a merchant cash advance. The helpful and courteous staff will answer any questions that you may have. If you are ready, they can get the application processes started. You can expect a decision on approval fairly quickly, generally within a day or two.

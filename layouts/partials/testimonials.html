@@ -1,0 +1,17 @@
+{{ $testimonials := site.Data.testimonials }}
+{{ if gt (len $testimonials) 0 }}
+  <section class="section alt testimonials">
+    <div class="container">
+      <h2 class="section-title">What Clients Say</h2>
+      <p class="section-lead">Feedback from borrowers we have helped across the Capital District and Adirondacks.</p>
+      <div class="testimonials-grid">
+        {{ range $testimonials }}
+          <article class="testimonial-card">
+            <p class="testimonial-quote">"{{ .quote }}"</p>
+            <p class="testimonial-meta">{{ .name }}{{ with .business }} · {{ . }}{{ end }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

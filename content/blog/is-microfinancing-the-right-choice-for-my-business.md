@@ -7,7 +7,7 @@ readTime: "3 min read"
 featured: false
 ---
 
-If you’re a [ small business owner,](https://rexfordcommercialcapital.com/contact-us/) you know that it can be challenging to get a traditional bank loan. You typically need significant documentation that proves you will be able to pay back the money that you borrow. You will also need a high credit score and an established credit history. No matter how confident you are that you will be able to repay, if your documentation doesn’t prove that you can- the lender is likely to deny your application.
+If you’re a [ small business owner,](/get-started/) you know that it can be challenging to get a traditional bank loan. You typically need significant documentation that proves you will be able to pay back the money that you borrow. You will also need a high credit score and an established credit history. No matter how confident you are that you will be able to repay, if your documentation doesn’t prove that you can- the lender is likely to deny your application.
 
 If this is the situation that you’ve found yourself in, microfinancing may be an option. This type of funding is designed to generate income, manage risks, meet household needs, manage risks, and more. In this article, we’ll explain how to determine if microfinancing is the right choice for your business.
 
@@ -51,4 +51,4 @@ Microfinance covers a broad range of financial services for low-income communiti
 
 **Conclusion**
 
-If you’re a small business owner, you know that it can be challenging to get a business loan. If you find yourself unable to get financing, a microloan may be a good option. [Contact Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) if you are interested in considering a microloan for your business.
+If you’re a small business owner, you know that it can be challenging to get a business loan. If you find yourself unable to get financing, a microloan may be a good option. [Contact Rexford Commercial Capital](/get-started/) if you are interested in considering a microloan for your business.

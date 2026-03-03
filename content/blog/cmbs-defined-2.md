@@ -27,4 +27,4 @@ However, investors also need to understand that in case of a loan default (wheth
 
 Usually, only wealthy investors consider CMBS because the average investor does not have many options here. It is challenging to find exchange-traded funds (ETFs) or mutual funds that only invest in this asset group.
 
-If you are interested in investing in commercial properties, CMBS is not your only option. [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) provides commercial real estate financing to investors. Give us a call today, and we can help you find a loan product tailored to your needs.
+If you are interested in investing in commercial properties, CMBS is not your only option. [Rexford Commercial Capital](/get-started/) provides commercial real estate financing to investors. Give us a call today, and we can help you find a loan product tailored to your needs.

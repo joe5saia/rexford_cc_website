@@ -21,4 +21,4 @@ Debt is usually based on the owner’s equity and the perceived worthiness of th
 
 Debt can be an effective tool in facilitating a company’s growth. Leveraging your company needs a clear strategy, practical knowledge of the funds, and commitment. This allows you to meet your objectives, enhances your business growth, and prevents you from placing your business at risk.
 
-Are you looking for a company to leverage debt for your business? Contact us today at [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/), and let us be part of your business growth.
+Are you looking for a company to leverage debt for your business? Contact us today at [Rexford Commercial Capital](/get-started/), and let us be part of your business growth.

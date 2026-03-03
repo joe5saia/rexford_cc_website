@@ -29,4 +29,4 @@ Drawbacks of Annuities
 
 Once you set the distribution terms for annuities, it is difficult to change them, even if emergencies come up and you need additional funds. The fees for annuities are generally higher than those for retirement accounts from investment companies. The terms for annuities can be confusing, so you should consult with a financial professional before you finalize a purchase.
 
-For more advice on annuities, contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/).
+For more advice on annuities, contact [Rexford Commercial Capital](/get-started/).

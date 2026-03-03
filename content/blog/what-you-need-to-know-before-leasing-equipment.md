@@ -35,4 +35,4 @@ You always have a monthly payment. You can’t modify or customize the equipment
 
 Reliable equipment is essential for operating your business. Evaluating your company’s projected growth and finances will help you decide whether renting, financing or leasing equipment is best. Consulting with your tax advisor and seeking advice from your equipment dealer also provides you with accurate information for your decision.
 
-Rexford Commercial Capital offers equipment leasing and financing programs for all kinds of businesses. [Contact](https://rexfordcommercialcapital.com/contact-us/) our financial specialists today to select the option that best meets your needs. We always put the interests of your company first.
+Rexford Commercial Capital offers equipment leasing and financing programs for all kinds of businesses. [Contact](/get-started/) our financial specialists today to select the option that best meets your needs. We always put the interests of your company first.

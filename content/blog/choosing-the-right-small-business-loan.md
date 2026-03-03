@@ -21,4 +21,4 @@ When it comes to conventional loans, you can often get the money quickly and usu
 
 The loan you choose should be based on criteria like the amount you will need, what you need it for, and how long you will need to be able to pay back the loan in full.
 
-For more information on choosing a small business loan, please contact [Rexford Commerical Capital.](https://rexfordcommercialcapital.com/contact-us/) 
+For more information on choosing a small business loan, please contact [Rexford Commerical Capital.](/get-started/) 

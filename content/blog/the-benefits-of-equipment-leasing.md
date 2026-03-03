@@ -31,4 +31,4 @@ There is a possibility that leasing your equipment will make you eligible for so
 
 Another perk of a lease is that it makes it feasible to try newer, different equipment without the commitment of an outright purchase. You may not have the budget or money for a top-of-the-line piece of equipment- leasing makes it viable. Leasing provides businesses with the freedom to explore new equipment options, without the burden of using up all your liquidity to buy it.
 
-Need assistance in getting your business off the ground? Think about these benefits of leasing or renting equipment and talk to the industry experts at [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) to learn more today!
+Need assistance in getting your business off the ground? Think about these benefits of leasing or renting equipment and talk to the industry experts at [Rexford Commercial Capital](/get-started/) to learn more today!

@@ -55,4 +55,4 @@ Some lenders will require a down payment, collateral, or both. Find out how much
 
 ## Final Thoughts
 
-While you may feel like opening a franchise is a sure thing to success, you must understand that there are costs associated with this process that some people overlook. If you are interested in learning more about how to pay franchise costs, contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) today.
+While you may feel like opening a franchise is a sure thing to success, you must understand that there are costs associated with this process that some people overlook. If you are interested in learning more about how to pay franchise costs, contact [Rexford Commercial Capital](/get-started/) today.

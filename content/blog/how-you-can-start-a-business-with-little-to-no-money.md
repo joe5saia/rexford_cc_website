@@ -5,9 +5,10 @@ description: "Today’s digital society has opened up many business opportunitie
 category: "Finance"
 readTime: "3 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
-Today’s digital society has opened up many [business opportunities.](https://rexfordcommercialcapital.com/contact-us/) In addition, you can get ahold of many digital tools for a small, affordable investment. Some of these tools can even be used for free. These changes may allow you to open a startup for little to no investment.
+Today’s digital society has opened up many [business opportunities.](/get-started/) In addition, you can get ahold of many digital tools for a small, affordable investment. Some of these tools can even be used for free. These changes may allow you to open a startup for little to no investment.
 
 **Search for Free Resources**
 
@@ -29,4 +30,4 @@ You can also look into incubators and accelerators that provide guidance and inf
 
 You could also look into crowdfunding opportunities, where you present your ideas on a crowdfunding site and offer an exchange for the investments you receive. Some companies offer their crowdfunding investors the first products off the assembly line.
 
-[Starting a business](https://rexfordcommercialcapital.com/contact-us/) can be a daunting task, and if you don’t have thousands of dollars to invest personally, you may become so overwhelmed that you never realize your dreams. However, there are other options available to you. Consider these options as you build your startup plan.
+[Starting a business](/get-started/) can be a daunting task, and if you don’t have thousands of dollars to invest personally, you may become so overwhelmed that you never realize your dreams. However, there are other options available to you. Consider these options as you build your startup plan.

@@ -7,7 +7,7 @@ readTime: "3 min read"
 featured: false
 ---
 
-For real estate investors, commercial bridge loans can be a lifesaver. There are times when such professionals [seek short-term financing](https://rexfordcommercialcapital.com/contact-us/) to fill a need while they make arrangements for a more permanent lending arrangement. There are numerous pros and cons to these borrowing scenarios that deserve consideration. Here are some that responsible players in the real estate game ought to weigh before signing on the dotted line.
+For real estate investors, commercial bridge loans can be a lifesaver. There are times when such professionals [seek short-term financing](/get-started/) to fill a need while they make arrangements for a more permanent lending arrangement. There are numerous pros and cons to these borrowing scenarios that deserve consideration. Here are some that responsible players in the real estate game ought to weigh before signing on the dotted line.
 
 **Pros**
 
@@ -27,4 +27,4 @@ Further, these lending agreements impose high penalties in response to late paym
 
 Stopgap loans rely on a more permanent form of financing being available in short order. If replacement monies aren’t in place after the agreement has run its course, a real estate investor might have to scramble to find a solution.
 
-[Bridge loans](https://rexfordcommercialcapital.com/contact-us/) can be the ideal answer for real estate investors searching for a modest burst of funds. That said, these instruments come with drawbacks that borrowers must recognize. Weighing the benefits against the disadvantages is essential before moving ahead with such an arrangement.
+[Bridge loans](/get-started/) can be the ideal answer for real estate investors searching for a modest burst of funds. That said, these instruments come with drawbacks that borrowers must recognize. Weighing the benefits against the disadvantages is essential before moving ahead with such an arrangement.

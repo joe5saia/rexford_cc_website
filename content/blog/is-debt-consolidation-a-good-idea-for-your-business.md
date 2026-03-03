@@ -27,4 +27,4 @@ When you attain a good credit rating, you not only find favor in big financial i
 
 Debt consolidation allows you to combine all your debts into one. As such, that reduces the number of monthly payments and interest rates you have to pay. This can lead to you realizing some of the primary business objectives: minimizing expenses and maximizing profits. In such a case, you can help push your enterprise to greater heights.
 
-Running a successful business means you have to be vigilant, especially regarding the financial department. If you are not careful about how you handle your loans, you may be the reason why your business fails. Consult [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) today for all the financial assistance you require in your enterprise.
+Running a successful business means you have to be vigilant, especially regarding the financial department. If you are not careful about how you handle your loans, you may be the reason why your business fails. Consult [Rexford Commercial Capital](/get-started/) today for all the financial assistance you require in your enterprise.

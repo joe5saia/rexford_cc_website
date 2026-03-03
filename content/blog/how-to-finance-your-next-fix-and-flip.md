@@ -35,4 +35,4 @@ A bridge loan fills the gap when you are short on money to put down on your fix 
 
 Do you have a business line of credit? This could be enough to finance your fix and flip. Usually, this involves a revolving line of credit for your business, which is great for unexpected emergencies and opportunities.
 
-Got questions about financing your next fix and flip? Talk to the industry professionals at [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/), to learn more today.
+Got questions about financing your next fix and flip? Talk to the industry professionals at [Rexford Commercial Capital](/get-started/), to learn more today.

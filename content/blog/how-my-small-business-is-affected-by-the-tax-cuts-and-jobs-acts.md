@@ -47,4 +47,4 @@ The poll also asked how they planned to use their refunds- 22% planned to reduce
 
 Due to all of the changes brought on by the TCJA, you may feel uncomfortable when tax time rolls around. However, online tax platforms are updated on a regular basis to align with the latest tax codes. Of course, you can always hire an accountant to file your taxes- they can use their expertise to help reduce your tax liability. Plus, they are a real person that you can contact when you need help.
 
-[Contact Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) if you need help understanding the TCJA or if you need help with your taxes. We will help you make sure that you remain compliant so that you reduce your risk of audit.
+[Contact Rexford Commercial Capital](/get-started/) if you need help understanding the TCJA or if you need help with your taxes. We will help you make sure that you remain compliant so that you reduce your risk of audit.

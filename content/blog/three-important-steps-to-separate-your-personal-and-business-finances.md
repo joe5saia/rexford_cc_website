@@ -23,4 +23,4 @@ Now that you have a legal and tax identity for your company, you should open acc
 
 Incorporating your business and getting a tax ID number and separate accounts are good to show investors. They are also important to protect your credit scores if your enterprise does not turn out to be as successful as you plan.
 
-Contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) today.
+Contact [Rexford Commercial Capital](/get-started/) today.

@@ -35,4 +35,4 @@ Following are a few ways an MCA may benefit your small business:
 
 ## Final Thoughts
 
-At some point, every small business is going to need an infusion of funding. There are many different ways that you can get this funding for your business. One popular way is through a merchant cash advance. Contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) to learn more about MCAs and other potential solutions for your funding needs.
+At some point, every small business is going to need an infusion of funding. There are many different ways that you can get this funding for your business. One popular way is through a merchant cash advance. Contact [Rexford Commercial Capital](/get-started/) to learn more about MCAs and other potential solutions for your funding needs.

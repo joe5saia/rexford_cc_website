@@ -43,4 +43,4 @@ Cash flow can be improved by obtaining financing. Traditional loans can be sec
 
 ## Seek Expert Financing Assistance
 
-Contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/), based in Rexford, NY. We provide a wide range of commercial finance solutions and we put your company’s interests first. Get the financing solutions you can trust.
+Contact [Rexford Commercial Capital](/get-started/), based in Rexford, NY. We provide a wide range of commercial finance solutions and we put your company’s interests first. Get the financing solutions you can trust.

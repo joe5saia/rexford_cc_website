@@ -25,4 +25,4 @@ The IRS will consider any equipment lease to be a Non-Tax Lease if any of the fo
 
 ## **Considering Equipment Leasing for Your Small Business? **
 
-In many cases, we can help owners of small businesses to acquire the equipment needed to run your business. Contact us at [Rexford Commercial](https://rexfordcommercialcapital.com/contact-us/) Capital, so we can consider some possibilities for financing your equipment.
+In many cases, we can help owners of small businesses to acquire the equipment needed to run your business. Contact us at [Rexford Commercial](/get-started/) Capital, so we can consider some possibilities for financing your equipment.

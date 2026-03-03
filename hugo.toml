@@ -25,7 +25,7 @@ canonifyURLs = false
   ogImage = "/images/og-image.jpg"
 
 [params.social]
-  facebook = "https://www.facebook.com/rexfordcommercialcapital#"
+  facebook = "https://www.facebook.com/rexfordcommercialcapital/"
   linkedin = "https://www.linkedin.com/company/rexford-commercial-capital/"
 
 [markup]

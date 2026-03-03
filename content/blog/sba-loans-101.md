@@ -38,4 +38,4 @@ In addition, the SBA offers disaster loans, loans for international trade, and f
 
 ## Contact Rexford Capital
 
-If you are interested in obtaining an SBA loan, [Rexford Capital](https://rexfordcommercialcapital.com/contact-us/) can help. Give them a call today.
+If you are interested in obtaining an SBA loan, [Rexford Capital](/get-started/) can help. Give them a call today.

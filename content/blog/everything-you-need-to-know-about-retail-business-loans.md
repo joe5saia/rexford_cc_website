@@ -23,4 +23,4 @@ Small business administration loans have become typical funding among many busin
 
 There comes a time when you go through a crunch in your business but still need to keep your doors open and cater to your employees’ payslips. For instance, when there are floods in your business, you cannot close the doors because you still have to sell and pay anyone working for you. This is where short-term funding comes in as one of the best retail loans.
 
-As a business owner, you need to understand the tactics of getting the best funding to keep your operations afloat. Thankfully, you can contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) today to get all the financial information and assistance you may need for your retail shop.
+As a business owner, you need to understand the tactics of getting the best funding to keep your operations afloat. Thankfully, you can contact [Rexford Commercial Capital](/get-started/) today to get all the financial information and assistance you may need for your retail shop.

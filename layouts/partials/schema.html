@@ -1,37 +1,44 @@
 {{ if .IsHome }}
+  {{ $sameAs := slice site.Params.bbbURL }}
+  {{ with site.Params.social.linkedin }}
+    {{ $sameAs = $sameAs | append . }}
+  {{ end }}
+  {{ with site.Params.social.facebook }}
+    {{ $sameAs = $sameAs | append . }}
+  {{ end }}
+  {{ $localBusinessSchema := dict
+    "@context" "https://schema.org"
+    "@type" "LocalBusiness"
+    "name" site.Title
+    "url" site.BaseURL
+    "telephone" (printf "+%s" site.Params.phoneRaw)
+    "email" site.Params.email
+    "address" (dict
+      "@type" "PostalAddress"
+      "addressLocality" site.Params.address.city
+      "addressRegion" site.Params.address.region
+      "addressCountry" site.Params.address.country
+      "postalCode" site.Params.address.zip
+    )
+    "areaServed" (slice
+      "Capital District, NY"
+      "Albany, NY"
+      "Saratoga Springs, NY"
+      "Glens Falls, NY"
+      "Troy, NY"
+      "Schenectady, NY"
+      "Adirondacks, NY"
+      "Lake Placid, NY"
+    )
+    "sameAs" $sameAs
+    "openingHoursSpecification" (dict
+      "@type" "OpeningHoursSpecification"
+      "dayOfWeek" (slice "Monday" "Tuesday" "Wednesday" "Thursday" "Friday")
+      "opens" "09:00"
+      "closes" "17:00"
+    )
+  }}
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Rexford Commercial Capital",
-      "url": "https://rexfordcommercialcapital.com",
-      "telephone": "+15187919771",
-      "email": "info@rexfordcc.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Rexford",
-        "addressRegion": "NY",
-        "addressCountry": "US"
-      },
-      "areaServed": [
-        "Capital District, NY",
-        "Albany, NY",
-        "Saratoga Springs, NY",
-        "Glens Falls, NY",
-        "Troy, NY",
-        "Schenectady, NY",
-        "Adirondacks, NY",
-        "Lake Placid, NY"
-      ],
-      "sameAs": [
-        "{{ site.Params.bbbURL }}"
-      ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      }
-    }
+    {{ $localBusinessSchema | jsonify | safeJS }}
   </script>
 {{ end }}

@@ -25,4 +25,4 @@ Besides the convenience, you enjoy flexibility with trade finance. That is becau
 
 The sellers of the products you deal with feel much safer knowing that you will be making your payments through your financial provider. Besides giving them peace of mind, it also improves your relationship with the merchants, meaning business will be better.
 
-Dealing with the importation of products can present a lucrative opportunity, but you need to be cautious about your money. [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) is there to ensure you do not experience any financial struggles in your international business. Therefore, feel free to talk to them today.
+Dealing with the importation of products can present a lucrative opportunity, but you need to be cautious about your money. [Rexford Commercial Capital](/get-started/) is there to ensure you do not experience any financial struggles in your international business. Therefore, feel free to talk to them today.

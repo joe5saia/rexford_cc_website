@@ -21,4 +21,4 @@ Finance companies that handle truck factoring purchase account receivables at di
 
 Because the time between application and approval is brief, truck factoring provides quick solutions to financial emergencies. Even trucking businesses with poor credit ratings can qualify for this form of financing because factoring companies are more concerned with the creditworthiness of their clients. Although you may not qualify for traditional loans, truck factoring offers you access to funding that can strengthen your cash flow so you can handle running costs and take on more work.
 
-For more advice on truck factoring, get in touch with [Rexford Commercial Capital.](https://rexfordcommercialcapital.com/contact-us/)
+For more advice on truck factoring, get in touch with [Rexford Commercial Capital.](/get-started/)

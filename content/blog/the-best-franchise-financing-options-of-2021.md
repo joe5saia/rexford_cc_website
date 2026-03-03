@@ -23,4 +23,4 @@ One of the more robust options for financing a franchise is Funding Circle, whic
 
 You can also try Apple Pie Capital – it is touted as a superior option for franchise financing because it focuses exclusively on this type. They finance remodels, acquisitions, new units and even provide equipment loans separately. The options are definitely out there for you to start your dream of opening a franchise; hopefully, this gets you off on the right foot.
 
-Contact [ Rexford Commercial Capital](https://summitcommercialcapital.com/contact-us/)to get the financing you need for your franchise.
+Contact [ Rexford Commercial Capital](/get-started/)to get the financing you need for your franchise.

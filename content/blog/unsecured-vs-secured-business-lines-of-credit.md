@@ -53,4 +53,4 @@ Of course, this does not in any way indicate that unsecured lines of credit are 
 
 ## Conclusion
 
-When it comes to growth capital, there are several ways to obtain funding. One of these ways is through business lines of credit. As you see, there are two types. If you’re still not sure which one is right for you, please contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) to learn more.
+When it comes to growth capital, there are several ways to obtain funding. One of these ways is through business lines of credit. As you see, there are two types. If you’re still not sure which one is right for you, please contact [Rexford Commercial Capital](/get-started/) to learn more.

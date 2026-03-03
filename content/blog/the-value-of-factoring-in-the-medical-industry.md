@@ -31,4 +31,4 @@ The money that you have today is worth more than the money you will receive in t
 
 ## **Learn More**
 
-Discover more about accounts receivable factoring in the medical industry. This could be the solution you need to protect your business’s interests now and into the future. Stop stressing about collecting from your customers and start investing in your success. [Contact us](https://rexfordcommercialcapital.com/contact-us/) today and see if this is the right option for your practice.
+Discover more about accounts receivable factoring in the medical industry. This could be the solution you need to protect your business’s interests now and into the future. Stop stressing about collecting from your customers and start investing in your success. [Contact us](/get-started/) today and see if this is the right option for your practice.

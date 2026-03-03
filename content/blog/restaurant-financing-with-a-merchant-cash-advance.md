@@ -33,4 +33,4 @@ Additionally, there may be some fees such as an origination fee. However, some l
 
 ## **Learn More**
 
-Could a merchant cash advance be your answer to restaurant financing? This could be a way to get your restaurant business on the path to success. Beyond friends and family, this is one of the most popular ways to raise capital to cover initial restaurant expenses. [Contact us](https://rexfordcommercialcapital.com/contact-us/) today.
+Could a merchant cash advance be your answer to restaurant financing? This could be a way to get your restaurant business on the path to success. Beyond friends and family, this is one of the most popular ways to raise capital to cover initial restaurant expenses. [Contact us](/get-started/) today.

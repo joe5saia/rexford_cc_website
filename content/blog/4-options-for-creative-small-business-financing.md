@@ -27,4 +27,4 @@ If you have been planning to start a creative small business for a while, you ma
 
 ## Conclusion
 
-Creative financing requires you to look through various financing options to determine the most suitable one. Our professionals at [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) are willing to walk you through this process.
+Creative financing requires you to look through various financing options to determine the most suitable one. Our professionals at [Rexford Commercial Capital](/get-started/) are willing to walk you through this process.

@@ -4,8 +4,23 @@
     <p class="section-lead">A sample of transactions we've recently facilitated for clients in the Capital District and Adirondacks.</p>
     <div class="deals-grid">
       {{ range index site.Data "funded-deals" }}
+        {{ $dealIcon := "briefcase" }}
+        {{ if eq .type "Commercial Real Estate" }}
+          {{ $dealIcon = "building" }}
+        {{ else if eq .type "Equipment Financing" }}
+          {{ $dealIcon = "truck" }}
+        {{ else if eq .type "Fix & Flip" }}
+          {{ $dealIcon = "hammer" }}
+        {{ else if eq .type "Business Line of Credit" }}
+          {{ $dealIcon = "credit-card" }}
+        {{ else if eq .type "Rental Property Loan" }}
+          {{ $dealIcon = "home" }}
+        {{ end }}
         <article class="deal-card">
-          <span class="deal-tag {{ .category }}">{{ .type }}</span>
+          <div class="deal-head">
+            <span class="deal-tag {{ .category }}">{{ .type }}</span>
+            <span class="deal-type-icon">{{ partial "icon.html" $dealIcon }}</span>
+          </div>
           <h3>{{ .amount }}</h3>
           <p class="muted">{{ .location }}</p>
           <p>{{ .description }}</p>

@@ -5,9 +5,10 @@ description: "As business owners, women may feel isolated or have questions abou
 category: "Finance"
 readTime: "3 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
-As business owners, women may feel isolated or have questions about their entrepreneurial journey. There are many ways women can connect with others and help their businesses thrive. Businesses require several things, like funding, a place to sell products or services, and marketing. While it may be tempting to do everything alone, connecting with others can help with camaraderie, and you may learn something new. Women in [business can grow](https://rexfordcommercialcapital.com/contact-us/) their network in several ways and make new friends, grow their customer base, and find mentors.
+As business owners, women may feel isolated or have questions about their entrepreneurial journey. There are many ways women can connect with others and help their businesses thrive. Businesses require several things, like funding, a place to sell products or services, and marketing. While it may be tempting to do everything alone, connecting with others can help with camaraderie, and you may learn something new. Women in [business can grow](/get-started/) their network in several ways and make new friends, grow their customer base, and find mentors.
 
 **Join a Group**
 
@@ -25,4 +26,4 @@ Your local chamber of commerce is a place to connect with other entrepreneurs. U
 
 If your local community is looking for sponsors for an upcoming event, consider becoming one. It is a way to get your name and business seen by hundreds or thousands of people and bring in new customers and other business owners. Depending on your niche, you may want to jointly sponsor an event with another woman in business and expand your network even further.
 
-Women-owned businesses should try all of these tactics to grow their network. Networking may be daunting, but it is essential to [helping your business grow.](https://rexfordcommercialcapital.com/contact-us/)
+Women-owned businesses should try all of these tactics to grow their network. Networking may be daunting, but it is essential to [helping your business grow.](/get-started/)

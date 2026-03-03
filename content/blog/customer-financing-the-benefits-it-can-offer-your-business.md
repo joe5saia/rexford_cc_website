@@ -27,4 +27,4 @@ It may seem like you are at a loss, but you get the total payment upfront, even 
 
 Some lenders may charge you for customer financing, but others offer this service free. The only expense you can incur in such a case is the standard per-transaction fee.
 
-Keeping your customers satisfied is the key to a successful enterprise. That is why it is advisable to consult [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) for all the questions and assistance you may need to run your enterprise.
+Keeping your customers satisfied is the key to a successful enterprise. That is why it is advisable to consult [Rexford Commercial Capital](/get-started/) for all the questions and assistance you may need to run your enterprise.

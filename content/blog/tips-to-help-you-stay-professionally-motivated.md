@@ -5,9 +5,10 @@ description: "Busy professionals and entrepreneurs typically tend to have strong
 category: "Finance"
 readTime: "3 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
-[Busy professionals and entrepreneurs](https://rexfordcommercialcapital.com/contact-us/) typically tend to have strong work ethics and drive. However, it is important to recognize that continually working with vigor and being willing to put in the hard work that’s necessary to overcome formidable challenges can be both physically and psychologically draining. Taking active steps to maintain your momentum and wherewithal can help you surmount obstacles, do good work, and reach your goals.
+[Busy professionals and entrepreneurs](/get-started/) typically tend to have strong work ethics and drive. However, it is important to recognize that continually working with vigor and being willing to put in the hard work that’s necessary to overcome formidable challenges can be both physically and psychologically draining. Taking active steps to maintain your momentum and wherewithal can help you surmount obstacles, do good work, and reach your goals.
 
 **Cultivate Smart Habits**
 
@@ -25,4 +26,4 @@ Start with the tasks that take some serious effort and concentration. By getting
 
 Establishing both professional and personal relationships with people who share your type of ambition and work ethic reinforces your positive self-image. When most of your interactions are with people who are unhappy or professionally uninspired, that low energy can drag down your energy. In contrast, immersing yourself in relationships with critical thinkers and problem solvers who conduct themselves with purpose reminds you about who you want to be. Simply put, the people who you surround yourself with can bring out the best in you.
 
-Lastly, you have to be mindful to pace yourself. Don’t continually ask too much of yourself, and take time to decompress when you need it. Set [your goals](https://rexfordcommercialcapital.com/contact-us/) reasonably and celebrate your own progress as you move towards them.
+Lastly, you have to be mindful to pace yourself. Don’t continually ask too much of yourself, and take time to decompress when you need it. Set [your goals](/get-started/) reasonably and celebrate your own progress as you move towards them.

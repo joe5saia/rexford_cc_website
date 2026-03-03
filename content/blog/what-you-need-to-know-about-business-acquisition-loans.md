@@ -7,7 +7,7 @@ readTime: "5 min read"
 featured: false
 ---
 
-While it’s true that [ expanding your business](https://rexfordcommercialcapital.com/contact-us/) can be a good idea- most small businesses don’t have the capital they need to do so. Therefore, a business acquisition loan is often the best option. In this article, we’ll explain what you need to know about this type of business funding.
+While it’s true that [ expanding your business](/get-started/) can be a good idea- most small businesses don’t have the capital they need to do so. Therefore, a business acquisition loan is often the best option. In this article, we’ll explain what you need to know about this type of business funding.
 
 **Business Acquisition Loans Explained**
 
@@ -75,4 +75,4 @@ Due to the risks, we suggest that you take the time to ensure that you’re maki
 
 **Conclusion**
 
-There are lots of ways that your small business can obtain financing- but if your goal is to buy another business, a business acquisition loan is the best option. If you need help determining the best financing for you and whether or not now is a good time to buy another business, [contact Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) to learn more about business financing, including business acquisition loans.
+There are lots of ways that your small business can obtain financing- but if your goal is to buy another business, a business acquisition loan is the best option. If you need help determining the best financing for you and whether or not now is a good time to buy another business, [contact Rexford Commercial Capital](/get-started/) to learn more about business financing, including business acquisition loans.

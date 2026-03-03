@@ -21,4 +21,4 @@ Dealing in commercial properties is more complex than dealing with residences. F
 
 When you deal with vacant land, your transaction and listing efforts are easier because of the lack of floor plans, structural inspections, and insurance. Commissions can be quite high as well because of the size of properties. Keep in mind, though, that because many of the properties may be outside the city, you may have to cover a wider area.
 
-For more advice on real estate careers, get in touch with [Rexford Commercial Capital.](https://rexfordcommercialcapital.com/contact-us/)
+For more advice on real estate careers, get in touch with [Rexford Commercial Capital.](/get-started/)

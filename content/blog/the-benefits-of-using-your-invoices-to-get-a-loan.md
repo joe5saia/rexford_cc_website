@@ -7,7 +7,7 @@ readTime: "3 min read"
 featured: false
 ---
 
-It can be a challenge to stay ahead of your expenses when you have to wait a month to get the money that is owed to you. You may have to put off essential repairs or changes that should be completed immediately. When you use [AR Financing](https://rexfordcommercialcapital.com/contact-us/), you get your cash right away while your lender works with your customer. Here are a few benefits of using your invoices to get a loan.
+It can be a challenge to stay ahead of your expenses when you have to wait a month to get the money that is owed to you. You may have to put off essential repairs or changes that should be completed immediately. When you use [AR Financing](/get-started/), you get your cash right away while your lender works with your customer. Here are a few benefits of using your invoices to get a loan.
 
 **Your Debt Stays the Same**
 
@@ -19,4 +19,4 @@ Some lenders who offer this type of program will allow you to choose which invoi
 
 **Get the Best Rate For Your Invoices**
 
-Before you finalize your plans to sell your invoices to a lender, check your options to find out which organization will give you the most money and charge fewer fees. You want to get the best value for what you have to offer. Once you narrow down your choices, verify what the qualifications are to solidify a partnership with them. There are multiple AR Financing companies on the market who wish to do business with you. Be sure that it is a profitable situation for you so that you can operate your company with an [ ideal cash flow](https://rexfordcommercialcapital.com/contact-us/) and few issues.
+Before you finalize your plans to sell your invoices to a lender, check your options to find out which organization will give you the most money and charge fewer fees. You want to get the best value for what you have to offer. Once you narrow down your choices, verify what the qualifications are to solidify a partnership with them. There are multiple AR Financing companies on the market who wish to do business with you. Be sure that it is a profitable situation for you so that you can operate your company with an [ ideal cash flow](/get-started/) and few issues.

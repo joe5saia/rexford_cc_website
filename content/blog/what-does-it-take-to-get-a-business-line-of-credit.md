@@ -7,7 +7,7 @@ readTime: "3 min read"
 featured: false
 ---
 
-Many small business owners wind up with the impression that finding financing is difficult for small companies. While that might be true for certain kinds of bank loans, it is not universally true. In fact, some short-term credit products are incredibly easy to qualify for, provided you have an asset to use as collateral and clear documentation of your company’s monthly income. [Business lines of credit are flexible and reusable](https://rexfordcommercialcapital.com/contact-us/) and they leave you with additional options like invoice financing if you need to dig in for funding from two sources to make the most of an opportunity.
+Many small business owners wind up with the impression that finding financing is difficult for small companies. While that might be true for certain kinds of bank loans, it is not universally true. In fact, some short-term credit products are incredibly easy to qualify for, provided you have an asset to use as collateral and clear documentation of your company’s monthly income. [Business lines of credit are flexible and reusable](/get-started/) and they leave you with additional options like invoice financing if you need to dig in for funding from two sources to make the most of an opportunity.
 
 **Unsecured vs. Secured Credit Lines**
 
@@ -23,4 +23,4 @@ Credit line approvals do not take very long under most circumstances. You should
 
 **Managing Cash Flow With Lines of Credit**
 
-Since you can typically manage your debt independently, credit lines make ideal tools for cash management. Tap into yours to make payments on time, then pay it back off when customers pay invoices or banking partners make deposits from various income streams. However you set it up, the flexibility of a credit line is what makes it such a [valuable financial tool.](https://rexfordcommercialcapital.com/contact-us/)
+Since you can typically manage your debt independently, credit lines make ideal tools for cash management. Tap into yours to make payments on time, then pay it back off when customers pay invoices or banking partners make deposits from various income streams. However you set it up, the flexibility of a credit line is what makes it such a [valuable financial tool.](/get-started/)

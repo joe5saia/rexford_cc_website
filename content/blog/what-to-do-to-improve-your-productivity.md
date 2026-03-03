@@ -5,9 +5,10 @@ description: "Your production directly affects your success and ability to reach
 category: "Finance"
 readTime: "3 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
-Your production directly affects your success and ability to [reach your goals](https://rexfordcommercialcapital.com/contact-us/). If you are like most productive individuals, you wake up with a to-do list, but do you finish it every day? It’s easy to get distracted, and unexpected things come up throughout the day that may tear you away from your to-do list. These are a few tips to increase your productivity.
+Your production directly affects your success and ability to [reach your goals](/get-started/). If you are like most productive individuals, you wake up with a to-do list, but do you finish it every day? It’s easy to get distracted, and unexpected things come up throughout the day that may tear you away from your to-do list. These are a few tips to increase your productivity.
 
 **Prioritize Your List**
 
@@ -27,4 +28,4 @@ As a business manager or owner, you may not have to report to anyone above you. 
 
 At the end of the last century, everyone was looking for ways to multitask. Getting more than one thing done at the same time seemed to improve efficiency and productivity. However, instead of doing a single job well, multitaskers learned to do several tasks acceptably. In addition, because your attention is divided, you actually do less in the same amount of time. Therefore, focus on one task until it is completed. Then, move on to the next.
 
-These are just a few strategies you can adopt to help you [improve your productivity](https://rexfordcommercialcapital.com/contact-us/). Consider testing them to see how much you can cross off your new to-do list.
+These are just a few strategies you can adopt to help you [improve your productivity](/get-started/). Consider testing them to see how much you can cross off your new to-do list.

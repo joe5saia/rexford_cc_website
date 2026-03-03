@@ -5,6 +5,7 @@ description: "All around the world, we are still in the midst of The Great Resig
 category: "Finance"
 readTime: "2 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
 All around the world, we are still in the midst of The Great Resignation. As headlines continue to publicize the fact that recent quitters are happy with their decision, more and more are moving in this direction.
@@ -35,4 +36,4 @@ Investing in your managers is one of the few investments that will consistently 
 
 As a business owner, it’s important to understand that whatever you allow is what you are promoting. If you have poor management, it’s because you have not put rewards or consequences in place to encourage different behaviors.
 
-There are lots of advantages associated with investing in your managers and very few disadvantages. This is the best way to create top performers across all levels of your company. If you need help with manager training, [contact Rexford Commercial Capital.](https://rexfordcommercialcapital.com/contact-us/)
+There are lots of advantages associated with investing in your managers and very few disadvantages. This is the best way to create top performers across all levels of your company. If you need help with manager training, [contact Rexford Commercial Capital.](/get-started/)

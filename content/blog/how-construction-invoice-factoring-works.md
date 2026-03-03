@@ -33,4 +33,4 @@ Construction invoice factoring provides capital for a company to navigate unexpe
 
 Whether you have an unexpected expense or simply need financing to continue operations, construction invoice factoring can help. By providing financing based on outstanding invoices, you can get the money you need from the work you’ve already done, so your organization can continue to be successful.
 
-Contact [Rexford Commercial Capita](https://rexfordcommercialcapital.com/contact-us/)l for more on commercial financing solutions that you can trust.
+Contact [Rexford Commercial Capita](/get-started/)l for more on commercial financing solutions that you can trust.

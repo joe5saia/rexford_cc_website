@@ -27,4 +27,4 @@ One of the challenges you get when purchasing equipment for any purpose is the d
 
 Equipment leasing increases the opportunity to enjoy tax exemptions and deductions, according to Qualified Financing Deductions’ section 179.
 
-It is critical to have the right equipment to ensure your operations are as smooth as possible. If you lack the money to lease the necessary pieces, contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) for the best financial help and guidance.
+It is critical to have the right equipment to ensure your operations are as smooth as possible. If you lack the money to lease the necessary pieces, contact [Rexford Commercial Capital](/get-started/) for the best financial help and guidance.

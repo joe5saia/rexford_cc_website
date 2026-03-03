@@ -5,9 +5,10 @@ description: "If you are looking to start a company that provides in-home health
 category: "Finance"
 readTime: "3 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
-If you are looking to start a company that provides in-home healthcare services, be sure to take the time to define your short- and long-term goals. Providing excellent service and keeping satisfied employees will go a long way to [establishing a successful enterprise](https://rexfordcommercialcapital.com/contact-us/). Here are some things to get you started as you begin your journey in-home care.
+If you are looking to start a company that provides in-home healthcare services, be sure to take the time to define your short- and long-term goals. Providing excellent service and keeping satisfied employees will go a long way to [establishing a successful enterprise](/get-started/). Here are some things to get you started as you begin your journey in-home care.
 
 **Identify Your Clients**
 
@@ -37,4 +38,4 @@ Your office team is the backbone of your home healthcare business. Office manage
 
 Recruiting and retaining top-notch caregivers will be the second cornerstone of your company. These care providers are the person that your clients meet and see daily. They will communicate their needs through them. Being a caregiver can be difficult, so continue to express your appreciation for their efforts.
 
-With these easy steps, you can get your home care business up and running. Monitor your marketing strategy and continue meeting the needs of your target audience. Finally, keep your employees satisfied, and your [business will be successful.](https://rexfordcommercialcapital.com/contact-us/)
+With these easy steps, you can get your home care business up and running. Monitor your marketing strategy and continue meeting the needs of your target audience. Finally, keep your employees satisfied, and your [business will be successful.](/get-started/)

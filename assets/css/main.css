@@ -318,6 +318,26 @@ img { max-width: 100%; height: auto; }
 
 .deals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .deal-card { background: #fff; border: 1px solid var(--color-border); box-shadow: var(--shadow-card); border-radius: 6px; padding: 1rem; }
+.deal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.deal-type-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-primary);
+}
+.deal-type-icon svg {
+  width: 15px;
+  height: 15px;
+}
 .deal-tag {
   display: inline-block;
   border-radius: 999px;
@@ -497,6 +517,28 @@ img { max-width: 100%; height: auto; }
   font-size: 0.92rem;
   color: var(--color-text-secondary);
 }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.testimonial-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: var(--shadow-card);
+  padding: 1rem;
+}
+.testimonial-quote {
+  margin: 0;
+  font-style: italic;
+}
+.testimonial-meta {
+  margin: 0.8rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 .prose { max-width: 700px; }
 .service-metrics { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0 1.2rem; }
 .service-metrics span {
@@ -550,6 +592,18 @@ img { max-width: 100%; height: auto; }
 .sticky-bar-phone:hover { text-decoration: none; color: var(--color-accent); }
 .sticky-bar-phone svg { width: 16px; height: 16px; }
 .sticky-bar-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+
+/* In-body links should not rely on color alone to convey interactivity. */
+.prose a,
+.lead-form a,
+.team-contact a,
+.site-footer a,
+.blog-aside a:not(.btn),
+.blog-inline-cta a:not(.btn) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.site-footer .bbb-seal-link { text-decoration: none; }
 
 .service-lead-capture { padding-top: 0; }
 .service-lead-card {
@@ -612,7 +666,7 @@ img { max-width: 100%; height: auto; }
   .mobile-parent-toggle { width: 100%; text-align: left; background: #f3f3f3; border: 0; padding: 0.75rem; border-radius: 4px; font: inherit; cursor: pointer; }
   .hero-grid { grid-template-columns: 1fr; padding-top: 7rem; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
-  .steps-grid, .team-grid, .deals-grid, .cta-options, .thank-links, .gs-grid, .blog-grid, .blog-single-grid { grid-template-columns: 1fr; }
+  .steps-grid, .team-grid, .deals-grid, .testimonials-grid, .cta-options, .thank-links, .gs-grid, .blog-grid, .blog-single-grid { grid-template-columns: 1fr; }
   .blog-inline-actions {
     flex-direction: column;
     align-items: stretch;

@@ -9,7 +9,7 @@ featured: false
 
 These days, most people live on their mobile devices. Business owners use them to stay connected while traveling between appointments/job sites, or to check-in while on their personal time. Since we live in such a fast-paced society, it’s hard to find time to sit down at a desk or in front of your computer to take care of the bookkeeping tasks needed to keep your business functioning- whether this means looking up information or getting your invoices out on time.
 
-Today’s mobile [financial management apps](https://rexfordcommercialcapital.com/contact-us/) allow business owners to access/manage small business finances no matter where they are or what time it is. This will help you save time so that you can focus on growing your business.
+Today’s mobile [financial management apps](/get-started/) allow business owners to access/manage small business finances no matter where they are or what time it is. This will help you save time so that you can focus on growing your business.
 
 **Invoicing**
 
@@ -49,4 +49,4 @@ The flexibility of being able to access records on the go is critical for small 
 
 **Conclusion**
 
-As a small business owner, you know that time is critical. You must find ways to be more efficient and leverage the time that you have. If you need help finding the best app for your business, [contact Rexford Commercial Capital.](https://rexfordcommercialcapital.com/contact-us/) We can help you manage your small business finances whether you’re in the office or traveling.
+As a small business owner, you know that time is critical. You must find ways to be more efficient and leverage the time that you have. If you need help finding the best app for your business, [contact Rexford Commercial Capital.](/get-started/) We can help you manage your small business finances whether you’re in the office or traveling.

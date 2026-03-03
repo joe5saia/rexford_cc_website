@@ -31,4 +31,4 @@ While accuracy is important when you’re making a budget, you also don’t want
 
 Creating a budget can seem daunting, but it’s essential to your success. With a thoughtful approach and the right resources, you can craft a budget that steers your company in the right direction.
 
-There’s more to being a great financing business than offering business credit. At [Rexford Commercial Capital,](https://rexfordcommercialcapital.com/contact-us/) what makes our team stand out is the way we put your company’s interests first. We believe that showing our clients they can always trust us is the most important thing. Discover the difference for yourself by applying for commercial finance solutions you can trust.
+There’s more to being a great financing business than offering business credit. At [Rexford Commercial Capital,](/get-started/) what makes our team stand out is the way we put your company’s interests first. We believe that showing our clients they can always trust us is the most important thing. Discover the difference for yourself by applying for commercial finance solutions you can trust.

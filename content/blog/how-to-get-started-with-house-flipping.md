@@ -27,4 +27,4 @@ Investing in real estate means you have to be financially stable. The capital yo
 
 You cannot be successful in house flipping unless you connect with the right people. Additionally, you need to get the bits of marketing your first flipped property to ensure you land with the best clients. The best platforms to take advantage of are creating a website and social media profiles.
 
-The real estate sector is broad, but if you choose to venture into property flipping, you will be deciding wisely. That is why it is advisable to talk to [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) to ensure you get the financial help you need to take your profession off the ground.
+The real estate sector is broad, but if you choose to venture into property flipping, you will be deciding wisely. That is why it is advisable to talk to [Rexford Commercial Capital](/get-started/) to ensure you get the financial help you need to take your profession off the ground.

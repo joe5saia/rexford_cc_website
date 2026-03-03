@@ -173,6 +173,11 @@ inquiryForms.forEach((form) => {
     event.preventDefault();
 
     if (!form.checkValidity()) {
+      setFormStatus(
+        form,
+        "Please complete all required fields marked with * before submitting.",
+        "is-error"
+      );
       form.reportValidity();
       return;
     }
@@ -224,7 +229,7 @@ inquiryForms.forEach((form) => {
       });
       setFormStatus(
         form,
-        "We could not submit your request right now. Please call 518-791-9771.",
+        "We could not submit your request right now. Please call 518-791-9771 or email info@rexfordcc.com.",
         "is-error"
       );
     } finally {

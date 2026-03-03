@@ -7,7 +7,7 @@ readTime: "4 min read"
 featured: false
 ---
 
-When you apply for [financing](https://rexfordcommercialcapital.com/contact-us/) from a reputable business lender, you can make investments in your short-term and long-term goals for your floral business. Plus, you can make yourself stand out to potential clients.
+When you apply for [financing](/get-started/) from a reputable business lender, you can make investments in your short-term and long-term goals for your floral business. Plus, you can make yourself stand out to potential clients.
 
 As the owner of a floral business, you need to be aware that you have several options for business financing. You may pursue an SBA loan, alternative lending solutions, bad credit business loan, line of credit, credit cards, or even a merchant cash advance.
 
@@ -55,4 +55,4 @@ Cash flow is everything when it comes to the success of a business. If you don�
 
 **Conclusion**
 
-Now that you understand how you can leverage a small business loan for your floral business, take some time to review your business plan. This will help you prepare to apply for a business loan. When you’re ready to move forward, [contact Rexford Commercial Capital ](https://rexfordcommercialcapital.com/contact-us/)to get started.
+Now that you understand how you can leverage a small business loan for your floral business, take some time to review your business plan. This will help you prepare to apply for a business loan. When you’re ready to move forward, [contact Rexford Commercial Capital ](/get-started/)to get started.

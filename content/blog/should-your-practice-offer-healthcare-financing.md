@@ -41,4 +41,4 @@ In the end, healthcare systems that spend a lot are simply not sustainable. Howe
 
 ## Conclusion
 
-If you would be interested in learning more about what healthcare financing can do for your practice, contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) today. We will be more than happy to help!
+If you would be interested in learning more about what healthcare financing can do for your practice, contact [Rexford Commercial Capital](/get-started/) today. We will be more than happy to help!

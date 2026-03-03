@@ -5,6 +5,7 @@ description: "In today’s global market, businesses across all industries have 
 category: "Finance"
 readTime: "4 min read"
 featured: false
+robots: "noindex, follow"
 ---
 
 In today’s global market, businesses across all industries have to work hard to attract and retain employees. However, due to the Great Resignation, in March 2022, job openings reached 11.5 million. This proves that businesses are having a difficult time standing out from the competition. If you believe that the labor shortage is affecting your business, here are five strategies that you can use to recruit and hire people who are qualified.
@@ -37,4 +38,4 @@ While many businesses are moving to remote work, not all businesses can do this 
 
 **Conclusion**
 
-Competitors are not going to take it easy when vying for the best candidates- and neither should you. In order to survive this labor shortage, you need to fight just as hard as they are. If you need more help learning to stand above the crowd, [contact Rexford Commercial Capital.](https://rexfordcommercialcapital.com/contact-us/) We can help.
+Competitors are not going to take it easy when vying for the best candidates- and neither should you. In order to survive this labor shortage, you need to fight just as hard as they are. If you need more help learning to stand above the crowd, [contact Rexford Commercial Capital.](/get-started/) We can help.

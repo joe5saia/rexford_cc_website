@@ -37,4 +37,4 @@ Fractional ownership, on the other hand, allows you to remain in control over wh
 
 ## Conclusion
 
-Commercial real estate investment is a great option if you have the funds and the risk tolerance to do it. Of course, there are safer ways to invest as well. Contact [Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) today to learn more about real estate investment. We can help you decide if it is right for you and your portfolio.
+Commercial real estate investment is a great option if you have the funds and the risk tolerance to do it. Of course, there are safer ways to invest as well. Contact [Rexford Commercial Capital](/get-started/) today to learn more about real estate investment. We can help you decide if it is right for you and your portfolio.

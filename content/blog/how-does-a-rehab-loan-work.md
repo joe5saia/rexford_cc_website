@@ -37,4 +37,4 @@ Real estate experience: Lenders want to be sure they are working with someone th
 
 Income: You will also need a steady income.
 
-[Rexford Commercial Capital](https://rexfordcommercialcapital.com/contact-us/) is a qualified lender offering rehab loans to real estate investors. Our clients include contractors, rehabbers, and real estate investors seeking funding to rehabilitate homes. Give us a call, and we will help finance your next rehab project.
+[Rexford Commercial Capital](/get-started/) is a qualified lender offering rehab loans to real estate investors. Our clients include contractors, rehabbers, and real estate investors seeking funding to rehabilitate homes. Give us a call, and we will help finance your next rehab project.

@@ -9,7 +9,7 @@ featured: false
 
 If you own an auto repair business, you know that it can be a bit of a challenge sometimes to keep it running when you don’t have the funds available. After all, you need to make sure you have the cash to keep the right parts, supplies, and equipment so that you can provide stellar customer service to your clients.
 
-Unfortunately, you are faced with a variety of challenges. Typically, the automotive parts/supply vendors have very few credit options and those that do have poor credit terms. Therefore, they are a bad option for your business’s bottom line. Often, what ends up happening is that you need to seek [other financing options](https://rexfordcommercialcapital.com/contact-us/) for your business needs.
+Unfortunately, you are faced with a variety of challenges. Typically, the automotive parts/supply vendors have very few credit options and those that do have poor credit terms. Therefore, they are a bad option for your business’s bottom line. Often, what ends up happening is that you need to seek [other financing options](/get-started/) for your business needs.
 
 In this article, we’ll explain to you 3 financing options for your auto repair business needs to help you on track for success.
 
@@ -67,4 +67,4 @@ There are also a few disadvantages as well, including the approval being depende
 
 If you own an auto repair business, you know that funds can get tight from time to time and if you’re like most people, you may not have any extra cash stashed away for times like these. However, there are some options. The top 3 financing options for your auto repair business needs are commercial bank loans, business line of credit, or SBA loans.
 
-If you want to move forward with applying for one of these options, [contact Rexford Commercial Capital.](https://rexfordcommercialcapital.com/contact-us/) Also, if none of these will work for you, we can help you find something that will.
+If you want to move forward with applying for one of these options, [contact Rexford Commercial Capital.](/get-started/) Also, if none of these will work for you, we can help you find something that will.
