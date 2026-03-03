@@ -17,7 +17,10 @@
       {{ partial "footer.html" . }}
     {{ end }}
 
-    <script src="/js/main.js" defer></script>
+    {{ with resources.Get "js/main.js" }}
+      {{ $mainScripts := . | minify | fingerprint }}
+      <script src="{{ $mainScripts.RelPermalink }}" integrity="{{ $mainScripts.Data.Integrity }}" defer></script>
+    {{ end }}
     {{ partial "schema.html" . }}
   </body>
 </html>

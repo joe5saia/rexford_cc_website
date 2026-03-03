@@ -1,4 +1,34 @@
 <section class="hero" id="top">
+  {{ with resources.Get "images/hero-bg.jpg" }}
+    {{ $hero := . }}
+    {{ $hero640Jpg := $hero.Resize "640x jpg q82" }}
+    {{ $hero1024Jpg := $hero.Resize "1024x jpg q82" }}
+    {{ $hero1920Jpg := $hero.Resize "1920x jpg q82" }}
+    {{ $hero640Webp := $hero.Resize "640x webp q80" }}
+    {{ $hero1024Webp := $hero.Resize "1024x webp q80" }}
+    {{ $hero1920Webp := $hero.Resize "1920x webp q80" }}
+    <picture class="hero-media" aria-hidden="true">
+      <source
+        type="image/webp"
+        srcset="{{ $hero640Webp.RelPermalink }} 640w, {{ $hero1024Webp.RelPermalink }} 1024w, {{ $hero1920Webp.RelPermalink }} 1920w"
+        sizes="100vw"
+      />
+      <source
+        type="image/jpeg"
+        srcset="{{ $hero640Jpg.RelPermalink }} 640w, {{ $hero1024Jpg.RelPermalink }} 1024w, {{ $hero1920Jpg.RelPermalink }} 1920w"
+        sizes="100vw"
+      />
+      <img
+        src="{{ $hero1024Jpg.RelPermalink }}"
+        alt=""
+        width="{{ $hero.Width }}"
+        height="{{ $hero.Height }}"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+  {{ end }}
   <div class="hero-overlay"></div>
   <div class="container hero-grid">
     <div class="hero-copy">

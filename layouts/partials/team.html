@@ -4,12 +4,36 @@
     <p class="section-lead">Sarah and Craig are based in the Capital District and personally handle every client relationship.</p>
     <div class="team-grid">
       {{ range site.Data.team }}
+        {{ $member := . }}
+        {{ $photoAssetPath := printf "images/%s" (path.Base .photo) }}
+        {{ $photoAsset := resources.Get $photoAssetPath }}
         <article class="team-card">
-          <img src="{{ .photo }}" alt="{{ .name }}" loading="lazy" width="160" height="160" />
-          <h3>{{ .name }}</h3>
-          <p class="team-title">{{ .title }}</p>
-          <p>{{ .bio }}</p>
-          <p class="team-contact"><a href="tel:{{ site.Params.phoneRaw }}">{{ .phone }}</a> · <a href="mailto:{{ .email }}">{{ .email }}</a></p>
+          {{ with $photoAsset }}
+            {{ $photo160Jpg := .Fill "160x160 center jpg q82" }}
+            {{ $photo320Jpg := .Fill "320x320 center jpg q82" }}
+            {{ $photo160Webp := .Fill "160x160 center webp q80" }}
+            {{ $photo320Webp := .Fill "320x320 center webp q80" }}
+            <picture>
+              <source
+                type="image/webp"
+                srcset="{{ $photo160Webp.RelPermalink }} 160w, {{ $photo320Webp.RelPermalink }} 320w"
+                sizes="160px"
+              />
+              <img
+                src="{{ $photo160Jpg.RelPermalink }}"
+                srcset="{{ $photo160Jpg.RelPermalink }} 160w, {{ $photo320Jpg.RelPermalink }} 320w"
+                sizes="160px"
+                alt="{{ $member.name }}"
+                loading="lazy"
+                width="{{ $photo160Jpg.Width }}"
+                height="{{ $photo160Jpg.Height }}"
+              />
+            </picture>
+          {{ end }}
+          <h3>{{ $member.name }}</h3>
+          <p class="team-title">{{ $member.title }}</p>
+          <p>{{ $member.bio }}</p>
+          <p class="team-contact"><a href="tel:{{ site.Params.phoneRaw }}">{{ $member.phone }}</a> · <a href="mailto:{{ $member.email }}">{{ $member.email }}</a></p>
         </article>
       {{ end }}
     </div>

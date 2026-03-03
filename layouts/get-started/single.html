@@ -1,4 +1,6 @@
 {{ define "main" }}
+  {{ $sarahPhoto := resources.Get "images/sarah-joseph-headshot.jpg" }}
+  {{ $craigPhoto := resources.Get "images/craig-saia.jpg" }}
   <section class="page-band">
     <div class="container">
       <h1>Let's Talk Financing</h1>
@@ -78,8 +80,50 @@
         <p><a href="tel:{{ site.Params.phoneRaw }}" class="big-link">{{ site.Params.phone }}</a></p>
         <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
         <div class="sidebar-team">
-          <img src="/images/sarah_joseph_headshot.avif" alt="Sarah Joseph" width="72" height="72" />
-          <img src="/images/craig-saia.jpg" alt="Craig Saia" width="72" height="72" />
+          {{ with $sarahPhoto }}
+            {{ $sarah72Jpg := .Fill "72x72 center jpg q82" }}
+            {{ $sarah144Jpg := .Fill "144x144 center jpg q82" }}
+            {{ $sarah72Webp := .Fill "72x72 center webp q80" }}
+            {{ $sarah144Webp := .Fill "144x144 center webp q80" }}
+            <picture>
+              <source
+                type="image/webp"
+                srcset="{{ $sarah72Webp.RelPermalink }} 72w, {{ $sarah144Webp.RelPermalink }} 144w"
+                sizes="72px"
+              />
+              <img
+                src="{{ $sarah72Jpg.RelPermalink }}"
+                srcset="{{ $sarah72Jpg.RelPermalink }} 72w, {{ $sarah144Jpg.RelPermalink }} 144w"
+                sizes="72px"
+                alt="Sarah Joseph"
+                width="{{ $sarah72Jpg.Width }}"
+                height="{{ $sarah72Jpg.Height }}"
+                loading="lazy"
+              />
+            </picture>
+          {{ end }}
+          {{ with $craigPhoto }}
+            {{ $craig72Jpg := .Fill "72x72 center jpg q82" }}
+            {{ $craig144Jpg := .Fill "144x144 center jpg q82" }}
+            {{ $craig72Webp := .Fill "72x72 center webp q80" }}
+            {{ $craig144Webp := .Fill "144x144 center webp q80" }}
+            <picture>
+              <source
+                type="image/webp"
+                srcset="{{ $craig72Webp.RelPermalink }} 72w, {{ $craig144Webp.RelPermalink }} 144w"
+                sizes="72px"
+              />
+              <img
+                src="{{ $craig72Jpg.RelPermalink }}"
+                srcset="{{ $craig72Jpg.RelPermalink }} 72w, {{ $craig144Jpg.RelPermalink }} 144w"
+                sizes="72px"
+                alt="Craig Saia"
+                width="{{ $craig72Jpg.Width }}"
+                height="{{ $craig72Jpg.Height }}"
+                loading="lazy"
+              />
+            </picture>
+          {{ end }}
         </div>
         <p>Sarah Joseph & Craig Saia</p>
       </aside>
