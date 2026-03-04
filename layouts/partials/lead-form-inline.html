@@ -47,7 +47,12 @@
   {{ with site.Params.turnstileSiteKey }}
     {{ if ne . "REPLACE_WITH_TURNSTILE_SITE_KEY" }}
       <div class="turnstile-field">
-        <div class="cf-turnstile" data-sitekey="{{ . }}" data-response-field-name="turnstileToken"></div>
+        <div
+          class="cf-turnstile"
+          data-sitekey="{{ . }}"
+          data-response-field-name="turnstileToken"
+          data-appearance="interaction-only"
+        ></div>
       </div>
     {{ end }}
   {{ end }}
