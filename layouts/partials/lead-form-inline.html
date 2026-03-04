@@ -8,6 +8,17 @@
 {{ end }}
 <form action="{{ site.Params.formEndpoint }}" method="POST" class="lead-form js-inquiry-form">
   <input type="hidden" name="source" value="{{ $source }}" />
+  <input type="hidden" name="gaClientId" />
+  <input type="hidden" name="gaSessionId" />
+  <input type="hidden" name="gaSessionNumber" />
+  <input type="hidden" name="gclid" />
+  <input type="hidden" name="utmSource" />
+  <input type="hidden" name="utmMedium" />
+  <input type="hidden" name="utmCampaign" />
+  <input type="hidden" name="utmTerm" />
+  <input type="hidden" name="utmContent" />
+  <input type="hidden" name="landingPage" />
+  <input type="hidden" name="referrer" />
   <div class="inquiry-honeypot">
     <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
   </div>

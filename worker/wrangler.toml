@@ -26,4 +26,5 @@ MAIL_TO = "joe5saia@gmail.com"
 MAIL_FROM = "website@rexfordcc.com"
 ALLOWED_ORIGINS = "https://rexfordcommercialcapital.com,https://www.rexfordcommercialcapital.com,https://rexford-cc-website.pages.dev,http://localhost:1313"
 THANK_YOU_URL = "https://rexfordcommercialcapital.com/thank-you/"
-# TURNSTILE_SECRET_KEY is intentionally managed as a Wrangler secret, not as a plain text var.
+ATTIO_LIST_ID = "4ad14cf6-ce4c-4026-bb95-0fdb8c1a7134"
+# TURNSTILE_SECRET_KEY and ATTIO_API_KEY are intentionally managed as Wrangler secrets, not as plain text vars.

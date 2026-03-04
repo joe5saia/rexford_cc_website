@@ -121,6 +121,62 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 const inquiryForms = Array.from(document.querySelectorAll(".js-inquiry-form"));
 
+// --- UTM / GA context persistence via sessionStorage ---
+const UTM_KEYS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "gclid",
+];
+
+const persistUtmParams = () => {
+  const params = new URLSearchParams(window.location.search);
+  UTM_KEYS.forEach((key) => {
+    const value = params.get(key);
+    if (value) sessionStorage.setItem(key, value);
+  });
+  if (!sessionStorage.getItem("landing_page")) {
+    sessionStorage.setItem("landing_page", window.location.href);
+  }
+  if (!sessionStorage.getItem("referrer")) {
+    sessionStorage.setItem("referrer", document.referrer);
+  }
+};
+
+persistUtmParams();
+
+// --- Populate hidden GA/UTM fields on lead forms ---
+const populateHiddenFields = (form) => {
+  const set = (name, value) => {
+    const input = form.querySelector(`input[name="${name}"]`);
+    if (input) input.value = value || "";
+  };
+
+  // Read from sessionStorage (survives navigation from landing page to /get-started/)
+  set("utmSource", sessionStorage.getItem("utm_source"));
+  set("utmMedium", sessionStorage.getItem("utm_medium"));
+  set("utmCampaign", sessionStorage.getItem("utm_campaign"));
+  set("utmTerm", sessionStorage.getItem("utm_term"));
+  set("utmContent", sessionStorage.getItem("utm_content"));
+  set("gclid", sessionStorage.getItem("gclid"));
+  set("landingPage", sessionStorage.getItem("landing_page"));
+  set("referrer", sessionStorage.getItem("referrer"));
+
+  // GA4 identifiers (async — gtag may not be loaded yet)
+  if (typeof gtag === "function") {
+    const ga4Id = "G-WBKYLG69YV";
+    gtag("get", ga4Id, "client_id", (v) => set("gaClientId", v));
+    gtag("get", ga4Id, "session_id", (v) => set("gaSessionId", v));
+    gtag("get", ga4Id, "session_number", (v) => set("gaSessionNumber", v));
+  }
+};
+
+inquiryForms.forEach((form) => {
+  if (form instanceof HTMLFormElement) populateHiddenFields(form);
+});
+
 const toTrimmedString = (value) => {
   if (typeof value !== "string") return "";
   return value.trim();
@@ -153,6 +209,17 @@ const getInquiryPayload = (form) => {
     bestTimeToCall: toTrimmedString(formData.get("bestTimeToCall")),
     details: toTrimmedString(formData.get("details")),
     website: toTrimmedString(formData.get("website")),
+    gaClientId: toTrimmedString(formData.get("gaClientId")),
+    gaSessionId: toTrimmedString(formData.get("gaSessionId")),
+    gaSessionNumber: toTrimmedString(formData.get("gaSessionNumber")),
+    gclid: toTrimmedString(formData.get("gclid")),
+    utmSource: toTrimmedString(formData.get("utmSource")),
+    utmMedium: toTrimmedString(formData.get("utmMedium")),
+    utmCampaign: toTrimmedString(formData.get("utmCampaign")),
+    utmTerm: toTrimmedString(formData.get("utmTerm")),
+    utmContent: toTrimmedString(formData.get("utmContent")),
+    landingPage: toTrimmedString(formData.get("landingPage")),
+    referrer: toTrimmedString(formData.get("referrer")),
     turnstileToken,
   };
 };
@@ -246,7 +313,7 @@ inquiryForms.forEach((form) => {
         throw new Error(serverErrorMessage);
       }
 
-      trackEvent("form_submit", {
+      trackEvent("generate_lead", {
         form_source: payload.source,
         loan_type: payload.loanType,
         loan_amount: payload.loanAmount,
@@ -319,6 +386,43 @@ if (stickyBar) {
   }
 }
 
+// --- Contact intent beacon (tel/mailto clicks → Worker /contact-intent) ---
+const CONTACT_INTENT_ENDPOINT =
+  "https://rexford-inquiry-worker.joe5saia.workers.dev/contact-intent";
+
+const sendContactIntent = (type) => {
+  const intentPayload = {
+    type,
+    gaClientId: "",
+    gaSessionId: "",
+    gaSessionNumber: "",
+    landingPage: sessionStorage.getItem("landing_page") || window.location.href,
+    referrer: sessionStorage.getItem("referrer") || document.referrer,
+    timestamp: new Date().toISOString(),
+  };
+
+  if (typeof gtag === "function") {
+    const ga4Id = "G-WBKYLG69YV";
+    gtag("get", ga4Id, "client_id", (v) => {
+      intentPayload.gaClientId = v;
+    });
+    gtag("get", ga4Id, "session_id", (v) => {
+      intentPayload.gaSessionId = v;
+    });
+    gtag("get", ga4Id, "session_number", (v) => {
+      intentPayload.gaSessionNumber = v;
+    });
+  }
+
+  // Short delay lets gtag async callbacks populate GA IDs before sending
+  setTimeout(() => {
+    navigator.sendBeacon(
+      CONTACT_INTENT_ENDPOINT,
+      new Blob([JSON.stringify(intentPayload)], { type: "application/json" })
+    );
+  }, 100);
+};
+
 // --- GA4: Phone click tracking ---
 document.addEventListener("click", (event) => {
   const link = event.target.closest('a[href^="tel:"]');
@@ -341,6 +445,7 @@ document.addEventListener("click", (event) => {
             : "other";
 
   trackEvent("phone_click", { link_location: location });
+  sendContactIntent("tel_click");
 });
 
 // --- GA4: Email click tracking ---
@@ -361,6 +466,7 @@ document.addEventListener("click", (event) => {
         : "other";
 
   trackEvent("email_click", { link_location: location });
+  sendContactIntent("mailto_click");
 });
 
 // --- GA4: CTA click tracking ---

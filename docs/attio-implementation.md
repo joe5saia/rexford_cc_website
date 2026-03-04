@@ -97,7 +97,7 @@ If you want UTM / GA fields directly on the Person record (searchable in Attio),
 * `landing_page`
 * `referrer`
 
-> **Recommendation for Phase 1:** Skip custom Person attributes. Store all marketing context in the **Note** body instead — it's simpler and still searchable in Attio. Custom attributes can be added later without migration.
+> **✅ Done:** These attributes have been created via `scripts/attio-create-attributes.sh`. The Worker should populate them on the Person record during upsert in addition to including them in the Note body.
 
 ---
 
@@ -274,7 +274,7 @@ Add to `wrangler.toml`:
 ```toml
 [vars]
 # ... existing vars ...
-ATTIO_LIST_ID = "<uuid-of-inbound-leads-list>"
+ATTIO_LIST_ID = "4ad14cf6-ce4c-4026-bb95-0fdb8c1a7134"
 ```
 
 Add as Wrangler secrets (never in `wrangler.toml`):
@@ -471,6 +471,16 @@ async function upsertAttioPerson(
           phone_numbers: payload.phone
             ? [{ original_phone_number: payload.phone }]
             : [],
+          // Custom attributes (created via scripts/attio-create-attributes.sh)
+          utm_source: payload.utmSource ? [{ value: payload.utmSource }] : [],
+          utm_medium: payload.utmMedium ? [{ value: payload.utmMedium }] : [],
+          utm_campaign: payload.utmCampaign ? [{ value: payload.utmCampaign }] : [],
+          utm_term: payload.utmTerm ? [{ value: payload.utmTerm }] : [],
+          utm_content: payload.utmContent ? [{ value: payload.utmContent }] : [],
+          gclid: payload.gclid ? [{ value: payload.gclid }] : [],
+          ga_client_id: payload.gaClientId ? [{ value: payload.gaClientId }] : [],
+          landing_page: payload.landingPage ? [{ value: payload.landingPage }] : [],
+          referrer: payload.referrer ? [{ value: payload.referrer }] : [],
         },
       },
     }
