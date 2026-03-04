@@ -287,6 +287,7 @@ inquiryForms.forEach((form) => {
     if (submitButton instanceof HTMLButtonElement) {
       submitButton.disabled = true;
     }
+    form.setAttribute("aria-busy", "true");
     setFormStatus(form, "Submitting your request...");
 
     try {
@@ -335,6 +336,7 @@ inquiryForms.forEach((form) => {
         "is-error"
       );
     } finally {
+      form.removeAttribute("aria-busy");
       if (submitButton instanceof HTMLButtonElement) {
         submitButton.disabled = false;
       }
