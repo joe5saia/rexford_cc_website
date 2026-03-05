@@ -318,9 +318,13 @@ inquiryForms.forEach((form) => {
         form_source: payload.source,
         loan_type: payload.loanType,
         loan_amount: payload.loanAmount,
+        transport_type: "beacon",
       });
 
       setFormStatus(form, "Thanks. Redirecting you now...", "is-success");
+
+      // Brief delay so the GA beacon dispatches before navigation.
+      await new Promise((resolve) => setTimeout(resolve, 250));
       window.location.assign("/thank-you/");
     } catch (error) {
       console.error("Inquiry submission failed", error);

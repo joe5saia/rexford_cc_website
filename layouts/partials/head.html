@@ -78,12 +78,12 @@
       (function () {
         var ga4Id = '{{ . }}';
 
-        function initGtag() {
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-          window.gtag('js', new Date());
-          window.gtag('config', ga4Id);
-        }
+        // Initialize gtag stub immediately so events queue into dataLayer
+        // even before the gtag.js script loads.
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', ga4Id, { send_page_view: true });
 
         function loadGaScript() {
           if (window.__ga4ScriptRequested) {
@@ -94,7 +94,6 @@
           var script = document.createElement('script');
           script.async = true;
           script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4Id);
-          script.onload = initGtag;
           document.head.appendChild(script);
         }
 

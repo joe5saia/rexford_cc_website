@@ -1,6 +1,6 @@
 # GA4 Analytics Tracking Schema
 
-**Measurement ID:** `G-8WDEYDE03M`
+**Measurement ID:** `G-WBKYLG69YV`
 **Implementation:** `assets/js/main.js`
 **Tag location:** `layouts/partials/head.html`
 
