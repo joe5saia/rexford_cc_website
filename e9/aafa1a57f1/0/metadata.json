@@ -1,0 +1,36 @@
+{
+  "cli_version": "0.4.8",
+  "checkpoint_id": "e9aafa1a57f1",
+  "session_id": "fd48f630-fd52-4098-bc86-597102eaaa10",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-05T14:56:51.222998Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "content/_index.md",
+    "hugo.toml",
+    "layouts/partials/hero.html",
+    "layouts/partials/recently-funded.html",
+    "layouts/partials/team.html",
+    "layouts/partials/testimonials.html",
+    "layouts/partials/trust-bar.html"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "7563e8d1b3eb",
+  "token_usage": {
+    "input_tokens": 136,
+    "cache_creation_tokens": 44049,
+    "cache_read_tokens": 216256,
+    "output_tokens": 5207,
+    "api_call_count": 15
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-05T14:56:51.148871Z",
+    "agent_lines": 12,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 12,
+    "agent_percentage": 100
+  }
+}
