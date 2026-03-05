@@ -1,4 +1,4 @@
 ---
 title: "Home"
-description: "Local financing expertise for Capital District & Adirondack small businesses."
+description: "Expert small business financing — commercial real estate, equipment, and working capital — with the personal attention you deserve."
 ---
