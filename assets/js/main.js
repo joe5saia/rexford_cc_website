@@ -165,8 +165,8 @@ const populateHiddenFields = (form) => {
   set("referrer", sessionStorage.getItem("referrer"));
 
   // GA4 identifiers (async — gtag may not be loaded yet)
-  if (typeof gtag === "function") {
-    const ga4Id = "G-WBKYLG69YV";
+  const ga4Id = window.__GA4_MEASUREMENT_ID;
+  if (typeof gtag === "function" && ga4Id) {
     gtag("get", ga4Id, "client_id", (v) => set("gaClientId", v));
     gtag("get", ga4Id, "session_id", (v) => set("gaSessionId", v));
     gtag("get", ga4Id, "session_number", (v) => set("gaSessionNumber", v));
@@ -314,18 +314,34 @@ inquiryForms.forEach((form) => {
         throw new Error(serverErrorMessage);
       }
 
-      trackEvent("generate_lead", {
-        form_source: payload.source,
-        loan_type: payload.loanType,
-        loan_amount: payload.loanAmount,
-        transport_type: "beacon",
-      });
-
       setFormStatus(form, "Thanks. Redirecting you now...", "is-success");
 
-      // Brief delay so the GA beacon dispatches before navigation.
-      await new Promise((resolve) => setTimeout(resolve, 250));
-      window.location.assign("/thank-you/");
+      // Wait for GA to confirm the event was sent before navigating.
+      // Falls back to a timeout so the redirect is never blocked.
+      // Redirects immediately if gtag is unavailable (ad blockers, etc.).
+      await new Promise((resolve) => {
+        let done = false;
+        const finish = () => {
+          if (done) return;
+          done = true;
+          window.location.assign("/thank-you/");
+          resolve();
+        };
+
+        if (typeof gtag !== "function") {
+          finish();
+          return;
+        }
+
+        const fallback = setTimeout(finish, 1000);
+        gtag("event", "generate_lead", {
+          form_source: payload.source,
+          loan_type: payload.loanType,
+          loan_amount: payload.loanAmount,
+          event_callback: () => { clearTimeout(fallback); finish(); },
+          event_timeout: 1000,
+        });
+      });
     } catch (error) {
       console.error("Inquiry submission failed", error);
       resetTurnstile(form);
@@ -339,7 +355,6 @@ inquiryForms.forEach((form) => {
         "We could not submit your request right now. Please call 518-791-9771 or email info@rexfordcc.com.",
         "is-error"
       );
-    } finally {
       form.removeAttribute("aria-busy");
       if (submitButton instanceof HTMLButtonElement) {
         submitButton.disabled = false;
@@ -407,8 +422,8 @@ const sendContactIntent = (type) => {
     timestamp: new Date().toISOString(),
   };
 
-  if (typeof gtag === "function") {
-    const ga4Id = "G-WBKYLG69YV";
+  const ga4Id = window.__GA4_MEASUREMENT_ID;
+  if (typeof gtag === "function" && ga4Id) {
     gtag("get", ga4Id, "client_id", (v) => {
       intentPayload.gaClientId = v;
     });

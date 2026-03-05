@@ -78,6 +78,9 @@
       (function () {
         var ga4Id = '{{ . }}';
 
+        // Expose measurement ID so main.js can reference it without hardcoding.
+        window.__GA4_MEASUREMENT_ID = ga4Id;
+
         // Initialize gtag stub immediately so events queue into dataLayer
         // even before the gtag.js script loads.
         window.dataLayer = window.dataLayer || [];
@@ -85,24 +88,14 @@
         window.gtag('js', new Date());
         window.gtag('config', ga4Id, { send_page_view: true });
 
-        function loadGaScript() {
-          if (window.__ga4ScriptRequested) {
-            return;
-          }
+        // Load gtag.js right away (async) so it's ready before form submit.
+        if (!window.__ga4ScriptRequested) {
           window.__ga4ScriptRequested = true;
-
           var script = document.createElement('script');
           script.async = true;
           script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga4Id);
           document.head.appendChild(script);
         }
-
-        if (document.readyState === 'complete') {
-          loadGaScript();
-          return;
-        }
-
-        window.addEventListener('load', loadGaScript, { once: true });
       }());
     </script>
   {{ end }}
