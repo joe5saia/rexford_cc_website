@@ -52,7 +52,7 @@ interface ContactIntentPayload {
 }
 
 const DEFAULT_ALLOWED_ORIGINS =
-  "https://rexfordcommercialcapital.com,https://www.rexfordcommercialcapital.com,https://rexford-cc-website.pages.dev,http://localhost:1313";
+  "https://rexfordcommercialcapital.com,https://www.rexfordcommercialcapital.com,https://rexfordcc.com,https://www.rexfordcc.com,https://rexford-cc-website.pages.dev,http://localhost:1313";
 const DEFAULT_MAIL_TO = "info@rexfordcc.com";
 const DEFAULT_MAIL_FROM = "website@rexfordcc.com";
 const DEFAULT_THANK_YOU_URL = "https://rexfordcommercialcapital.com/thank-you/";
