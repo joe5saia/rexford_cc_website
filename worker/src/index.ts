@@ -1013,7 +1013,7 @@ async function sendInquiryEmail(
 
   const lines = [
     `Inquiry ID: ${inquiryId}`,
-    `Submitted At (UTC): ${submittedAt}`,
+    `Submitted At: ${new Date(submittedAt).toLocaleString("en-US", { timeZone: "America/New_York", weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "2-digit", second: "2-digit", timeZoneName: "short" })}`,
     `Source: ${payload.source}`,
     "",
     `Name: ${payload.firstName} ${payload.lastName}`,
@@ -1030,10 +1030,13 @@ async function sendInquiryEmail(
   ];
 
   const body = lines.join("\n");
+  const messageId = `<${crypto.randomUUID()}@rexfordcommercialcapital.com>`;
   const rawEmail = [
     `From: Rexford Commercial Capital <${fromAddress}>`,
     `To: ${toAddress}`,
     `Subject: ${subject}`,
+    `Message-ID: ${messageId}`,
+    `Date: ${new Date().toUTCString()}`,
     "MIME-Version: 1.0",
     'Content-Type: text/plain; charset="utf-8"',
     "",

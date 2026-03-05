@@ -23,7 +23,7 @@ canonifyURLs = false
     zip = "12148"
 
 [params.seo]
-  ogImage = "/images/og-image.jpg"
+  ogImage = "/images/og-image.png"
 
 [params.social]
   facebook = "https://www.facebook.com/rexfordcommercialcapital/"

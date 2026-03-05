@@ -22,8 +22,8 @@ migrations_dir = "migrations"
 name = "INQUIRY_EMAIL"
 
 [vars]
-MAIL_TO = "joe5saia@gmail.com"
-MAIL_FROM = "website@rexfordcc.com"
+MAIL_TO = "webleads@rexfordcc.com"
+MAIL_FROM = "website@rexfordcommercialcapital.com"
 ALLOWED_ORIGINS = "https://rexfordcommercialcapital.com,https://www.rexfordcommercialcapital.com,https://rexford-cc-website.pages.dev,http://localhost:1313"
 THANK_YOU_URL = "https://rexfordcommercialcapital.com/thank-you/"
 ATTIO_LIST_ID = "4ad14cf6-ce4c-4026-bb95-0fdb8c1a7134"

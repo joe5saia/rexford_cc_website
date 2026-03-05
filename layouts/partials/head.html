@@ -16,7 +16,7 @@
 {{ $ogImageURL := site.Params.seo.ogImage | absURL }}
 {{ $ogImageAssetPath := printf "images/%s" (path.Base site.Params.seo.ogImage) }}
 {{ with resources.Get $ogImageAssetPath }}
-  {{ $ogImageProcessed := .Fill "1200x630 center jpg q82" }}
+  {{ $ogImageProcessed := .Fill "1200x630 center png q82" }}
   {{ $ogImageURL = $ogImageProcessed.Permalink }}
 {{ end }}
 <meta property="og:image" content="{{ $ogImageURL }}" />
