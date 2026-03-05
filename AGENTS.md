@@ -64,3 +64,21 @@
   - Sends notification email with subject: `Website Inquiry: <First Name> <Last Name>`.
   - Returns `502` when DB save succeeds but email send fails (intentional for visibility).
 - Keep Worker changes backward compatible with existing form field aliases when possible.
+
+## Production Logs & Submission Validation
+- **Live tail production logs**: `npx wrangler tail --config worker/wrangler.toml --format pretty`
+  - This streams live requests only; it does not replay past events.
+  - Start tailing *before* submitting a form to capture the request in real time.
+- **Query recent submissions in remote D1**:
+  ```sh
+  npx wrangler d1 execute rexford-inquiries --config worker/wrangler.toml --remote \
+    --command "SELECT id, first_name, last_name, email_status, email_error, attio_sync_status, attio_sync_error, submitted_at FROM inquiries ORDER BY submitted_at DESC LIMIT 5;"
+  ```
+- **Key fields to check**:
+  - `email_status`: should be `sent`; `failed` means email delivery failed (check `email_error`).
+  - `attio_sync_status`: should be `success`; `failed` means CRM sync failed (check `attio_sync_error`).
+- **Common email errors and fixes**:
+  - `"domain was not found"` → `MAIL_FROM` domain lacks Cloudflare Email Routing; enable it in the CF dashboard.
+  - `"destination address is not a verified address"` → `MAIL_TO` address must be added and verified in CF Email Routing → Destination addresses.
+  - `"no message-id set"` → raw email is missing a `Message-ID` header (required by Cloudflare Email).
+- **Inspect full table schema**: `PRAGMA table_info(inquiries);` via the same `d1 execute` command.
