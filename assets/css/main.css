@@ -252,7 +252,7 @@ img { max-width: 100%; height: auto; }
   color: rgba(255, 255, 255, 0.85);
 }
 .hero-trust li::before { content: "● "; color: var(--color-accent); }
-.hero-form-card { background: #fff; color: var(--color-text); border-radius: 6px; box-shadow: var(--shadow-card); overflow: hidden; }
+.hero-form-card { background: #fff; color: var(--color-text); border-radius: 6px; box-shadow: var(--shadow-card); overflow: hidden; padding-bottom: 0.6rem; border-bottom: 4px solid var(--color-primary); }
 .card-head { background: var(--color-primary); color: #fff; padding: 1rem 1.1rem; }
 .card-head p { margin: 0; color: rgba(255, 255, 255, 0.8); }
 
@@ -285,8 +285,10 @@ img { max-width: 100%; height: auto; }
 .trust-grid div { display: flex; align-items: center; gap: 0.45rem; justify-content: center; text-align: center; }
 .trust-grid svg { width: 20px; height: 20px; color: var(--color-primary); }
 
-.services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 900px; margin: 0 auto; }
 .service-card {
+  flex: 1 1 260px;
+  max-width: calc((100% - 2rem) / 3);
   background: #fff;
   border: 1px solid var(--color-border);
   border-top: 4px solid var(--color-accent);
@@ -618,7 +620,6 @@ img { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .deals-grid, .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }

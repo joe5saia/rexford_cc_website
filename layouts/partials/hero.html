@@ -2,18 +2,18 @@
   {{ with resources.Get "images/hero-bg.jpg" }}
     {{ $hero := . }}
     {{/* Keep all hero derivatives Hugo-native for deterministic build output. */}}
-    {{ $hero640MobileWebp := $hero.Resize "640x webp q58" }}
-    {{ $hero960MobileWebp := $hero.Resize "960x webp q58" }}
-    {{ $hero1280MobileWebp := $hero.Resize "1280x webp q58" }}
-    {{ $hero640MobileJpg := $hero.Resize "640x jpg q66" }}
-    {{ $hero960MobileJpg := $hero.Resize "960x jpg q66" }}
-    {{ $hero1280MobileJpg := $hero.Resize "1280x jpg q66" }}
-    {{ $hero640Webp := $hero.Resize "640x webp q68" }}
-    {{ $hero1024Webp := $hero.Resize "1024x webp q68" }}
-    {{ $hero1600Webp := $hero.Resize "1600x webp q68" }}
-    {{ $hero640Jpg := $hero.Resize "640x jpg q74" }}
-    {{ $hero1024Jpg := $hero.Resize "1024x jpg q74" }}
-    {{ $hero1600Jpg := $hero.Resize "1600x jpg q74" }}
+    {{ $hero640MobileWebp := $hero.Resize "640x webp q45" }}
+    {{ $hero960MobileWebp := $hero.Resize "960x webp q45" }}
+    {{ $hero1280MobileWebp := $hero.Resize "1280x webp q45" }}
+    {{ $hero640MobileJpg := $hero.Resize "640x jpg q55" }}
+    {{ $hero960MobileJpg := $hero.Resize "960x jpg q55" }}
+    {{ $hero1280MobileJpg := $hero.Resize "1280x jpg q55" }}
+    {{ $hero640Webp := $hero.Resize "640x webp q50" }}
+    {{ $hero1024Webp := $hero.Resize "1024x webp q50" }}
+    {{ $hero1280Webp := $hero.Resize "1280x webp q50" }}
+    {{ $hero640Jpg := $hero.Resize "640x jpg q60" }}
+    {{ $hero1024Jpg := $hero.Resize "1024x jpg q60" }}
+    {{ $hero1280Jpg := $hero.Resize "1280x jpg q60" }}
     <picture class="hero-media" aria-hidden="true">
       <source
         media="(max-width: 767px)"
@@ -29,12 +29,12 @@
       />
       <source
         type="image/webp"
-        srcset="{{ $hero640Webp.RelPermalink }} 640w, {{ $hero1024Webp.RelPermalink }} 1024w, {{ $hero1600Webp.RelPermalink }} 1600w"
+        srcset="{{ $hero640Webp.RelPermalink }} 640w, {{ $hero1024Webp.RelPermalink }} 1024w, {{ $hero1280Webp.RelPermalink }} 1280w"
         sizes="100vw"
       />
       <source
         type="image/jpeg"
-        srcset="{{ $hero640Jpg.RelPermalink }} 640w, {{ $hero1024Jpg.RelPermalink }} 1024w, {{ $hero1600Jpg.RelPermalink }} 1600w"
+        srcset="{{ $hero640Jpg.RelPermalink }} 640w, {{ $hero1024Jpg.RelPermalink }} 1024w, {{ $hero1280Jpg.RelPermalink }} 1280w"
         sizes="100vw"
       />
       <img
