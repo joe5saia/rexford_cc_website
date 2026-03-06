@@ -12,7 +12,6 @@ useCases:
   - "Cash-out refinance for business capital"
 eligibility:
   - "Minimum 680 credit score (varies by lender)"
-  - "Property located in Capital District or Adirondack region"
   - "12+ months in business preferred"
 faqs:
   - q: "What types of properties do you finance?"
