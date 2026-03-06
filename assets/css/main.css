@@ -364,6 +364,7 @@ img { max-width: 100%; height: auto; }
 .footer-grid { padding: 3rem 0; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 1.1rem; }
 .footer-logo {
   width: 220px;
+  height: auto;
   background: #fff;
   border-radius: 6px;
   padding: 0.35rem 0.5rem;
