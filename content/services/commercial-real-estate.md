@@ -11,7 +11,6 @@ useCases:
   - "Mixed-use, retail, office, industrial, and multifamily"
   - "Cash-out refinance for business capital"
 eligibility:
-  - "Businesses operating in NY State"
   - "Minimum 680 credit score (varies by lender)"
   - "Property located in Capital District or Adirondack region"
   - "12+ months in business preferred"

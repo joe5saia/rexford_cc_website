@@ -11,7 +11,6 @@ useCases:
   - "Portfolio expansion in regional markets"
   - "DSCR-based investment property financing"
 eligibility:
-  - "Property in NY State"
   - "Debt service coverage aligned with lender requirements"
   - "Seasoning and reserves vary by program"
   - "Investor entity documentation available"

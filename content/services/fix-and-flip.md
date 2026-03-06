@@ -11,7 +11,6 @@ useCases:
   - "Bridge-to-sale or bridge-to-rental strategy"
   - "Experienced and first-time investors with a clear plan"
 eligibility:
-  - "Property located in NY State"
   - "Exit strategy documented before close"
   - "Budget and timeline aligned with lender guidelines"
   - "Credit score and liquidity thresholds vary by lender"

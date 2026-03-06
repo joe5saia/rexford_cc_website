@@ -18,7 +18,8 @@
     "name": "Rental Property Loans",
     "icon": "home",
     "short": "Long-term and short-term rental property financing for investors.",
-    "category": "real-estate"
+    "category": "real-estate",
+    "featured": true
   },
   {
     "slug": "bridge-loans",
@@ -32,7 +33,8 @@
     "name": "Equipment Financing",
     "icon": "truck",
     "short": "Financing and leasing programs for equipment of all kinds.",
-    "category": "business"
+    "category": "business",
+    "featured": true
   },
   {
     "slug": "business-line-of-credit",
@@ -46,6 +48,7 @@
     "name": "Small Business Loans",
     "icon": "briefcase",
     "short": "SBA and conventional loan options for business acquisition, expansion, and more.",
-    "category": "business"
+    "category": "business",
+    "featured": true
   }
 ]

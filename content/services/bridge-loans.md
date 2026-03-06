@@ -1,6 +1,6 @@
 ---
 title: "Bridge Loans"
-description: "Short-term bridge financing for time-sensitive real estate opportunities in upstate New York."
+description: "Short-term bridge financing for time-sensitive real estate opportunities."
 summary: "Bridge loans help you move quickly between acquisition, renovation, refinance, or sale milestones."
 loanRange: "$100,000 – $20,000,000"
 timeToClose: "5–20 days"
@@ -14,7 +14,7 @@ eligibility:
   - "Clear exit strategy"
   - "Property valuation support"
   - "Borrower liquidity for carrying costs"
-  - "NY property and entity documentation"
+  - "Property and entity documentation"
 faqs:
   - q: "When does a bridge loan make sense?"
     a: "Bridge financing is useful when speed matters and conventional timelines are too slow."

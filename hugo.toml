@@ -5,8 +5,8 @@ enableRobotsTXT = true
 canonifyURLs = false
 
 [params]
-  phone = "518-791-9771"
-  phoneRaw = "15187919771"
+  phone = "518-791-1885"
+  phoneRaw = "15187911885"
   email = "info@rexfordcc.com"
   region = "Capital District & Adirondacks, NY"
   tagline = "Expert Financing for Small Businesses That Deserve Better"
