@@ -15,13 +15,16 @@
           {{ $dealIcon = "credit-card" }}
         {{ else if eq .type "Rental Property Loan" }}
           {{ $dealIcon = "home" }}
+        {{ else if eq .type "Working Capital" }}
+          {{ $dealIcon = "dollar-sign" }}
         {{ end }}
         <article class="deal-card">
           <div class="deal-head">
             <span class="deal-tag {{ .category }}">{{ .type }}</span>
             <span class="deal-type-icon">{{ partial "icon.html" $dealIcon }}</span>
           </div>
-          <h3>{{ .amount }}</h3>
+          {{ with .name }}<h3>{{ . }}</h3>{{ end }}
+          {{ with .amount }}<p><strong>{{ . }}</strong></p>{{ end }}
           <p class="muted">{{ .location }}</p>
           <p>{{ .description }}</p>
         </article>

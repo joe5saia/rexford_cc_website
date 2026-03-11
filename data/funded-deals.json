@@ -1,37 +1,30 @@
 [
   {
-    "type": "Commercial Real Estate",
-    "category": "real-estate",
-    "amount": "$1,250,000",
-    "location": "Albany, NY",
-    "description": "Refinance of a mixed-use retail and residential building. Secured conventional financing with a local community bank at a competitive fixed rate."
-  },
-  {
+    "name": "WinWright Transportation",
     "type": "Equipment Financing",
     "category": "business",
-    "amount": "$185,000",
-    "location": "Glens Falls, NY",
-    "description": "Heavy equipment package for a regional excavating contractor. Structured as a 60-month lease with a purchase option."
+    "location": "Philadelphia, PA",
+    "description": "A school bus operator needed to finance a fleet expansion after winning a new contract — but credit challenges made traditional lenders hesitant. We found the right financing to keep their fleet growing and their business on track."
   },
   {
-    "type": "Fix & Flip",
-    "category": "real-estate",
-    "amount": "$320,000",
-    "location": "Saratoga Springs, NY",
-    "description": "Acquisition and full renovation of a historic single-family home. 100% of rehab costs covered. Closed in under 10 days."
-  },
-  {
-    "type": "Business Line of Credit",
+    "name": "Mobile Life Transport",
+    "type": "Equipment Financing",
     "category": "business",
-    "amount": "$250,000",
-    "location": "Lake Placid, NY",
-    "description": "Revolving line of credit for a regional hospitality business to manage seasonal cash flow fluctuations."
+    "location": "Oneonta, NY",
+    "description": "After being turned down by multiple lenders, this medical transport company needed financing for two Ram ProMaster units to cover new routes. We stepped in, secured the funding, and helped them get back on the road."
   },
   {
-    "type": "Rental Property Loan",
-    "category": "real-estate",
-    "amount": "$475,000",
-    "location": "Troy, NY",
-    "description": "Long-term DSCR loan on a 6-unit multifamily property. Qualified on property income, not personal income."
+    "name": "Tur Bus",
+    "type": "Equipment Financing",
+    "category": "business",
+    "location": "Yonkers, NY",
+    "description": "Winning a new contract meant adding a vehicle — but a challenging credit history made financing difficult. We secured a deal from the dealer they chose, with a payment that fit their budget."
+  },
+  {
+    "name": "JP Tank Lines",
+    "type": "Working Capital",
+    "category": "business",
+    "location": "Gansevoort, NY",
+    "description": "Just two months into operations, this liquid-hauling trucking company needed working capital to keep growing. We built a six-month plan that got them funded and moving forward."
   }
 ]
