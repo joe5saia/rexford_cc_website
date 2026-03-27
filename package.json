@@ -9,6 +9,8 @@
     "d1:migrate:remote": "wrangler d1 migrations apply rexford-inquiries --remote --config worker/wrangler.toml"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260317.1",
+    "typescript": "^6.0.2",
     "wrangler": "^4.69.0"
   }
 }
