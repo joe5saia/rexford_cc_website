@@ -1,33 +1,55 @@
 {{ define "main" }}
-  {{/* Map service slugs to loan-type options so each service form pre-selects the matching financing type. */}}
-  {{ $loanTypeBySlug := dict
-    "bridge-loans" "Bridge Loan"
-    "business-line-of-credit" "Business Line of Credit"
-    "commercial-real-estate" "Commercial Real Estate"
-    "equipment-financing" "Equipment Financing"
-    "fix-and-flip" "Fix & Flip"
-    "rental-property-loans" "Rental Property Loan"
-    "small-business-loans" "Small Business Loan"
-  }}
-  {{ $selectedLoanType := index $loanTypeBySlug .File.BaseFileName }}
+  {{ $serviceData := dict }}
+  {{ range site.Data.services }}
+    {{ if eq .slug $.File.BaseFileName }}
+      {{ $serviceData = . }}
+    {{ end }}
+  {{ end }}
+  {{ $selectedLoanType := default .Title (index $serviceData "loanType") }}
+  {{ $heroBadge := default "Advisor-Led Financing Guidance" .Params.heroBadge }}
+  {{ $heroTitle := default .Title .Params.heroTitle }}
+  {{ $heroIntro := default .Params.summary .Params.heroIntro }}
+  {{ $heroPoints := .Params.heroPoints | default (slice) }}
+  {{ if eq (len $heroPoints) 0 }}
+    {{ $heroPoints = .Params.useCases }}
+  {{ end }}
+  {{ $reassurancePoints := .Params.reassurancePoints | default (slice) }}
+  {{ $scenarioHeading := default "What Are You Trying To Do?" .Params.scenarioHeading }}
+  {{ $scenarioLead := default "These are the conversations we most often have." .Params.scenarioLead }}
+  {{ $scenarioCards := .Params.scenarioCards | default (slice) }}
+  {{ $processHeading := default "How We Evaluate The Deal" .Params.processHeading }}
+  {{ $processLead := default "We keep the early conversation practical so you know the likely path before the file gets heavy." .Params.processLead }}
+  {{ $processSteps := .Params.processSteps | default (slice) }}
+  {{ if eq (len $processSteps) 0 }}
+    {{ $processSteps = slice
+      (dict
+        "title" "Talk Through the Goal"
+        "body" "We start with the property, the timeline, and the goal."
+      )
+      (dict
+        "title" "Map the Realistic Lending Path"
+        "body" "We outline likely structure, down payment, and documentation early."
+      )
+      (dict
+        "title" "Stay Involved Through Closing"
+        "body" "If the path makes sense, we stay involved through underwriting and closing."
+      )
+    }}
+  {{ end }}
+  {{ $lenderHeading := default "What Lenders Usually Want To See" .Params.lenderHeading }}
+  {{ $lenderLead := default "At a high level, these are the points lenders usually focus on first." .Params.lenderLead }}
+  {{ $lenderConsiderations := .Params.lenderConsiderations | default (slice) }}
+  {{ if eq (len $lenderConsiderations) 0 }}
+    {{ $lenderConsiderations = .Params.eligibility }}
+  {{ end }}
+  {{ $testimonials := site.Data.testimonials }}
   {{ $serviceSchema := dict
     "@context" "https://schema.org"
     "@type" "Service"
     "name" .Title
-    "serviceType" .Title
+    "serviceType" $selectedLoanType
     "description" .Params.summary
-    "areaServed" (slice
-      "United States"
-      "Florida"
-      "Capital District, NY"
-      "Albany, NY"
-      "Saratoga Springs, NY"
-      "Glens Falls, NY"
-      "Troy, NY"
-      "Schenectady, NY"
-      "Adirondacks, NY"
-      "Lake Placid, NY"
-    )
+    "areaServed" site.Params.serviceAreaServed
     "provider" (dict
       "@type" "LocalBusiness"
       "name" site.Title
@@ -48,96 +70,202 @@
     ) }}
   {{ end }}
 
-  <section class="page-band service-band">
-    <div class="container">
-      <h1>{{ .Title }}</h1>
-      <p>{{ .Params.summary }}</p>
-      <div class="service-metrics">
-        <span>Loan Range: {{ .Params.loanRange }}</span>
-        <span>Time to Close: {{ .Params.timeToClose }}</span>
-      </div>
-      <p><a href="/get-started/" class="btn btn-primary">Talk to Sarah and Craig</a></p>
-    </div>
-  </section>
+  <section class="section service-page-shell">
+    <div class="container service-page-grid">
+      <div class="service-main">
+        <section class="service-hero-panel">
+          <p class="service-hero-badge">{{ $heroBadge }}</p>
+          <h1>{{ $heroTitle }}</h1>
+          <p class="service-hero-lead">{{ $heroIntro }}</p>
+          <div class="service-metrics">
+            <span>Loan Range: {{ .Params.loanRange }}</span>
+            <span>Typical Timeline: {{ .Params.timeToClose }}</span>
+          </div>
+          {{ if gt (len $heroPoints) 0 }}
+            <ul class="service-highlight-list">
+              {{ range first 4 $heroPoints }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          {{ end }}
+          <div class="cta-row service-hero-actions">
+            <a href="tel:{{ site.Params.phoneRaw }}" class="btn btn-primary" data-contact-location="service_hero">Talk to Sarah and Craig</a>
+            <a href="mailto:{{ site.Params.email }}?subject={{ printf "%s inquiry" .Title | urlquery }}" class="btn service-secondary-btn" data-contact-location="service_hero">Email Your Scenario</a>
+          </div>
+        </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Who This Is For</h2>
-      <ul class="two-col-list">
-        {{ range .Params.useCases }}<li>{{ . }}</li>{{ end }}
-      </ul>
-    </div>
-  </section>
+        <section class="service-mobile-form" aria-label="Consultation form">
+          <div class="service-lead-card">
+            <div class="card-head">
+              <h2>Talk Through Your Scenario</h2>
+              <p>Share the basics. We'll map the likely path.</p>
+            </div>
+            {{ partial "lead-form-inline.html" (dict
+              "contactLocation" "service_mobile_form"
+              "source" (printf "Service Page: %s" .Title)
+              "loanType" $selectedLoanType
+            ) }}
+          </div>
+        </section>
 
-  <section class="section alt">
-    <div class="container">
-      <h2>How It Works</h2>
-      <ol>
-        <li>Initial consultation with Sarah or Craig to define your financing goals.</li>
-        <li>We match your file with local lenders aligned to your scenario.</li>
-        <li>You complete final documentation and move toward closing.</li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>What We Look For</h2>
-      <ul>
-        {{ range .Params.eligibility }}<li>{{ . }}</li>{{ end }}
-      </ul>
-    </div>
-  </section>
-
-  <section class="section service-lead-capture">
-    <div class="container">
-      <div class="service-lead-card">
-        <div class="card-head">
-          <h2>See What You Qualify For</h2>
-          <p>40 years of combined lending experience</p>
-        </div>
-        {{ partial "lead-form-inline.html" (dict
-          "source" (printf "Service Page: %s" .Title)
-          "loanType" $selectedLoanType
-        ) }}
-      </div>
-    </div>
-  </section>
-
-  {{ partial "testimonials.html" . }}
-
-  <section class="section alt">
-    <div class="container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-list">
-        {{ range .Params.faqs }}
-          <details>
-            <summary>{{ .q }}</summary>
-            <p>{{ .a }}</p>
-          </details>
-        {{ end }}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Related Services</h2>
-      <div class="services-grid">
-        {{ range .Params.relatedServices }}
-          {{ $slug := . }}
-          {{ range site.Data.services }}
-            {{ if eq .slug $slug }}
-              <article class="service-card">
-                <div class="service-icon">{{ partial "icon.html" .icon }}</div>
-                <h3>{{ .name }}</h3>
-                <p>{{ .short }}</p>
-                <a href="/services/{{ .slug }}/" aria-label="Learn more about {{ .name }}">Learn More →</a>
+        {{ if gt (len $reassurancePoints) 0 }}
+          <section class="service-proof-strip" aria-label="Why clients reach out to Rexford first">
+            {{ range $reassurancePoints }}
+              <article class="service-proof-card">
+                <p>{{ . }}</p>
               </article>
             {{ end }}
-          {{ end }}
+          </section>
         {{ end }}
+
+        {{ if gt (len $scenarioCards) 0 }}
+          <section class="section service-section service-section-tight">
+            <h2 class="section-title">{{ $scenarioHeading }}</h2>
+            <p class="section-lead">{{ $scenarioLead }}</p>
+            <div class="service-scenario-grid">
+              {{ range $scenarioCards }}
+                <article class="service-scenario-card">
+                  <h3>{{ .title }}</h3>
+                  <p>{{ .body }}</p>
+                </article>
+              {{ end }}
+            </div>
+          </section>
+        {{ else if gt (len .Params.useCases) 0 }}
+          <section class="section service-section service-section-tight">
+            <h2 class="section-title">This May Be A Fit If...</h2>
+            <ul class="two-col-list">
+              {{ range .Params.useCases }}<li>{{ . }}</li>{{ end }}
+            </ul>
+          </section>
+        {{ end }}
+
+        <section class="section alt service-section">
+          <h2 class="section-title">{{ $processHeading }}</h2>
+          <p class="section-lead">{{ $processLead }}</p>
+          <div class="service-process-grid">
+            {{ range $index, $step := $processSteps }}
+              <article class="service-process-card">
+                <span>{{ add $index 1 }}</span>
+                <h3>{{ $step.title }}</h3>
+                <p>{{ $step.body }}</p>
+              </article>
+            {{ end }}
+          </div>
+        </section>
+
+        {{ if or .Content (gt (len $lenderConsiderations) 0) }}
+          <section class="section service-section service-detail-section">
+            {{ if gt (len $lenderConsiderations) 0 }}
+              <div class="service-detail-summary">
+                <p class="service-detail-eyebrow">Executive Summary</p>
+                <h2 class="section-title">{{ $lenderHeading }}</h2>
+                <p class="section-lead">{{ $lenderLead }}</p>
+                <div class="service-check-grid">
+                  {{ range $lenderConsiderations }}
+                    <article class="service-check-card">
+                      <p>{{ . }}</p>
+                    </article>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+
+            {{ if .Content }}
+              <div class="service-content-shell">
+                <div class="prose service-prose">{{ .Content }}</div>
+              </div>
+            {{ end }}
+          </section>
+        {{ end }}
+
+        {{ if gt (len $testimonials) 0 }}
+          <section class="section alt service-section">
+            <h2 class="section-title">What Clients Say</h2>
+            <p class="section-lead">Clients come to us for clarity, speed, and straight answers.</p>
+            {{ if eq (len $testimonials) 1 }}
+              {{ $testimonial := index $testimonials 0 }}
+              <div class="service-story-grid">
+                <article class="testimonial-card service-featured-testimonial">
+                  <p class="testimonial-quote">"{{ $testimonial.quote }}"</p>
+                  <p class="testimonial-meta">{{ $testimonial.name }}{{ with $testimonial.business }} · {{ . }}{{ end }}</p>
+                </article>
+                <article class="service-story-card">
+                  <h3>Clear guidance before the file gets heavy.</h3>
+                  {{ if gt (len $reassurancePoints) 0 }}
+                    <ul class="service-story-list">
+                      {{ range first 3 $reassurancePoints }}
+                        <li>{{ . }}</li>
+                      {{ end }}
+                    </ul>
+                  {{ else }}
+                    <p>We start with the scenario, test the likely path, and stay involved through closing.</p>
+                  {{ end }}
+                </article>
+              </div>
+            {{ else }}
+              <div class="service-testimonials-grid">
+                {{ range $testimonials }}
+                  <article class="testimonial-card">
+                    <p class="testimonial-quote">"{{ .quote }}"</p>
+                    <p class="testimonial-meta">{{ .name }}{{ with .business }} · {{ . }}{{ end }}</p>
+                  </article>
+                {{ end }}
+              </div>
+            {{ end }}
+          </section>
+        {{ end }}
+
+        <section class="section alt service-section">
+          <div class="service-faq-shell">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+              {{ range .Params.faqs }}
+                <details>
+                  <summary>{{ .q }}</summary>
+                  <p>{{ .a }}</p>
+                </details>
+              {{ end }}
+            </div>
+          </div>
+        </section>
+
+        <section class="section service-section">
+          <h2 class="section-title">Related Services</h2>
+          <div class="service-related-grid">
+            {{ range .Params.relatedServices }}
+              {{ $slug := . }}
+              {{ range site.Data.services }}
+                {{ if eq .slug $slug }}
+                  <article class="service-card">
+                    <div class="service-icon">{{ partial "icon.html" .icon }}</div>
+                    <h3>{{ .name }}</h3>
+                    <p>{{ .short }}</p>
+                    <a href="/services/{{ .slug }}/" aria-label="Learn more about {{ .name }}">Learn More →</a>
+                  </article>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          </div>
+        </section>
       </div>
+
+      {{/* Keep the form visible on larger screens while prospects read the page. */}}
+      <aside class="service-sidebar" aria-label="Consultation form">
+        <div class="service-form-sticky">
+          <div class="service-lead-card">
+            <div class="card-head">
+              <h2>Talk Through Your Scenario</h2>
+              <p>Share the basics. We'll map the likely path.</p>
+            </div>
+            {{ partial "lead-form-inline.html" (dict
+              "contactLocation" "service_sidebar"
+              "source" (printf "Service Page: %s" .Title)
+              "loanType" $selectedLoanType
+            ) }}
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 

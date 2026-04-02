@@ -12,16 +12,23 @@ const overlay = document.querySelector(".mobile-nav-overlay");
 
 const setHeaderState = () => {
   if (!header) return;
-  header.classList.toggle("scrolled", window.scrollY > 60);
+  const keepSolid = header.classList.contains("site-header-solid");
+  header.classList.toggle("scrolled", keepSolid || window.scrollY > 60);
 };
 
-const closeMobileNav = () => {
+const isVisible = (element) =>
+  element instanceof HTMLElement && element.getClientRects().length > 0;
+
+const closeMobileNav = ({ restoreFocus = true } = {}) => {
+  const wasOpen = mobileNav?.classList.contains("open");
   mobileNav?.classList.remove("open");
   overlay?.classList.remove("open");
   menuToggle?.setAttribute("aria-expanded", "false");
   mobileNav?.setAttribute("aria-hidden", "true");
   mobileNav?.setAttribute("inert", "");
-  menuToggle?.focus();
+  if (restoreFocus && wasOpen && isVisible(menuToggle)) {
+    menuToggle.focus();
+  }
 };
 
 const desktopDropdownItems = Array.from(
@@ -88,7 +95,9 @@ menuToggle?.addEventListener("click", () => {
 overlay?.addEventListener("click", closeMobileNav);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeMobileNav();
+    if (mobileNav?.classList.contains("open")) {
+      closeMobileNav();
+    }
     closeDesktopDropdowns();
   }
 });
@@ -181,6 +190,51 @@ const toTrimmedString = (value) => {
   if (typeof value !== "string") return "";
   return value.trim();
 };
+
+const runtimeConfig = window.__REXFORD_RUNTIME_CONFIG ?? {};
+const CONTACT_INTENT_ENDPOINT = toTrimmedString(
+  runtimeConfig.contactIntentEndpoint
+);
+const FALLBACK_PHONE = toTrimmedString(runtimeConfig.phone) || "518-791-1885";
+const FALLBACK_EMAIL =
+  toTrimmedString(runtimeConfig.email) || "info@rexfordcc.com";
+const FORM_ERROR_MESSAGE =
+  `We could not submit your request right now. Please call ${FALLBACK_PHONE} or email ${FALLBACK_EMAIL}.`;
+
+const getInteractionLocation = (element) => {
+  if (!(element instanceof Element)) return "other";
+
+  const explicitContactLocation = element.closest("[data-contact-location]");
+  if (explicitContactLocation instanceof HTMLElement) {
+    return explicitContactLocation.dataset.contactLocation || "other";
+  }
+
+  const explicitCtaLocation = element.closest("[data-cta-location]");
+  if (explicitCtaLocation instanceof HTMLElement) {
+    return explicitCtaLocation.dataset.ctaLocation || "other";
+  }
+
+  if (element.closest(".service-sidebar")) return "service_sidebar";
+  if (element.closest(".service-mobile-form")) return "service_mobile_form";
+  if (element.closest(".service-hero-panel")) return "service_hero";
+  if (element.closest(".sticky-bar")) return "sticky_bar";
+  if (element.closest(".hero-form-card")) return "hero_form";
+  if (element.closest(".site-header")) return "header";
+  if (element.closest(".mobile-nav")) return "mobile_nav";
+  if (element.closest(".hero")) return "hero";
+  if (element.closest(".blog-inline-cta")) return "blog_inline";
+  if (element.closest(".blog-aside")) return "blog_aside";
+  if (element.closest(".how-it-works")) return "how_it_works";
+  if (element.closest(".cta-band")) return "cta_band";
+  if (element.closest(".gs-sidebar")) return "get_started";
+  if (element.closest(".team")) return "team";
+  if (element.closest(".site-footer")) return "footer";
+
+  return "other";
+};
+
+const getEventTargetElement = (event) =>
+  event.target instanceof Element ? event.target : null;
 
 const setFormStatus = (form, message, statusClass = "") => {
   const statusElement = form.querySelector(".form-status");
@@ -352,7 +406,7 @@ inquiryForms.forEach((form) => {
       });
       setFormStatus(
         form,
-        "We could not submit your request right now. Please call 518-791-9771 or email info@rexfordcc.com.",
+        FORM_ERROR_MESSAGE,
         "is-error"
       );
       form.removeAttribute("aria-busy");
@@ -366,7 +420,9 @@ inquiryForms.forEach((form) => {
 // --- Sticky bottom bar: show after hero/page-band scrolls away ---
 const stickyBar = document.querySelector(".sticky-bar");
 if (stickyBar) {
-  const trigger = document.querySelector(".hero") || document.querySelector(".page-band");
+  const trigger = document.querySelector(
+    ".hero, .page-band, .service-hero-panel"
+  );
   const ctaBand = document.querySelector(".cta-band");
 
   if (trigger) {
@@ -408,10 +464,11 @@ if (stickyBar) {
 }
 
 // --- Contact intent beacon (tel/mailto clicks → Worker /contact-intent) ---
-const CONTACT_INTENT_ENDPOINT =
-  "https://rexford-inquiry-worker.joe5saia.workers.dev/contact-intent";
-
 const sendContactIntent = (type) => {
+  if (!CONTACT_INTENT_ENDPOINT || typeof navigator.sendBeacon !== "function") {
+    return;
+  }
+
   const intentPayload = {
     type,
     gaClientId: "",
@@ -446,74 +503,41 @@ const sendContactIntent = (type) => {
 
 // --- GA4: Phone click tracking ---
 document.addEventListener("click", (event) => {
-  const link = event.target.closest('a[href^="tel:"]');
+  const target = getEventTargetElement(event);
+  if (!target) return;
+
+  const link = target.closest('a[href^="tel:"]');
   if (!link) return;
 
-  const location = link.closest(".hero")
-    ? "hero"
-    : link.closest(".site-header")
-      ? "header"
-      : link.closest(".blog-inline-cta")
-        ? "blog_inline"
-        : link.closest(".blog-aside")
-          ? "blog_aside"
-      : link.closest(".cta-band")
-        ? "cta_band"
-        : link.closest(".gs-sidebar")
-          ? "get_started"
-          : link.closest(".site-footer")
-            ? "footer"
-            : "other";
-
-  trackEvent("phone_click", { link_location: location });
+  trackEvent("phone_click", { link_location: getInteractionLocation(link) });
   sendContactIntent("tel_click");
 });
 
 // --- GA4: Email click tracking ---
 document.addEventListener("click", (event) => {
-  const link = event.target.closest('a[href^="mailto:"]');
+  const target = getEventTargetElement(event);
+  if (!target) return;
+
+  const link = target.closest('a[href^="mailto:"]');
   if (!link) return;
 
-  const location = link.closest(".cta-band")
-    ? "cta_band"
-    : link.closest(".blog-inline-cta")
-      ? "blog_inline"
-      : link.closest(".blog-aside")
-        ? "blog_aside"
-    : link.closest(".team")
-      ? "team"
-      : link.closest(".site-footer")
-        ? "footer"
-        : "other";
-
-  trackEvent("email_click", { link_location: location });
+  trackEvent("email_click", { link_location: getInteractionLocation(link) });
   sendContactIntent("mailto_click");
 });
 
 // --- GA4: CTA click tracking ---
 document.addEventListener("click", (event) => {
-  const link = event.target.closest(
+  const target = getEventTargetElement(event);
+  if (!target) return;
+
+  const link = target.closest(
     'a[href="/get-started/"], a[href*="get-started"]'
   );
   if (!link) return;
 
-  const location = link.closest(".site-header")
-    ? "header"
-    : link.closest(".hero")
-      ? "hero"
-      : link.closest(".blog-inline-cta")
-        ? "blog_inline"
-        : link.closest(".blog-aside")
-          ? "blog_aside"
-      : link.closest(".how-it-works")
-        ? "how_it_works"
-        : link.closest(".cta-band")
-          ? "cta_band"
-          : "other";
-
   trackEvent("cta_click", {
     link_text: link.textContent.trim(),
-    link_location: location,
+    link_location: getInteractionLocation(link),
   });
 });
 
@@ -526,7 +550,7 @@ if (window.location.pathname.startsWith("/services/")) {
 }
 
 // --- GA4: Blog scroll depth tracking ---
-const blogProse = document.querySelector(".prose");
+const blogProse = document.querySelector("[data-blog-prose]");
 if (blogProse) {
   const marker = document.createElement("div");
   marker.style.height = "1px";
@@ -551,7 +575,10 @@ if (blogProse) {
 
 // --- GA4: Outbound click tracking ---
 document.addEventListener("click", (event) => {
-  const link = event.target.closest("a[href]");
+  const target = getEventTargetElement(event);
+  if (!target) return;
+
+  const link = target.closest("a[href]");
   if (!link) return;
   const href = link.getAttribute("href") ?? "";
   if (!href.startsWith("http") || link.hostname === window.location.hostname) {

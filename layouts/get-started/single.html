@@ -28,15 +28,7 @@
         <p class="form-required-note"><abbr title="Required field">*</abbr> indicates a required field</p>
         <label>Loan Type*
           <select name="loanType" required>
-            <option value="" selected disabled>Select loan type</option>
-            <option>Commercial Real Estate</option>
-            <option>Fix & Flip</option>
-            <option>Rental Property Loan</option>
-            <option>Bridge Loan</option>
-            <option>Equipment Financing</option>
-            <option>Business Line of Credit</option>
-            <option>Small Business Loan</option>
-            <option>Other</option>
+            {{ partial "loan-type-options.html" (dict "selectedLoanType" "") }}
           </select>
         </label>
         <label>Loan Amount*

@@ -27,16 +27,22 @@ relatedServices:
   - "commercial-real-estate"
 ---
 
-## SBA LOANS
+Small business loans usually start with one practical question: what is the capital meant to accomplish? The answer shapes whether an SBA-backed structure, a conventional term loan, or another option is the better path.
 
-### SBA 7A | Express Loans | USDA
+## Common goals behind these requests
 
-Small business loans provide many options and opportunities for small businesses. If you are looking for a way to finance a property, certain equipment or need cash on hand to help conduct business, our SBA loans may be the perfect fit for you.
+- Business acquisition financing
+- Expansion, build-out, or strategic growth projects
+- Working capital or debt refinance
+- Owner-occupied commercial real estate with SBA support
 
-Uses of SBA loans:
-- Business acquisition
-- Debt refinance/Consolidation
-- Business expansion
-- Owner occupied commercial real estate purchases
-- Working capital
-- Equipment
+## What changes when SBA is in the mix
+
+SBA programs can reduce cash-in requirements and extend terms, but they also bring different documentation expectations and timelines. We help you compare that tradeoff against conventional options before you lean into one path.
+
+## What lenders usually need early
+
+- Clear use of proceeds and the reason behind the request
+- Business financials, tax returns, and ownership details
+- Credit profile and any collateral considerations
+- A realistic timeline for approval, underwriting, and closing

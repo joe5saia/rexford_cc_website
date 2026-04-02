@@ -18,6 +18,15 @@
 
     {{ partial "sticky-bottom-bar.html" . }}
 
+    {{ $runtimeConfig := dict
+      "contactIntentEndpoint" site.Params.contactIntentEndpoint
+      "phone" site.Params.phone
+      "email" site.Params.email
+    }}
+    <script>
+      window.__REXFORD_RUNTIME_CONFIG = {{ $runtimeConfig | jsonify | safeJS }};
+    </script>
+
     {{ with resources.Get "js/main.js" }}
       {{ $mainScripts := . | minify | fingerprint }}
       <script src="{{ $mainScripts.RelPermalink }}" integrity="{{ $mainScripts.Data.Integrity }}" defer></script>

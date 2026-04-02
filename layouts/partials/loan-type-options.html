@@ -1,0 +1,13 @@
+{{ $selectedLoanType := default "" .selectedLoanType }}
+{{ $includeOther := true }}
+{{ with .includeOther }}
+  {{ $includeOther = . }}
+{{ end }}
+<option value="" disabled{{ if eq $selectedLoanType "" }} selected{{ end }}>Select loan type</option>
+{{ range site.Data.services }}
+  {{ $loanType := default .name .loanType }}
+  <option value="{{ $loanType }}"{{ if eq $selectedLoanType $loanType }} selected{{ end }}>{{ $loanType }}</option>
+{{ end }}
+{{ if $includeOther }}
+  <option value="Other"{{ if eq $selectedLoanType "Other" }} selected{{ end }}>Other</option>
+{{ end }}

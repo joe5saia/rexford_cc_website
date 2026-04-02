@@ -26,26 +26,22 @@ relatedServices:
   - "bridge-loans"
 ---
 
-## RENTAL PROPERTY LOANS
+Rental property financing usually comes down to property cash flow, reserves, and the strategy behind the hold. We help investors compare long-term rental, short-term rental, and DSCR-style options without wasting time on poor-fit lenders.
 
-### Rental Property Loans
+## Where these loans usually fit
 
-Rental property loans are used by investors to fund a purchase or refinance an existing property. Long term rentals and short term rentals are eligible.
+- Acquisition of long-term rental properties
+- Rate-and-term or cash-out refinance
+- Portfolio expansion for repeat investors
+- DSCR-focused requests where property income drives the deal
 
-Ideal for
-- Purchase a property generating immediate cash flow with renters currently in place
-- Purchase a property, with or without current tenants, that may require minor repairs
-- Need cash? Use a cash-out refinance on your property, accessing the equity you have built
-Rental Property Loans offer the following benefits to borrowers
-- Up to 80% LTV
-- Loans starting at $75,000
-- Competitive rates
-- 15/20/30 year fixed or ARM options
-- Nationwide lending
-- Offer a Low Doc Program
-Eligible property types
-- Single-family
-- 2 – 4 unit
-- Multifamily (5+ units)
-- Condos
-- Town houses
+## What lenders usually review
+
+- Current and projected property cash flow
+- Debt service coverage and reserve position
+- Ownership entity documentation and experience
+- Property condition, lease profile, and market story
+
+## DSCR versus full-doc paths
+
+Some deals fit a DSCR approach, while others are better served by conventional investor documentation. We help you understand which path is more realistic based on the property and your broader portfolio.

@@ -6,6 +6,10 @@
 {{ with .loanType }}
   {{ $selectedLoanType = . }}
 {{ end }}
+{{ $contactLocation := "" }}
+{{ with .contactLocation }}
+  {{ $contactLocation = . }}
+{{ end }}
 <form action="{{ site.Params.formEndpoint }}" method="POST" class="lead-form js-inquiry-form">
   <input type="hidden" name="source" value="{{ $source }}" />
   <input type="hidden" name="gaClientId" />
@@ -25,15 +29,7 @@
   <p class="form-required-note"><abbr title="Required field">*</abbr> indicates a required field</p>
   <label>Loan Type*
     <select name="loanType" required>
-      <option value="" disabled{{ if eq $selectedLoanType "" }} selected{{ end }}>Select loan type</option>
-      <option{{ if eq $selectedLoanType "Commercial Real Estate" }} selected{{ end }}>Commercial Real Estate</option>
-      <option{{ if eq $selectedLoanType "Fix & Flip" }} selected{{ end }}>Fix & Flip</option>
-      <option{{ if eq $selectedLoanType "Rental Property Loan" }} selected{{ end }}>Rental Property Loan</option>
-      <option{{ if eq $selectedLoanType "Bridge Loan" }} selected{{ end }}>Bridge Loan</option>
-      <option{{ if eq $selectedLoanType "Equipment Financing" }} selected{{ end }}>Equipment Financing</option>
-      <option{{ if eq $selectedLoanType "Business Line of Credit" }} selected{{ end }}>Business Line of Credit</option>
-      <option{{ if eq $selectedLoanType "Small Business Loan" }} selected{{ end }}>Small Business Loan</option>
-      <option{{ if eq $selectedLoanType "Other" }} selected{{ end }}>Other</option>
+      {{ partial "loan-type-options.html" (dict "selectedLoanType" $selectedLoanType) }}
     </select>
   </label>
   <label>Loan Amount*
@@ -69,6 +65,6 @@
   {{ end }}
   <button type="submit" class="btn btn-primary btn-full">Get My Free Consultation</button>
   <p class="form-status" role="status" aria-live="polite"></p>
-  <p class="form-note">Or contact us directly: <a href="tel:{{ site.Params.phoneRaw }}">{{ site.Params.phone }}</a> · <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+  <p class="form-note">Or contact us directly: <a href="tel:{{ site.Params.phoneRaw }}"{{ with $contactLocation }} data-contact-location="{{ . }}"{{ end }}>{{ site.Params.phone }}</a> · <a href="mailto:{{ site.Params.email }}"{{ with $contactLocation }} data-contact-location="{{ . }}"{{ end }}>{{ site.Params.email }}</a></p>
   <p class="form-privacy">We never sell or share your information.</p>
 </form>

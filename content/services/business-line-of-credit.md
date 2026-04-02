@@ -27,23 +27,22 @@ relatedServices:
   - "equipment-financing"
 ---
 
-## BUSINESS LINE OF CREDIT
+Working capital usually gets stressful when timing is tight. A line of credit gives you flexibility when payroll, inventory, receivables, or short-term opportunities show up faster than cash collections.
 
-### Business Line of Credit
+## Common uses for a line of credit
 
-There are times when your business needs cash quickly. A business line of credit can provide that cash with terms better than the typical business credit card.
+- Seasonal cash-flow gaps
+- Inventory or vendor purchases
+- Staffing during slower receivable cycles
+- Short-term growth opportunities or unexpected expenses
 
-When your business is at it’s best
+## What lenders review early
 
-Don’t wait until the need arises due to unexpected expenses! Remember – You do not pay on money you are not using, you’ll only pay what you withdraw for your specific need.
+- Time in business and documented revenue
+- Business bank activity and average cash flow
+- Credit profile and recent payment history
+- Whether the requested limit matches the operating need
 
-Ideal uses for a business line of credit
-- Purchase inventory
-- Managing seasonal fluctuations
-- Staffing needs
-- Emergency expenses
-- Expansion
-Guidelines
-- 1 year in business
-- 650 credit score
-- Business bank account
+## How this differs from a term loan
+
+A line of credit is built for recurring working-capital needs, not a one-time long-duration project. We help you decide when revolving access makes sense and when a term loan or SBA structure is the better fit.

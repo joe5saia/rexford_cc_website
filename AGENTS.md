@@ -1,5 +1,10 @@
 # Repository Guidelines
 
+## Client Background
+- Rexford Commercial Capital is a commercial finance broker that helps small businesses nationwide find lenders for their projects.
+- The company specializes in guiding small businesses through the lending process and helping them evaluate realistic financing paths.
+- Rexford Commercial Capital does not make loans directly; it connects borrowers with appropriate lending partners.
+
 ## Project Structure & Module Organization
 - `hugo.toml`: main site configuration (menus, params, SEO IDs, contact info).
 - `worker/`: Cloudflare Worker for form ingestion (`src/index.ts`), D1 migrations (`migrations/`), and Wrangler config (`wrangler.toml`).

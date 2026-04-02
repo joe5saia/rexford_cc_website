@@ -1,0 +1,5 @@
+$ORIGIN rexfordequipmentfinance.com.
+$TTL 300
+
+@    IN  CNAME  rexford-cc-website.pages.dev. ; cf_tags=cf-proxied:true
+www  IN  CNAME  rexford-cc-website.pages.dev. ; cf_tags=cf-proxied:true

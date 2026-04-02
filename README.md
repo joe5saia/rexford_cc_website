@@ -36,6 +36,27 @@ make serve
 
 Open: `http://localhost:1313`
 
+## Amp Chrome DevTools MCP
+
+This repo includes a workspace-local Amp MCP config in `.amp/settings.json` for Chrome DevTools.
+
+- Server name: `chrome-devtools`
+- Launch command: `npx -y chrome-devtools-mcp@latest --no-usage-statistics`
+- Scope: workspace-local, so it only applies when running `amp` in this repo
+
+Useful commands:
+
+```bash
+amp mcp doctor
+amp mcp approve chrome-devtools
+```
+
+Example prompt once the site is running:
+
+```text
+Open http://localhost:1313 and check for layout, console, and network issues.
+```
+
 ## Build and Validation
 - `make build`: production build (`hugo --minify`) to `public/`
 - `make ci`: strict build check (`hugo --minify --panicOnWarning`)

@@ -26,21 +26,22 @@ relatedServices:
   - "rental-property-loans"
 ---
 
-## FIX AND FLIP FINANCING
+Fix-and-flip financing is built around speed, budget discipline, and a credible exit. We help investors sort out whether the purchase, rehab scope, and resale plan fit the programs that can actually close.
 
-### Fix and Flip Loans
+## Deals we usually talk through
 
-A fix and flip loan is a short term financing option for real estate investors purchasing, renovating and quickly reselling properties for profit.
+- Single-family and small multifamily acquisitions
+- Purchase plus renovation financing
+- First-time investors with a clear contractor and budget plan
+- Repeat investors trying to move quickly on the next project
 
-Rexford Commercial Capital offers fix and flip loans which feature fast closings, and are accessible to first-time flippers as well as seasoned pros. Our fix and flip loans offer the following benefits to borrowers:
-- 100% of renovations and rehab costs
-- Terms from 6-24 months
-- Nationwide availability
-- Interest-only payment structures
-- No prepayment penalties
-- Minimum loan size $75,000
-Eligible property types:
-- Single-family
-- 2 – 4 unit
-- Condos
-- Town houses
+## What lenders pressure-test early
+
+- Purchase price versus as-is and after-repair value
+- Renovation budget and scope credibility
+- Experience, liquidity, and contingency reserves
+- Resale timeline or refinance plan if the exit shifts
+
+## Why structure matters up front
+
+Good fix-and-flip debt can move fast, but the wrong structure creates pressure later. We help you compare advance rate, rehab draws, interest carry, and extension risk before you commit.

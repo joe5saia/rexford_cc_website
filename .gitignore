@@ -9,3 +9,5 @@ worker/.wrangler/
 
 .env
 lighthouse.json
+.amp/
+test-results/

@@ -12,9 +12,11 @@ canonifyURLs = false
   tagline = "Expert Financing for Small Businesses That Deserve Better"
   description = "Rexford Commercial Capital helps small businesses nationwide secure commercial real estate, equipment, and working capital financing — with the personal attention of a dedicated broker, not an online portal."
   formEndpoint = "https://rexford-inquiry-worker.joe5saia.workers.dev/inquiry"
+  contactIntentEndpoint = "https://rexford-inquiry-worker.joe5saia.workers.dev/contact-intent"
   turnstileSiteKey = "0x4AAAAAAClwqB8h1a3thTcW"
   ga4ID = "G-WBKYLG69YV"
   bbbURL = "https://www.bbb.org/us/ny/rexford/profile/commercial-real-estate/rexford-commercial-capital-0041-236017820"
+  serviceAreaServed = ["United States", "Florida", "Capital District, NY", "Albany, NY", "Saratoga Springs, NY", "Glens Falls, NY", "Troy, NY", "Schenectady, NY", "Adirondacks, NY", "Lake Placid, NY"]
 
   [params.address]
     city = "Rexford"

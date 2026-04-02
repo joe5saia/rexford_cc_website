@@ -2,13 +2,15 @@
   {
     "slug": "commercial-real-estate",
     "name": "Commercial Real Estate",
+    "loanType": "Commercial Real Estate",
     "icon": "building",
     "short": "Purchase, refinance, or cash-out on commercial properties — from $75K to $50M.",
     "category": "real-estate"
   },
   {
     "slug": "fix-and-flip",
-    "name": "Fix & Flip Financing",
+    "name": "Fix & Flip",
+    "loanType": "Fix & Flip",
     "icon": "hammer",
     "short": "Purchase and rehab financing with up to 100% of renovation costs covered.",
     "category": "real-estate"
@@ -16,6 +18,7 @@
   {
     "slug": "rental-property-loans",
     "name": "Rental Property Loans",
+    "loanType": "Rental Property Loans",
     "icon": "home",
     "short": "Long-term and short-term rental property financing for investors.",
     "category": "real-estate",
@@ -24,6 +27,7 @@
   {
     "slug": "bridge-loans",
     "name": "Bridge Loans",
+    "loanType": "Bridge Loans",
     "icon": "arrow-right",
     "short": "Short-term financing to bridge the gap between purchase and permanent financing.",
     "category": "real-estate"
@@ -31,6 +35,7 @@
   {
     "slug": "equipment-financing",
     "name": "Equipment Financing",
+    "loanType": "Equipment Financing",
     "icon": "truck",
     "short": "Financing and leasing programs for equipment of all kinds.",
     "category": "business",
@@ -39,6 +44,7 @@
   {
     "slug": "business-line-of-credit",
     "name": "Business Line of Credit",
+    "loanType": "Business Line of Credit",
     "icon": "credit-card",
     "short": "Flexible working capital access — draw when you need it, pay back as you go.",
     "category": "business"
@@ -46,6 +52,7 @@
   {
     "slug": "small-business-loans",
     "name": "Small Business Loans",
+    "loanType": "Small Business Loans",
     "icon": "briefcase",
     "short": "SBA and conventional loan options for business acquisition, expansion, and more.",
     "category": "business",
