@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ $serviceData := dict }}
-  {{ range site.Data.services }}
+  {{ range hugo.Data.services }}
     {{ if eq .slug $.File.BaseFileName }}
       {{ $serviceData = . }}
     {{ end }}
@@ -42,7 +42,7 @@
   {{ if eq (len $lenderConsiderations) 0 }}
     {{ $lenderConsiderations = .Params.eligibility }}
   {{ end }}
-  {{ $testimonials := site.Data.testimonials }}
+  {{ $testimonials := hugo.Data.testimonials }}
   {{ $serviceSchema := dict
     "@context" "https://schema.org"
     "@type" "Service"
@@ -235,7 +235,7 @@
           <div class="service-related-grid">
             {{ range .Params.relatedServices }}
               {{ $slug := . }}
-              {{ range site.Data.services }}
+              {{ range hugo.Data.services }}
                 {{ if eq .slug $slug }}
                   <article class="service-card">
                     <div class="service-icon">{{ partial "icon.html" .icon }}</div>

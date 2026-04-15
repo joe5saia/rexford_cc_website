@@ -3,7 +3,7 @@
     <h2 class="section-title">Recent Deals We've Closed</h2>
     <p class="section-lead">A sample of transactions we've recently facilitated for small business clients.</p>
     <div class="deals-grid">
-      {{ range index site.Data "funded-deals" }}
+      {{ range index hugo.Data "funded-deals" }}
         {{ $dealIcon := "briefcase" }}
         {{ if eq .type "Commercial Real Estate" }}
           {{ $dealIcon = "building" }}

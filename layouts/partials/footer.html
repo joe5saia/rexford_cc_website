@@ -17,7 +17,7 @@
     <section>
       <h4>Loan Programs</h4>
       <ul>
-        {{ range site.Data.services }}
+        {{ range hugo.Data.services }}
           <li><a href="/services/{{ .slug }}/">{{ .name }}</a></li>
         {{ end }}
       </ul>
