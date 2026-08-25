@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+hugo_version="$(tr -d '[:space:]' < .hugo_version)"
+hugo_build="$(hugo version 2>/dev/null || true)"
+
+echo "[setup] Checking Hugo Extended ${hugo_version}"
+if [[ "$hugo_build" != "hugo v${hugo_version}+extended "* &&
+      "$hugo_build" != "hugo v${hugo_version}-"*"+extended "* ]]; then
+  case "$(uname -m)" in
+    x86_64) hugo_arch="amd64" ;;
+    aarch64|arm64) hugo_arch="arm64" ;;
+    *)
+      echo "[setup] Unsupported architecture: $(uname -m)" >&2
+      exit 1
+      ;;
+  esac
+
+  tmp_dir="$(mktemp -d)"
+  trap 'rm -rf "$tmp_dir"' EXIT
+  archive="hugo_extended_${hugo_version}_linux-${hugo_arch}.tar.gz"
+  curl --fail --location --silent --show-error \
+    "https://github.com/gohugoio/hugo/releases/download/v${hugo_version}/${archive}" \
+    --output "$tmp_dir/$archive"
+  tar -xzf "$tmp_dir/$archive" -C "$tmp_dir" hugo
+  install -m 0755 "$tmp_dir/hugo" /usr/local/bin/hugo
+  rm -rf "$tmp_dir"
+  trap - EXIT
+fi
+
+echo "[setup] Installing npm dependencies"
+npm ci --no-audit --no-fund
+
+echo "[setup] Complete"
